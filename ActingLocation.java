@@ -49,4 +49,8 @@ public class ActingLocation extends Location {
       listOfExtras.get(i).printRole();
     }
   }
+
+  public boolean hasSceneFinished() {
+    return hasSceneFinished;
+  }
 }

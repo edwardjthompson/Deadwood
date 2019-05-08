@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
 
+
+//Be able to trade around players in this, as with roles and scenes
 public class Location {
   protected ArrayList<Location> adjacentLocationList;
   protected String name;
@@ -20,5 +22,9 @@ public class Location {
   public void printLocation() {
     System.out.println(name);
     System.out.println();
+  }
+
+  public boolean hasSceneFinished() {
+    return true;
   }
 }
