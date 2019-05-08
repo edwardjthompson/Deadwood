@@ -5,6 +5,10 @@ public class Location {
   protected ArrayList<Location> adjacentLocationList;
   protected String name;
 
+  public Location(String name) {
+    this.name = name;
+  }
+
   public void addPlayer(Player addedPlayer) {
 
   }
@@ -14,6 +18,7 @@ public class Location {
   }
 
   public void printLocation() {
-
+    System.out.println(name);
+    System.out.println();
   }
 }

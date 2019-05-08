@@ -8,9 +8,17 @@ public class Scene {
   private ArrayList<Role> listOfRoles;
 
   public Scene(String name, String description,
-               int budget, ArrayList<Role> listOfRoles) {
-
+               int budget) {
+    listOfRoles = new ArrayList<Role>();
+    this.name = name;
+    this.description = description;
+    this.budget = budget;
   }
+
+  public void addRole(Role role) {
+    listOfRoles.add(role);
+  }
+
   public ArrayList<Role> getAvailableRole() {
     return null;
   }
@@ -25,6 +33,12 @@ public class Scene {
   }
 
   public void printScene() {
-
+    System.out.println(name);
+    System.out.printf("BUDGET: $%d Million\n", budget);
+    System.out.println(description);
+    System.out.println("STARING ROLES:");
+    for(int i = 0; i < listOfRoles.size(); i++) {
+      listOfRoles.get(i).printRole();
+    }
   }
 }
