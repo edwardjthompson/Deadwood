@@ -26,19 +26,20 @@ public class Board {
   //Note I changed this to take a list of players, just was useful
   public void endDay(ArrayList<Player> players) {
     for(int i = 0; i < locations.length; i++) {
-      int index = r.randInt(listOfScenes.size());
+      int index = r.nextInt(listOfScenes.size());
       //Take them out Acting Locations
-      if(locations[i] instanceOf ActingLocation) {
-        locations[i].setScene(listOfScenes.get(index));
+      if(locations[i] instanceof ActingLocation) {
+        ActingLocation temp = (ActingLocation) locations[i];
+        temp.setScene(listOfScenes.get(index));
         listOfScenes.remove(listOfScenes.get(index));
         for(int j = 0; j < players.size(); j++) {
-          locations[i].removePlayer(players.get(j));
+          temp.removePlayer(players.get(j));
         }
       }
 
       else {
         //Take them out of Casting Office
-        if(locations[i] instanceOf CastingOffice) {
+        if(locations[i] instanceof CastingOffice) {
           for(int j = 0; j < players.size(); j++) {
             locations[i].removePlayer(players.get(j));
           }

@@ -35,7 +35,7 @@ public class Role {
       System.out.print("A Staring Role ");
     }
     if(takenBy != null) {
-      System.out.printf("taken by: %s", takenBy.getName());
+      System.out.printf("Taken by: %s", takenBy.getName());
     }
     System.out.println();
     System.out.println(line);
