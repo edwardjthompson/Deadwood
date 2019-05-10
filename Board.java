@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,6 +8,7 @@ import java.io.FileNotFoundException;
 public class Board {
   private ArrayList<Scene> listOfScenes;
   private Location[] locations;
+  private Random r;
 
   public Board(int size) {
     locations = new Location[size];
@@ -21,8 +23,36 @@ public class Board {
     return count;
   }
 
-  public void endDay() {
+  //Note I changed this to take a list of players, just was useful
+  public void endDay(ArrayList<Player> players) {
+    for(int i = 0; i < locations.length; i++) {
+      int index = r.nextInt(listOfScenes.size());
+      //Take them out Acting Locations
+      if(locations[i] instanceof ActingLocation) {
+        ActingLocation temp = (ActingLocation) locations[i];
+        temp.setScene(listOfScenes.get(index));
+        listOfScenes.remove(listOfScenes.get(index));
+        for(int j = 0; j < players.size(); j++) {
+          temp.removePlayer(players.get(j));
+        }
+      }
 
+      else {
+        //Take them out of Casting Office
+        if(locations[i] instanceof CastingOffice) {
+          for(int j = 0; j < players.size(); j++) {
+            locations[i].removePlayer(players.get(j));
+          }
+        }
+        //Add them to Trailer
+        else{
+          for(int j = 0; j < players.size(); j++) {
+            locations[i].addPlayer(players.get(j));
+          }
+        }
+      }
+
+    }
   }
 
   public void printBoard() {

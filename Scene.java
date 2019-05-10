@@ -19,13 +19,22 @@ public class Scene {
     listOfRoles.add(role);
   }
 
+  //DON'T USE THIS ONE! Use the one in Actinglocation as it contains this information
   public ArrayList<Role> getAvailableRole() {
-    return null;
+    ArrayList<Role> open = new ArrayList<Role>();
+    for(int i = 0; i < listOfRoles.size(); i++) {
+      if(listOfRoles.get(i).take(null)) open.add(listOfRoles.get(i));
+    }
+    return open;
   }
 
-  //Not sure what this one is for, might be redundent
+  //Same as above
   public ArrayList<Player> getActors() {
-    return null;
+    ArrayList<Player> players = new ArrayList<Player>();
+    for(int i = 0; i < listOfRoles.size(); i++) {
+      if(listOfRoles.get(i).take(null)) players.add(listOfRoles.get(i).getPlayer());
+    }
+    return players;
   }
 
   public void payout() {

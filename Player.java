@@ -15,7 +15,7 @@ public class Player {
   }
 
   public void takeTurn() {
-    
+
   }
 
   public void updateDollars(int value) {
@@ -41,5 +41,9 @@ public class Player {
 
   public void printPlayer() {
 
+  }
+
+  public String getName() {
+    return name;
   }
 }
