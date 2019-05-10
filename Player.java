@@ -12,6 +12,13 @@ public class Player {
   private Location currentLocation;
   private Scanner input = new Scanner(System.in);
 
+
+  // Color of name, not needed
+  public static final String ANSI_RED = "\u001B[31m";
+  public static final String ANSI_GREEN = "\u001B[32m";
+  public static final String ANSI_BLUE = "\u001B[34m";
+  public static final String ANSI_RESET = "\u001B[0m";
+
   public Player(String name, Location currentLocation) {
     this.name = name;
     this.dollars = 0;
@@ -23,15 +30,25 @@ public class Player {
   }
 
   public void takeTurn() {
+    System.out.print("******************************************\n");
     System.out.print("Current ");
     printPlayer();
+    System.out.print("******************************************\n");
     System.out.println("Select one of the following options:");
-    System.out.println("[1]Move [2]Act [3]Rehearse [m]Skip [s]kip");
-    int num;
+    System.out.println("[m]ove [a]ct [r]ehearse [s]kip");
+
+    if (currentLocation.getName().equals("Casting Office")) {
+      System.out.println("You can also [u]pgrade!");
+    }
+
+    currentLocation.printAdjacent();
+
     String s = "m";
     int choice = 1;
+    s = input.next();
 
-    // s = input.nextLine();
+    // if (input.hasNext()) {
+    // }
 
 
 //    if (input.hasNextInt()) {
@@ -42,6 +59,7 @@ public class Player {
       case "m" :
         //move
         System.out.println("Move");
+        move();
         break;
 
       case "a" :
@@ -64,14 +82,24 @@ public class Player {
         System.out.println("Invalid choice");
 //        choice = 0;
     }
-
-
-
-
-//    input.close();
-
   }
 
+  private void move() {
+    int num = -1;
+    int numOfAdjLocations = currentLocation.getAdjacentLocationSize();
+    while (true) {
+      currentLocation.printAdjacentOptions();
+      if (input.hasNextInt()) {
+        num = input.nextInt();
+      }
+      else input.next();
+      if ((num >= 0) && (num < numOfAdjLocations)) {
+        System.out.println(num);
+        this.currentLocation = currentLocation.getAdjacentLocation(num);
+        break;
+      }
+    }
+  }
 
   public void updateDollars(int value) {
     this.dollars += value;
@@ -95,8 +123,9 @@ public class Player {
   }
 
   public void printPlayer() {
-    System.out.printf("Player: %s\n", name);
-    System.out.printf("\tDollars: %s\n", dollars);
+    System.out.printf("Player: ", name);
+    System.out.print(ANSI_RED + name + ANSI_RESET);
+    System.out.printf("\n\tDollars: %s\n", dollars);
     System.out.printf("\tCredits: %s\n", credits);
     System.out.printf("\tRank: %s\n", rank);
     System.out.printf("\tRehersals: %s\n", numRehearsals);
@@ -110,5 +139,21 @@ public class Player {
 
   public String getName() {
     return name;
+  }
+
+  public int getDollars() {
+    return dollars;
+  }
+
+  public int getCredits() {
+    return credits;
+  }
+
+  public int getRank() {
+    return rank;
+  }
+
+  public void setRank(int rank) {
+    this.rank = rank;
   }
 }

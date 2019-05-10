@@ -237,7 +237,7 @@ public class Board {
     int len = locations.length;
     for (int i = 0; i < len; i++) {
 
-      if (locations[i].getName() == name) {
+      if (locations[i].getName().equals(name)) {
         return locations[i];
       }
     }

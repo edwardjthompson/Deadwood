@@ -30,6 +30,10 @@ public class Location {
     return adjacentLocationList.get(input);
   }
 
+  public int getAdjacentLocationSize() {
+    return adjacentLocationList.size();
+  }
+
   public void printLocation() {
     System.out.println(name);
     if(listOfPlayer.size() > 0) {
@@ -42,10 +46,20 @@ public class Location {
   }
 
   public void printAdjacent() {
-    System.out.printf("%s: ", name);
+    System.out.printf("Adjacent Locations: ", name);
     for(int i = 0; i < adjacentLocationList.size(); i++) {
       String s = adjacentLocationList.get(i).getName();
-      System.out.printf("  #%s#  ", s);
+      System.out.printf("%s ", s);
+    }
+    System.out.println();
+  }
+
+  // like printadjacent but adds [n] around each for choosing
+  public void printAdjacentOptions() {
+    System.out.printf("Choose a Location: ", name);
+    for(int i = 0; i < adjacentLocationList.size(); i++) {
+      String s = adjacentLocationList.get(i).getName();
+      System.out.printf("[%d]%s ", i, s);
     }
     System.out.println();
   }

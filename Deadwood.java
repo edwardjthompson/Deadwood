@@ -27,7 +27,7 @@ public class Deadwood {
     // Creating instance of objects
     Deadwood deadwood = new Deadwood();
     deadwood.initializeGame();
-    // deadwood.testGame();
+    deadwood.testGame();
 
 
 
@@ -35,8 +35,10 @@ public class Deadwood {
 
   private void testGame() {
     // board.printBoard();
-    for (Player p : listOfPlayers) {
-      p.takeTurn();
+    while (true) {
+      for (Player p : listOfPlayers) {
+        p.takeTurn();
+      }
     }
   }
 
@@ -95,8 +97,8 @@ public class Deadwood {
   }
 
   private void setPlayerCount() {
-    System.out.println("\nStatically setting numPlayers to 3 in setPlayerCount()");
-    numPlayers = 3;
+    numPlayers = 1;
+    System.out.printf("\nPlayer count set for testing: %d\n", numPlayers);
     // Scanner used for initial Setup
     Scanner input = new Scanner(System.in);
     // Loops until user inputs a number between MIN_PLAYERS and MAX_PLAYERS
@@ -114,7 +116,6 @@ public class Deadwood {
       else input.next();
     }
     System.out.printf("Players = %d\n\n", numPlayers);
-    input.close();
   }
 
   private Board getBoard() {
