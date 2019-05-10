@@ -48,6 +48,7 @@ public class ActingLocation extends Location {
     for(int i = 0; i < listOfExtras.size(); i++) {
       listOfExtras.get(i).printRole();
     }
+    System.out.println();
   }
 
   public boolean hasSceneFinished() {

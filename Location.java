@@ -27,4 +27,8 @@ public class Location {
   public boolean hasSceneFinished() {
     return true;
   }
+
+  public String getName() {
+    return name;
+  }
 }

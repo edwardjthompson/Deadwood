@@ -156,4 +156,15 @@ public class Board {
       count++;
     }
   }
+
+  public Location getLocation(String name) {
+    int len = locations.length;
+    for (int i = 0; i < len; i++) {
+
+      if (locations[i].getName() == name) {
+        return locations[i];
+      }
+    }
+    return null;
+  }
 }

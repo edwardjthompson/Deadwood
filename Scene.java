@@ -23,7 +23,7 @@ public class Scene {
     return null;
   }
 
-  //Not sure what this one is for, might be redundent
+  //Not sure what this one is for, might be redundant
   public ArrayList<Player> getActors() {
     return null;
   }

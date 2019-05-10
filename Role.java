@@ -14,9 +14,10 @@ public class Role {
   }
 
   public void printRole() {
-    System.out.println(name);
-    System.out.println(line);
-    System.out.println(rank);
-    System.out.println();
+    System.out.printf("[%d] (%s): \n\t%s\n", rank, name, line);
+  }
+
+  public String getName() {
+    return name;
   }
 }
