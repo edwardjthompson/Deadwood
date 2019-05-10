@@ -1,0 +1,65 @@
+ROOM
+Train Station
+Jail
+General Store
+Casting Office
+ROOM
+Jail
+Train Station
+General Store
+Main Street
+ROOM
+General Store
+Train Station
+Jail
+Saloon
+Ranch
+ROOM
+Main Street
+Jail
+Saloon
+Trailers
+ROOM
+Saloon
+General Store
+Main Street
+Trailers
+Bank
+ROOM
+Trailers
+Main Street
+Saloon
+Hotel
+ROOM
+Casting Office
+Train Station
+Ranch
+Secret Hideout
+ROOM
+Ranch
+Casting Office
+General Store
+Bank
+Secret Hideout
+ROOM
+Secret Hideout
+Casting Office
+Ranch
+Church
+ROOM
+Bank
+Ranch
+Saloon
+Hotel
+Church
+ROOM
+Hotel
+Trailers
+Bank
+Church
+ROOM
+Church
+Secret Hideout
+Bank
+Hotel
+END

@@ -124,6 +124,51 @@ public class Board {
     }
   }
 
+  public void setUpBoardConnections(String path) {
+    File file;
+    Scanner s;
+    String line = "";
+    String name = "";
+    Location current = null;
+
+    try {
+      //Set up the scanner with the file given
+      file = new File(path);
+      s = new Scanner(file);
+
+      while(s.hasNext()) {
+        //While the file still has content
+        line = s.nextLine();
+
+        //If it finds a header in the file, it will respond to it
+        if(line.equals("ROOM")) {
+          //Sets up current location
+          name = s.nextLine();
+          for(int i = 0; i < locations.length; i++) {
+            if(locations[i].getName().equals(name)) {
+              current = locations[i];
+            }
+          }
+        }
+        else {
+          //Adds location to current
+          for(int i = 0; i < locations.length; i++) {
+            if(locations[i].getName().equals(name)) {
+              current.addAdjacent(locations[i]);
+            }
+          }
+        }
+      }
+      s.close();
+    }
+    catch(FileNotFoundException e) {
+      e.printStackTrace();
+    }
+    catch(NumberFormatException e) {
+      e.printStackTrace();
+    }
+  }
+
   public void setUpScenes(String path) {
     File file;
     Scanner s;

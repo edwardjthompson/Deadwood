@@ -22,6 +22,14 @@ public class Location {
     }
   }
 
+  public void addAdjacent(Location addedLocation) {
+    adjacentLocationList.add(addedLocation);
+  }
+
+  public Location getAdjacentLocation(int input) {
+    return adjacentLocationList.get(input);
+  }
+
   public void printLocation() {
     System.out.println(name);
     if(listOfPlayer.size() > 0) {
@@ -31,6 +39,13 @@ public class Location {
       }
     }
     System.out.println();
+  }
+
+  public void printAdjacent() {
+    for(int i = 0; i < adjacentLocationList.size(); i++) {
+      System.out.printf("ADJACENT %d: ", i);
+      adjacentLocationList.get(i).printLocation();
+    }
   }
 
   public boolean hasSceneFinished() {

@@ -29,11 +29,11 @@ public class Role {
     takenBy = null;
   }
 
-  public void getName() {
+  public String getName() {
     return name;
   }
 
-  public String printRole() {
+  public void printRole() {
     System.out.println(name);
     if(isMain) {
       System.out.print("A Staring Role ");
