@@ -16,6 +16,7 @@ public class Deadwood {
   //For the text files that contain the information on the game
   public static final String PATHBOARD = "boardInfo.txt";
   public static final String PATHSCENE = "sceneInfo.txt";
+  public static final String PATHCONNECTIONS = "boardConnections.txt";
 
   //May not be necessary, but I felt like it might be useful
   public static final int ROOMNUM = 12;
@@ -37,6 +38,7 @@ public class Deadwood {
     this.board = new Board(ROOMNUM);
     board.setUpLocations(PATHBOARD);
     board.setUpScenes(PATHSCENE);
+    board.setUpBoardConnections(PATHCONNECTIONS);
     setPlayerCount();
     createPlayers();
 //    runGame();
