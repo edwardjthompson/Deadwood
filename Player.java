@@ -10,6 +10,7 @@ public class Player {
   private int numRehearsals;
   private Role currentRole;
   private Location currentLocation;
+  private Scanner input = new Scanner(System.in);
 
   public Player(String name, Location currentLocation) {
     this.name = name;
@@ -25,33 +26,35 @@ public class Player {
     System.out.print("Current ");
     printPlayer();
     System.out.println("Select one of the following options:");
-    System.out.println("[1]Move [2]Act [3]Rehearse [4]Skip");
+    System.out.println("[1]Move [2]Act [3]Rehearse [m]Skip [s]kip");
     int num;
-    String s;
+    String s = "m";
     int choice = 1;
+
+    // s = input.nextLine();
 
 
 //    if (input.hasNextInt()) {
 //      choice = input.nextInt();
 //      input.nextLine();
 //    }
-    switch (choice) {
-      case 1 :
+    switch (s) {
+      case "m" :
         //move
         System.out.println("Move");
         break;
 
-      case 2 :
+      case "a" :
         //act
         System.out.println("Act");
         break;
 
-      case 3 :
+      case "r" :
         //rehearse
         System.out.println("rehearse");
         break;
 
-      case 4 :
+      case "s" :
         //skip
         System.out.println("skip");
 

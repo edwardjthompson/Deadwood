@@ -42,10 +42,12 @@ public class Location {
   }
 
   public void printAdjacent() {
+    System.out.printf("%s: ", name);
     for(int i = 0; i < adjacentLocationList.size(); i++) {
-      System.out.printf("ADJACENT %d: ", i);
-      adjacentLocationList.get(i).printLocation();
+      String s = adjacentLocationList.get(i).getName();
+      System.out.printf("  #%s#  ", s);
     }
+    System.out.println();
   }
 
   public boolean hasSceneFinished() {

@@ -57,7 +57,8 @@ public class Board {
 
   public void printBoard() {
     for(int i = 0; i < locations.length; i++) {
-      locations[i].printLocation();
+      // locations[i].printLocation();
+      locations[i].printAdjacent();
     }
   }
 
@@ -153,7 +154,7 @@ public class Board {
         else {
           //Adds location to current
           for(int i = 0; i < locations.length; i++) {
-            if(locations[i].getName().equals(name)) {
+            if(locations[i].getName().equals(line)) {
               current.addAdjacent(locations[i]);
             }
           }
