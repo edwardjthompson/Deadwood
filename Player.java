@@ -67,7 +67,6 @@ public class Player {
 
 //    input.close();
 
-
   }
 
 
@@ -106,4 +105,7 @@ public class Player {
     this.currentLocation = currentLocation;
   }
 
+  public String getName() {
+    return name;
+  }
 }
