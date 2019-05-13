@@ -27,9 +27,17 @@ public class Deadwood {
     // Creating instance of objects
     Deadwood deadwood = new Deadwood();
     deadwood.initializeGame();
+    // deadwood.testGame();
 
 
 
+  }
+
+  private void testGame() {
+    // board.printBoard();
+    for (Player p : listOfPlayers) {
+      p.takeTurn();
+    }
   }
 
   private void initializeGame() {
@@ -80,15 +88,15 @@ public class Deadwood {
   }
 
   private void runDay() {
-    System.out.println("runDay");
-    for (Player currentPlayer : listOfPlayers) {
-      takeTurn(currentPlayer);
-    }
+    // System.out.println("runDay");
+    // for (Player currentPlayer : listOfPlayers) {
+    //   // takeTurn(currentPlayer);
+    // }
   }
 
   private void setPlayerCount() {
-    System.out.println("Statically setting numPlayers to 3 in setPlayerCount()");
-//    numPlayers = 3;
+    System.out.println("\nStatically setting numPlayers to 3 in setPlayerCount()");
+    numPlayers = 3;
     // Scanner used for initial Setup
     Scanner input = new Scanner(System.in);
     // Loops until user inputs a number between MIN_PLAYERS and MAX_PLAYERS
@@ -106,31 +114,6 @@ public class Deadwood {
       else input.next();
     }
     System.out.printf("Players = %d\n\n", numPlayers);
-    input.close();
-  }
-
-  private void takeTurn(Player currentPlayer) {
-    currentPlayer.printPlayer();
-    Scanner input = new Scanner(System.in);
-    boolean optionChosen = false;
-    int choice = 0;
-
-
-    while (!optionChosen) {
-    System.out.print("Choose an option [1] [2] [3]: ");
-
-    if(input.hasNextInt()) {
-      choice = input.nextInt();
-
-      if((choice < 1) || (choice > 3)) {
-        choice = 0;
-        System.out.println("Invalid choice");
-      }
-      else optionChosen = true;
-    }
-    else input.next();
-    }
-    System.out.printf("Choice = %d\n\n", choice);
     input.close();
   }
 
