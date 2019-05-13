@@ -20,9 +20,16 @@ public class ActingLocation extends Location {
   public ArrayList<Role> getAvailableRole() {
     ArrayList<Role> open = currentScene.getAvailableRole();
     for(int i = 0; i < listOfExtras.size(); i++) {
-      if(listOfExtras.get(i).take(null)) open.add(listOfExtras.get(i));
+      open.add(listOfExtras.get(i));
     }
     return open;
+  }
+
+  public Role selectRole(int num) {
+    ArrayList<Role> arrayOfRoles = getAvailableRole();
+
+
+    return arrayOfRoles.get(num);
   }
 
   //Not sure what this one is for, might be redundent
@@ -40,6 +47,10 @@ public class ActingLocation extends Location {
 
   public void setShots(int shots) {
     numShots = shots;
+  }
+
+  public int getShots() {
+    return numShots;
   }
 
   public void setScene(Scene scene) {
@@ -81,7 +92,7 @@ public class ActingLocation extends Location {
         actor.updateDollars(1);
       }
     }
-
+    System.out.printf("Shots remaining: %d\n", numShots);
     if(numShots <= 0) {
       if(finishScene()) {
         Player current;
@@ -112,7 +123,7 @@ public class ActingLocation extends Location {
       }
       else {
         if (currentScene != null) {
-          currentScene.printScene();
+          selectionNum = currentScene.printScene(selectionNum);
         }
       }
     }

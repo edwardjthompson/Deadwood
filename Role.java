@@ -39,9 +39,9 @@ public class Role {
   }
 
   public void printRole() {
-    if(isMain) {
-      System.out.print("Main ");
-    }
+    // if(isMain) {
+    //   System.out.print("Main ");
+    // }
     if(takenBy != null) {
       System.out.printf("Taken by: %s ", takenBy.getName());
     }

@@ -27,19 +27,16 @@ public class Deadwood {
     // Creating instance of objects
     Deadwood deadwood = new Deadwood();
     deadwood.initializeGame();
-    deadwood.testGame();
+    deadwood.runGame();
+
+    // deadwood.testGame();
 
 
 
   }
 
   private void testGame() {
-    // board.printBoard();
-    while (true) {
-      for (Player p : listOfPlayers) {
-        p.takeTurn();
-      }
-    }
+
   }
 
   private void initializeGame() {
@@ -56,8 +53,8 @@ public class Deadwood {
 
   private void runGame() {
     System.out.println("Start game");
-    while (board.getNumScenesRemaining() > 1) {
-    runDay();
+    while (currentDay <= numDays) {
+      runDay();
     }
     endGame();
   }
@@ -92,17 +89,42 @@ public class Deadwood {
 
   private void endGame() {
     System.out.println("End Game");
+    int highScore = 0;
+    int playerScore;
+    Player winner = null;
+    for (Player p : listOfPlayers) {
+      playerScore = p.getScore();
+      if (winner == null) {
+        winner = p;
+        highScore = playerScore;
+      }
+      else if (playerScore > highScore) {
+        winner = p;
+        highScore = playerScore;
+      }
+    }
+    String winnerName = winner.getName();
+    System.out.printf("\nThe winner is %s with score of %d\n", winnerName, highScore);
   }
 
   private void runDay() {
-    // System.out.println("runDay");
-    // for (Player currentPlayer : listOfPlayers) {
-    //   // takeTurn(currentPlayer);
-    // }
+    System.out.println("runDay");
+    int playerNum = 0;
+    while (board.getNumScenesRemaining() > 1) {
+      listOfPlayers.get(playerNum).takeTurn();
+      playerNum++;
+      if (playerNum >= numPlayers) {
+        playerNum = 0;
+      }
+    }
+    if (currentDay < numDays) {
+      board.endDay(listOfPlayers);
+    }
+    currentDay++;
   }
 
   private void setPlayerCount() {
-    numPlayers = 1;
+    numPlayers = 3;
     System.out.printf("\nPlayer count set for testing: %d\n", numPlayers);
     // Scanner used for initial Setup
     Scanner input = new Scanner(System.in);

@@ -22,10 +22,12 @@ public class Board {
       if(!locations[i].hasSceneFinished()) count++;
     }
     return count;
+    // return 1; // Just for testing end game
   }
 
   //Note I changed this to take a list of players, just was useful
   public void endDay(ArrayList<Player> players) {
+    System.out.println("End Day");
     for(int i = 0; i < locations.length; i++) {
       //Take them out Acting Locations
       if(locations[i] instanceof ActingLocation) {

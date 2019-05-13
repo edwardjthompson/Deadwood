@@ -23,7 +23,7 @@ public class Scene {
   public ArrayList<Role> getAvailableRole() {
     ArrayList<Role> open = new ArrayList<Role>();
     for(int i = 0; i < listOfRoles.size(); i++) {
-      if(!listOfRoles.get(i).take(null)) open.add(listOfRoles.get(i));
+      open.add(listOfRoles.get(i));
     }
     return open;
   }
@@ -88,14 +88,17 @@ public class Scene {
     return false;
   }
 
-  public void printScene() {
+  public int printScene(int selectionNum) {
     System.out.println(name);
     System.out.printf("BUDGET: $%d Million\n", budget);
     System.out.println(description);
     System.out.println("STARING ROLES:");
     for(int i = 0; i < listOfRoles.size(); i++) {
+      System.out.printf("[%d]", selectionNum);
+      selectionNum++;
       listOfRoles.get(i).printRole();
     }
+    return selectionNum;
   }
 
   public int getBudget() {

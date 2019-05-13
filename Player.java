@@ -120,14 +120,25 @@ public class Player {
 
   private void getRoleOptions() {
     Role takenRole = null;
-    int choice;
+    int choice = -1;
+    boolean check = true;
     // if scene not revealed, reveal
     if (!((ActingLocation) currentLocation).hasSceneFinished()) {
       // Scene has not finished
      ((ActingLocation) currentLocation).revealScene();
       currentLocation.printLocation();
     }
-
+    while (check) {
+      if (input.hasNextInt()) {
+        choice = input.nextInt();
+      }
+      // System.out.printf("Selecting Role: %d\n", choice);
+      takenRole = ((ActingLocation) currentLocation).selectRole(choice);
+      if (takenRole.getPlayer() != null) {
+        System.out.println("Role already taken");
+      }
+      else check = false;
+    }
 
     takeRole(takenRole);
   }
@@ -146,6 +157,7 @@ public class Player {
 
   public void takeRole(Role takenRole) {
     currentRole = takenRole;
+    takenRole.take(this);
   }
 
   public void leaveRole() {
@@ -159,9 +171,17 @@ public class Player {
     Dice die = new Dice();
     int[] dieRoll = die.roll(1);
     int total = dieRoll[0] + numRehearsals;
-    System.out.printf("Roll: %d, Rehearse: %d,", dieRoll, numRehearsals);
+    System.out.printf("Roll: %d, Rehearse: %d,", dieRoll[0], numRehearsals);
     System.out.printf(" Total: %d, Budget: %d\n", total, budget);
 
+    if (total >= budget) {
+      System.out.printf("Act was successful!\n");
+      ((ActingLocation) currentLocation).resultOfAct(true, this);
+    }
+    else {
+      System.out.printf("Act was unsuccessful.\n");
+      ((ActingLocation) currentLocation).resultOfAct(false, this);
+    }
     // Acting. resultOfAct
   }
 
@@ -173,7 +193,13 @@ public class Player {
     System.out.printf("\tRank: %s\n", rank);
     System.out.printf("\tRehersals: %s\n", numRehearsals);
     if (currentRole != null) System.out.printf("\tRole: %s\n", currentRole.getName());
-    if (currentLocation != null) System.out.printf("\tLocation: %s\n", currentLocation.getName());
+    if (currentLocation != null)  {
+      System.out.printf("\tLocation: %s", currentLocation.getName());
+    }
+    if (currentLocation instanceof ActingLocation) {
+      System.out.printf(" (Shots remaining: %d)\n", ((ActingLocation) currentLocation).getShots());
+    }
+    else System.out.println();
   }
 
   public void setCurrentLocation(Location currentLocation) {
@@ -202,5 +228,9 @@ public class Player {
 
   public void setRank(int rank) {
     this.rank = rank;
+  }
+
+  public int getScore() {
+    return dollars + credits + (5*rank);
   }
 }
