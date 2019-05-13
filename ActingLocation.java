@@ -27,9 +27,8 @@ public class ActingLocation extends Location {
 
   public Role selectRole(int num) {
     ArrayList<Role> arrayOfRoles = getAvailableRole();
-
-
-    return arrayOfRoles.get(num);
+    if(num >= arrayOfRoles.size()) return null;
+    else return arrayOfRoles.get(num);
   }
 
   //Not sure what this one is for, might be redundent

@@ -15,7 +15,7 @@ public class Role {
 
   //Returns true if it was successful and false if it failed
   public boolean take(Player player) {
-    if(takenBy == null) {
+    if(takenBy == null && player.getRank() >= rank) {
       takenBy = player;
       return true;
     }

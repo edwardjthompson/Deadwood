@@ -135,12 +135,24 @@ public class Player {
       if (input.hasNextInt()) {
         choice = input.nextInt();
       }
+
+      if (choice < 0) {
+        takenRole = null;
+        break;
+      }
       // System.out.printf("Selecting Role: %d\n", choice);
       takenRole = ((ActingLocation) currentLocation).selectRole(choice);
-      if (takenRole.getPlayer() != null) {
-        System.out.println("Role already taken");
+
+      if (takenRole == null) {
+        System.out.println("That was not an option!");
       }
-      else check = false;
+      else {
+        //if (takenRole.getPlayer() != null) {
+        if (!takenRole.take(this)) {
+          System.out.println("Role already taken, or Rank too high");
+        }
+        else check = false;
+      }
     }
 
     takeRole(takenRole);
@@ -160,7 +172,7 @@ public class Player {
 
   public void takeRole(Role takenRole) {
     currentRole = takenRole;
-    takenRole.take(this);
+    //takenRole.take(this);
   }
 
   public void leaveRole() {
