@@ -89,10 +89,9 @@ public class Scene {
   }
 
   public int printScene(int selectionNum) {
-    System.out.println(name);
-    System.out.printf("BUDGET: $%d Million\n", budget);
+    System.out.printf("\nScene: %s Budget: $%d Million\n", name, budget);
     System.out.println(description);
-    System.out.println("STARING ROLES:");
+    System.out.println("\nSTARING ROLES:");
     for(int i = 0; i < listOfRoles.size(); i++) {
       System.out.printf("[%d]", selectionNum);
       selectionNum++;

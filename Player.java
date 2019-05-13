@@ -60,6 +60,8 @@ public class Player {
       // Always able to skip
       System.out.print(" [S]kip\n");
 
+      System.out.print("\nSelect an option: ");
+
       // Takes player input
       choice = input.next();
 
@@ -128,6 +130,7 @@ public class Player {
      ((ActingLocation) currentLocation).revealScene();
       currentLocation.printLocation();
     }
+    System.out.printf("Select a role: ");
     while (check) {
       if (input.hasNextInt()) {
         choice = input.nextInt();
