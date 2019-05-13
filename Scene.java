@@ -28,8 +28,6 @@ public class Scene {
     return open;
   }
 
-  //Not sure what this one is for, might be redundant
-
   //Same as above
 
   public ArrayList<Player> getActors() {
@@ -52,5 +50,9 @@ public class Scene {
     for(int i = 0; i < listOfRoles.size(); i++) {
       listOfRoles.get(i).printRole();
     }
+  }
+
+  public int getBudget() {
+    return budget;
   }
 }

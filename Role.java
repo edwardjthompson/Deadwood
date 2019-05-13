@@ -34,18 +34,13 @@ public class Role {
   }
 
   public void printRole() {
-    System.out.printf("[%d] (%s): %s\n", rank, name, line);
-    // System.out.println(name);
+    System.out.printf("(Rank: %d) (%s): %s\n", rank, name, line);
     if(isMain) {
       System.out.print("A Staring Role ");
     }
     if(takenBy != null) {
       System.out.printf("Taken by: %s", takenBy.getName());
     }
-    // System.out.println();
-    // System.out.println(line);
-    // System.out.println(rank);
-    // System.out.println();
   }
 
   public Player getPlayer(){

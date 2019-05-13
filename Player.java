@@ -10,7 +10,9 @@ public class Player {
   private int numRehearsals;
   private Role currentRole;
   private Location currentLocation;
+  private String nameColor;
   private Scanner input = new Scanner(System.in);
+
 
 
   // Color of name, not needed
@@ -19,7 +21,7 @@ public class Player {
   public static final String ANSI_BLUE = "\u001B[34m";
   public static final String ANSI_RESET = "\u001B[0m";
 
-  public Player(String name, Location currentLocation) {
+  public Player(String name, Location currentLocation, String nameColor) {
     this.name = name;
     this.dollars = 0;
     this.credits = 0;
@@ -27,60 +29,73 @@ public class Player {
     this.numRehearsals = 0;
     this.currentRole = null;
     this.currentLocation = currentLocation;
+    this.nameColor = nameColor;
   }
 
   public void takeTurn() {
+    boolean turnComplete = false;
+    String choice;
+
     System.out.print("******************************************\n");
     System.out.print("Current ");
     printPlayer();
     System.out.print("******************************************\n");
     System.out.println("Select one of the following options:");
-    System.out.println("[m]ove [a]ct [r]ehearse [s]kip");
 
-    if (currentLocation.getName().equals("Casting Office")) {
-      System.out.println("You can also [u]pgrade!");
-    }
+    while(!turnComplete) {
+      // If not in a role
+      if (currentRole == null) {
+        currentLocation.printAdjacent();
+        System.out.print("[M]ove");
+      }
+      else {
+        // If in a role
+        System.out.print("[A]ct [R]ehearse");
+      }
 
-    currentLocation.printAdjacent();
+      if (currentLocation.getName().equals("Casting Office")) {
+        // Able to upgrade
+        System.out.print(" [U]pgrade!");
+      }
+      // Always able to skip
+      System.out.print(" [S]kip\n");
 
-    String s = "m";
-    int choice = 1;
-    s = input.next();
+      // Takes player input
+      choice = input.next();
 
-    // if (input.hasNext()) {
-    // }
+      switch (choice) {
+        case "m" :
+        case "M" :
+          if (currentRole == null) {
+            move();
+            turnComplete = true;
+          }
+          break;
 
+        case "a" :
+        case "A" :
+          if (currentRole != null) {
+            act();
+            turnComplete = true;
+          }
+          break;
 
-//    if (input.hasNextInt()) {
-//      choice = input.nextInt();
-//      input.nextLine();
-//    }
-    switch (s) {
-      case "m" :
-        //move
-        System.out.println("Move");
-        move();
-        break;
+        case "r" :
+        case "R" :
+          if (currentRole != null) {
+            numRehearsals++;
+            turnComplete = true;
+          }
+          break;
 
-      case "a" :
-        //act
-        System.out.println("Act");
-        break;
+        case "s" :
+        case "S" :
+          break;
 
-      case "r" :
-        //rehearse
-        System.out.println("rehearse");
-        break;
+        default :
+          System.out.println("Invalid choice");
+      }
 
-      case "s" :
-        //skip
-        System.out.println("skip");
-
-        break;
-
-      default :
-        System.out.println("Invalid choice");
-//        choice = 0;
     }
   }
 
@@ -96,9 +111,21 @@ public class Player {
       if ((num >= 0) && (num < numOfAdjLocations)) {
         System.out.println(num);
         this.currentLocation = currentLocation.getAdjacentLocation(num);
+        // if scene not revealed, reveal
+        if (!((ActingLocation) currentLocation).hasSceneFinished()) {
+          // Scene has not finished
+//          ((ActingLocation) currentLocation).revealScene();
+          currentLocation.printLocation();
+        }
+
+        takeRole();
         break;
       }
     }
+  }
+
+  private void takeRole() {
+
   }
 
   public void updateDollars(int value) {
@@ -119,12 +146,13 @@ public class Player {
 
   //May become a return type boolean working with other functions
   public void act() {
-
+    int budget = ((ActingLocation) currentLocation).getScene().getBudget();
+    System.out.printf("Budget is %d\n" , budget);
   }
 
   public void printPlayer() {
     System.out.printf("Player: ", name);
-    System.out.print(ANSI_RED + name + ANSI_RESET);
+    System.out.print(nameColor + name + ANSI_RESET);
     System.out.printf("\n\tDollars: %s\n", dollars);
     System.out.printf("\tCredits: %s\n", credits);
     System.out.printf("\tRank: %s\n", rank);

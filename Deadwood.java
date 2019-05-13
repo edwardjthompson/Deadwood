@@ -69,11 +69,16 @@ public class Deadwood {
     }
   }
 
+//  public static final String ANSI_RED = "\u001B[31m";
+//  public static final String ANSI_GREEN = "\u001B[32m";
+//  public static final String ANSI_BLUE = "\u001B[34m";
+
   private void createPlayers() {
     this.listOfPlayers = new ArrayList<Player>();
     String playerNames[] = {"red", "green", "blue"};
+    String nameColor[] = {"\u001B[31m", "\u001B[32m", "\u001B[34m"};
     for (int i = 0; i < numPlayers; i++) {
-      Player p = new Player(playerNames[i], board.getLocation("Trailers"));
+      Player p = new Player(playerNames[i], board.getLocation("Trailers"), nameColor[i]);
       listOfPlayers.add(p);
     }
   }
@@ -97,7 +102,7 @@ public class Deadwood {
   }
 
   private void setPlayerCount() {
-    numPlayers = 1;
+    numPlayers = 3;
     System.out.printf("\nPlayer count set for testing: %d\n", numPlayers);
     // Scanner used for initial Setup
     Scanner input = new Scanner(System.in);

@@ -48,6 +48,10 @@ public class ActingLocation extends Location {
     currentScene = scene;
   }
 
+  public Scene getScene() {
+    return currentScene;
+  }
+
   public void addRole(Role role) {
     listOfExtras.add(role);
   }
@@ -86,8 +90,10 @@ public class ActingLocation extends Location {
     }
     System.out.println("EXTRAS:");
     for(int i = 0; i < listOfExtras.size(); i++) {
+      System.out.printf("[%d]", i);
       listOfExtras.get(i).printRole();
     }
+//    currentScene.printScene();
     System.out.println();
   }
 
