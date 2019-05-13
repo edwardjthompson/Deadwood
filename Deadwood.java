@@ -44,8 +44,8 @@ public class Deadwood {
     this.currentDay = 1;
     this.numDays = 4;
     this.board = new Board(ROOMNUM);
-    board.setUpLocations(PATHBOARD);
     board.setUpScenes(PATHSCENE);
+    board.setUpLocations(PATHBOARD);
     board.setUpBoardConnections(PATHCONNECTIONS);
     setPlayerCount();
     createPlayers();

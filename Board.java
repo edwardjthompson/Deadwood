@@ -13,6 +13,7 @@ public class Board {
   public Board(int size) {
     locations = new Location[size];
     listOfScenes = new ArrayList<Scene>();
+    r = new Random();
   }
 
   public int getNumScenesRemaining() {
@@ -26,12 +27,10 @@ public class Board {
   //Note I changed this to take a list of players, just was useful
   public void endDay(ArrayList<Player> players) {
     for(int i = 0; i < locations.length; i++) {
-      int index = r.nextInt(listOfScenes.size());
       //Take them out Acting Locations
       if(locations[i] instanceof ActingLocation) {
         ActingLocation temp = (ActingLocation) locations[i];
-        temp.setScene(listOfScenes.get(index));
-        listOfScenes.remove(listOfScenes.get(index));
+        dealScene(temp);
         for(int j = 0; j < players.size(); j++) {
           temp.removePlayer(players.get(j));
         }
@@ -86,6 +85,7 @@ public class Board {
           //Sets up an Acting Location
           line = s.nextLine();
           ActingLocation temp = new ActingLocation(line);
+          dealScene(temp);
           line = s.nextLine();
           temp.setShots(Integer.parseInt(line));
           current = temp;
@@ -210,6 +210,7 @@ public class Board {
           listOfScenes.add(currentScene);
         }
       }
+
       s.close();
     }
     catch(FileNotFoundException e) {
@@ -242,5 +243,11 @@ public class Board {
       }
     }
     return null;
+  }
+
+  public void dealScene(ActingLocation location) {
+    int index = r.nextInt(listOfScenes.size());
+    location.setScene(listOfScenes.get(index));
+    listOfScenes.remove(listOfScenes.get(index));
   }
 }
