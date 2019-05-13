@@ -90,6 +90,7 @@ public class Player {
 
         case "s" :
         case "S" :
+          turnComplete = true;
           break;
 
         default :
@@ -111,21 +112,24 @@ public class Player {
       if ((num >= 0) && (num < numOfAdjLocations)) {
         System.out.println(num);
         this.currentLocation = currentLocation.getAdjacentLocation(num);
-        // if scene not revealed, reveal
-        if (!((ActingLocation) currentLocation).hasSceneFinished()) {
-          // Scene has not finished
-//          ((ActingLocation) currentLocation).revealScene();
-          currentLocation.printLocation();
-        }
-
-        takeRole();
+        getRoleOptions();
         break;
       }
     }
   }
 
-  private void takeRole() {
+  private void getRoleOptions() {
+    Role takenRole = null;
+    int choice;
+    // if scene not revealed, reveal
+    if (!((ActingLocation) currentLocation).hasSceneFinished()) {
+      // Scene has not finished
+     ((ActingLocation) currentLocation).revealScene();
+      currentLocation.printLocation();
+    }
 
+
+    takeRole(takenRole);
   }
 
   public void updateDollars(int value) {
@@ -141,13 +145,15 @@ public class Player {
   }
 
   public void takeRole(Role takenRole) {
-
+    currentRole = takenRole;
   }
 
   //May become a return type boolean working with other functions
   public void act() {
     int budget = ((ActingLocation) currentLocation).getScene().getBudget();
     System.out.printf("Budget is %d\n" , budget);
+
+    // Acting. resultOfAct
   }
 
   public void printPlayer() {

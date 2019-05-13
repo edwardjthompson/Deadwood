@@ -69,6 +69,7 @@ public class ActingLocation extends Location {
   }
 
   public void printLocation() {
+    int selectionNum = 0;
     System.out.println(name);
     if(listOfPlayer.size() > 0) {
       System.out.println("PLAYERS:");

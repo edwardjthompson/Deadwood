@@ -102,7 +102,7 @@ public class Deadwood {
   }
 
   private void setPlayerCount() {
-    numPlayers = 3;
+    numPlayers = 1;
     System.out.printf("\nPlayer count set for testing: %d\n", numPlayers);
     // Scanner used for initial Setup
     Scanner input = new Scanner(System.in);
