@@ -152,6 +152,11 @@ public class Player {
   public void act() {
     int budget = ((ActingLocation) currentLocation).getScene().getBudget();
     System.out.printf("Budget is %d\n" , budget);
+    Dice die = new Dice();
+    int[] dieRoll = die.roll(1);
+    int total = dieRoll[0] + numRehearsals;
+    System.out.printf("Roll: %d, Rehearse: %d,", dieRoll, numRehearsals);
+    System.out.printf(" Total: %d, Budget: %d\n", total, budget);
 
     // Acting. resultOfAct
   }

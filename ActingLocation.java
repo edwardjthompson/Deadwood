@@ -83,7 +83,9 @@ public class ActingLocation extends Location {
         System.out.println("The Scene in this Room is Shot for the Day!");
       }
       else {
-        currentScene.printScene();
+        if (currentScene != null) {
+          currentScene.printScene();
+        }
       }
     }
     else {
@@ -91,7 +93,8 @@ public class ActingLocation extends Location {
     }
     System.out.println("EXTRAS:");
     for(int i = 0; i < listOfExtras.size(); i++) {
-      System.out.printf("[%d]", i);
+      System.out.printf("[%d]", selectionNum);
+      selectionNum++;
       listOfExtras.get(i).printRole();
     }
 //    currentScene.printScene();
