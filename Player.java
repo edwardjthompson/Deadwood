@@ -86,6 +86,10 @@ public class Player {
 
   }
 
+  public void leaveRole() {
+    currentRole = null;
+  }
+
   //May become a return type boolean working with other functions
   public void act() {
 
@@ -107,5 +111,25 @@ public class Player {
 
   public String getName() {
     return name;
+  }
+
+  public boolean starring() {
+    return currentRole.isMain();
+  }
+
+  public int getRank() {
+    return rank;
+  }
+
+  public int getDollars() {
+    return dollars;
+  }
+
+  public int getCredits() {
+    return credits;
+  }
+
+  public void setRank(int rank) {
+    this.rank = rank;
   }
 }

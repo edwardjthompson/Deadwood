@@ -29,7 +29,7 @@ public class ActingLocation extends Location {
   public ArrayList<Player> getActors() {
     ArrayList<Player> players = currentScene.getActors();
     for(int i = 0; i < listOfExtras.size(); i++) {
-      if(listOfExtras.get(i).take(null)) players.add(listOfExtras.get(i).getPlayer());
+      if(!listOfExtras.get(i).take(null)) players.add(listOfExtras.get(i).getPlayer());
     }
     return players;
   }
@@ -56,12 +56,40 @@ public class ActingLocation extends Location {
     hasSceneBeenRevealed = true;
   }
 
-  public void finishScene() {
+  public boolean finishScene() {
     hasSceneFinished = true;
+    return currentScene.payout();
   }
 
   public void resultOfAct(boolean actingResult, Player actor) {
+    if(actingResult) {
+      numShots--;
+      if(actor.starring()) {
+        actor.updateCredits(2);
+      }
+      else {
+        actor.updateCredits(1);
+        actor.updateDollars(1);
+      }
+    }
+    else {
+      if(!actor.starring()) {
+        actor.updateDollars(1);
+      }
+    }
 
+    if(numShots <= 0) {
+      if(finishScene()) {
+        Player current;
+        for(int i = 0; i < listOfExtras.size(); i++) {
+          current = listOfExtras.get(i).getPlayer();
+          if(current != null) {
+            current.updateDollars(listOfExtras.get(i).getRank());
+            listOfExtras.get(i).leave();
+          }
+        }
+      }
+    }
   }
 
   public void printLocation() {

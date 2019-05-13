@@ -26,11 +26,16 @@ public class Role {
 
   //May not ever be used
   public void leave() {
+    takenBy.leaveRole();
     takenBy = null;
   }
 
   public String getName() {
     return name;
+  }
+
+  public boolean isMain() {
+    return isMain;
   }
 
   public void printRole() {
@@ -49,5 +54,9 @@ public class Role {
 
   public Player getPlayer(){
     return takenBy;
+  }
+
+  public int getRank() {
+    return rank;
   }
 }
