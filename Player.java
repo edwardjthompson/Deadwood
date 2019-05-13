@@ -148,6 +148,10 @@ public class Player {
     currentRole = takenRole;
   }
 
+  public void leaveRole() {
+    currentRole = null;
+  }
+
   //May become a return type boolean working with other functions
   public void act() {
     int budget = ((ActingLocation) currentLocation).getScene().getBudget();
@@ -178,6 +182,10 @@ public class Player {
 
   public String getName() {
     return name;
+  }
+
+  public boolean starring() {
+    return currentRole.isMain();
   }
 
   public int getDollars() {

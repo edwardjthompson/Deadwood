@@ -23,7 +23,7 @@ public class Scene {
   public ArrayList<Role> getAvailableRole() {
     ArrayList<Role> open = new ArrayList<Role>();
     for(int i = 0; i < listOfRoles.size(); i++) {
-      if(listOfRoles.get(i).take(null)) open.add(listOfRoles.get(i));
+      if(!listOfRoles.get(i).take(null)) open.add(listOfRoles.get(i));
     }
     return open;
   }
@@ -33,13 +33,59 @@ public class Scene {
   public ArrayList<Player> getActors() {
     ArrayList<Player> players = new ArrayList<Player>();
     for(int i = 0; i < listOfRoles.size(); i++) {
-      if(listOfRoles.get(i).take(null)) players.add(listOfRoles.get(i).getPlayer());
+      if(!listOfRoles.get(i).take(null)) players.add(listOfRoles.get(i).getPlayer());
     }
     return players;
   }
 
-  public void payout() {
+  public boolean payout() {
+    ArrayList<Player> players = getActors();
+    if(players.size() > 0) {
+      int rank = 0;
+      int count = 0;
+      Role[] order = new Role[listOfRoles.size()];
 
+      while(rank < 6) {
+        rank++;
+        for(int i = 0; i < listOfRoles.size(); i++) {
+          if(rank == listOfRoles.get(i).getRank()) {
+            order[count] = listOfRoles.get(i);
+            count++;
+          }
+        }
+      }
+
+      Dice dice = new Dice();
+      int[] roll = dice.roll(budget);
+      Player current;
+      count = 0;
+
+      for(int i = 0; i < roll.length; i++) {
+        if(count < order.length) {
+          current = order[count].getPlayer();
+          if(current != null) {
+            current.updateDollars(roll[i]);
+          }
+        }
+        else {
+          count = 0;
+          current = order[count].getPlayer();
+          if(current != null) {
+            current.updateDollars(roll[i]);
+          }
+        }
+      }
+
+      for(int i = 0; i < order.length; i++) {
+        current = order[i].getPlayer();
+        if(current != null) {
+          order[i].leave();
+        }
+      }
+
+      return true;
+    }
+    return false;
   }
 
   public void printScene() {
