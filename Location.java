@@ -35,14 +35,13 @@ public class Location {
   }
 
   public void printLocation() {
-    System.out.println(name);
     if(listOfPlayer.size() > 0) {
-      System.out.println("PLAYERS:");
+      System.out.printf("%s:\n", name);
       for(int i = 0; i < listOfPlayer.size(); i++) {
-        listOfPlayer.get(i).printPlayer();
+        System.out.println(listOfPlayer.get(i).getName());
       }
+      System.out.println();
     }
-    System.out.println();
   }
 
   public void printAdjacent() {

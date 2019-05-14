@@ -33,22 +33,13 @@ public class Board {
       if(locations[i] instanceof ActingLocation) {
         ActingLocation temp = (ActingLocation) locations[i];
         dealScene(temp);
-        for(int j = 0; j < players.size(); j++) {
-          temp.removePlayer(players.get(j));
-        }
       }
 
       else {
-        //Take them out of Casting Office
-        if(locations[i] instanceof CastingOffice) {
-          for(int j = 0; j < players.size(); j++) {
-            locations[i].removePlayer(players.get(j));
-          }
-        }
         //Add them to Trailer
-        else{
+        if(!(locations[i] instanceof CastingOffice)) {
           for(int j = 0; j < players.size(); j++) {
-            locations[i].addPlayer(players.get(j));
+            players.get(j).goToLocation(locations[i]);
           }
         }
       }
@@ -58,8 +49,8 @@ public class Board {
 
   public void printBoard() {
     for(int i = 0; i < locations.length; i++) {
-      // locations[i].printLocation();
-      locations[i].printAdjacent();
+      locations[i].printLocation();
+      //locations[i].printAdjacent();
     }
   }
 

@@ -30,6 +30,7 @@ public class Player {
     this.currentRole = null;
     this.currentLocation = currentLocation;
     this.nameColor = nameColor;
+    this.currentLocation.addPlayer(this);
   }
 
   public void takeTurn() {
@@ -120,7 +121,7 @@ public class Player {
       if ((num >= -1) && (num < numOfAdjLocations)) {
         System.out.println(num);
         if(num == -1) break;
-        this.currentLocation = currentLocation.getAdjacentLocation(num);
+        goToLocation(currentLocation.getAdjacentLocation(num));
         if(currentLocation instanceof ActingLocation) {
           getRoleOptions(((ActingLocation) currentLocation));
         }
@@ -137,7 +138,7 @@ public class Player {
     if (!location.hasSceneFinished()) {
       // Scene has not finished
      location.revealScene();
-      location.printLocation();
+     location.printActLocation();
     }
     while (check) {
       System.out.printf("Select a role (-1 to exit): ");
@@ -221,6 +222,12 @@ public class Player {
 
   public void leaveRole() {
     currentRole = null;
+  }
+
+  public void goToLocation(Location location) {
+    currentLocation.removePlayer(this);
+    currentLocation = location;
+    currentLocation.addPlayer(this);
   }
 
   //May become a return type boolean working with other functions
