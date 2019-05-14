@@ -66,10 +66,6 @@ public class Deadwood {
     }
   }
 
-//  public static final String ANSI_RED = "\u001B[31m";
-//  public static final String ANSI_GREEN = "\u001B[32m";
-//  public static final String ANSI_BLUE = "\u001B[34m";
-
   private void createPlayers() {
     this.listOfPlayers = new ArrayList<Player>();
     String playerNames[] = {"red", "green", "blue"};
@@ -88,12 +84,15 @@ public class Deadwood {
   }
 
   private void endGame() {
-    System.out.println("End Game");
+    System.out.println("End Game\n");
     int highScore = 0;
     int playerScore;
     Player winner = null;
+    String playerName;
     for (Player p : listOfPlayers) {
       playerScore = p.getScore();
+      playerName = p.getName();
+      System.out.printf("%s has a score of %d\n", playerName, playerScore);
       if (winner == null) {
         winner = p;
         highScore = playerScore;

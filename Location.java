@@ -56,12 +56,12 @@ public class Location {
 
   // like printadjacent but adds [n] around each for choosing
   public void printAdjacentOptions() {
-    System.out.printf("Choose a Location: ", name);
+    // System.out.printf("Choose a Location: ", name);
     for(int i = 0; i < adjacentLocationList.size(); i++) {
       String s = adjacentLocationList.get(i).getName();
       System.out.printf("[%d]%s ", i, s);
     }
-    System.out.println();
+    System.out.printf("\n\nSelect a Location: ");
   }
 
   public boolean hasSceneFinished() {
