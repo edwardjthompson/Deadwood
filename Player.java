@@ -13,8 +13,6 @@ public class Player {
   private String nameColor;
   private Scanner input = new Scanner(System.in);
 
-
-
   // Color of name, not needed
   public static final String ANSI_RED = "\u001B[31m";
   public static final String ANSI_GREEN = "\u001B[32m";
@@ -106,9 +104,11 @@ public class Player {
           System.exit(0);
 
         default :
-          System.out.println("Invalid choice");
+          System.out.println("Invalid choice\n");
       }
-
+      if (turnComplete == true) {
+        System.out.printf("\n--------Next player--------\n\n");
+      }
     }
   }
 
@@ -256,7 +256,7 @@ public class Player {
     System.out.printf("\n\tDollars: %s\n", dollars);
     System.out.printf("\tCredits: %s\n", credits);
     System.out.printf("\tRank: %s\n", rank);
-    System.out.printf("\tRehersals: %s\n", numRehearsals);
+    System.out.printf("\tRehearsals: %s\n", numRehearsals);
     if (currentRole != null) System.out.printf("\tRole: %s\n", currentRole.getName());
     if (currentLocation != null)  {
       System.out.printf("\tLocation: %s", currentLocation.getName());

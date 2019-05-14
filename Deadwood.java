@@ -22,13 +22,26 @@ public class Deadwood {
   public static final int ROOMNUM = 12;
 
   public static void main(String[] args) {
+
     // Creating instance of objects
     Deadwood deadwood = new Deadwood();
-    deadwood.initializeGame();
+    // Set numPlayers
+    // int num = Integer.parseInt(args[2]);
+    int num = 0;
+    try {
+      num = Integer.parseInt(args[0]);
+    }
+    catch(NumberFormatException e) {
+      num = 0;
+    }
+    String arg = args[0];
+    System.out.println(arg);
+    deadwood.initializeGame(num);
     deadwood.runGame();
   }
 
-  private void initializeGame() {
+  private void initializeGame(int numPlayers) {
+    this.numPlayers = numPlayers;
     this.currentDay = 1;
     this.numDays = 4;
     this.board = new Board(ROOMNUM);
@@ -58,7 +71,8 @@ public class Deadwood {
     String playerNames[] = {"red", "green", "blue"};
     String nameColor[] = {"\u001B[31m", "\u001B[32m", "\u001B[34m"};
     for (int i = 0; i < numPlayers; i++) {
-      Player p = new Player(playerNames[i], board.getLocation("Trailers"), nameColor[i]);
+      Player p = new Player(playerNames[i], board.getLocation("Trailers"),
+                            nameColor[i]);
       listOfPlayers.add(p);
     }
   }
@@ -90,7 +104,8 @@ public class Deadwood {
       }
     }
     String winnerName = winner.getName();
-    System.out.printf("\nThe winner is %s with score of %d\n", winnerName, highScore);
+    System.out.printf("\nThe winner is %s with score of %d\n",
+                      winnerName, highScore);
   }
 
   private void runDay() {
@@ -110,11 +125,16 @@ public class Deadwood {
 
   private void setPlayerCount() {
     // numPlayers = 1; // Used to manually set player count
+    if((numPlayers < MIN_PLAYERS) || (numPlayers > MAX_PLAYERS)) {
+      numPlayers = 0;
+      System.out.printf("Player count from main was not valid.\n");
+    }
     // Scanner used for initial Setup
     Scanner input = new Scanner(System.in);
     // Loops until user inputs a number between MIN_PLAYERS and MAX_PLAYERS
     while(numPlayers == 0) {
-      System.out.printf("Choose the Number of players (%d-%d): ", MIN_PLAYERS, MAX_PLAYERS);
+      System.out.printf("Choose the Number of players (%d-%d): ",
+                        MIN_PLAYERS, MAX_PLAYERS);
 
       if(input.hasNextInt()) {
         numPlayers = input.nextInt();

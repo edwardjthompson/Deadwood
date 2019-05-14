@@ -1,5 +1,5 @@
-.idea
-.DS_STORE
-.iml
-.class
+*.idea
+*.DS_STORE
+*.iml
+*.class
 out/

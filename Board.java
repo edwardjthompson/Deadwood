@@ -22,7 +22,6 @@ public class Board {
       if(!locations[i].hasSceneFinished()) count++;
     }
     return count;
-    // return 1; // Just for testing end game
   }
 
   //Note I changed this to take a list of players, just was useful
@@ -58,7 +57,6 @@ public class Board {
 
   public void printBoard() {
     for(int i = 0; i < locations.length; i++) {
-      // locations[i].printLocation();
       locations[i].printAdjacent();
     }
   }
