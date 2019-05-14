@@ -111,6 +111,8 @@ public class Deadwood {
   private void runDay() {
     int playerNum = 0;
     while (board.getNumScenesRemaining() > 1) {
+      System.out.print("******************************************\n");
+      board.printBoard();
       listOfPlayers.get(playerNum).takeTurn();
       playerNum++;
       if (playerNum >= numPlayers) {

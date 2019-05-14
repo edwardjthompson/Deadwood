@@ -115,16 +115,9 @@ public class ActingLocation extends Location {
     }
   }
 
-  public void printLocation() {
+  public void printActLocation() {
     int selectionNum = 0;
     System.out.println(name);
-    if(listOfPlayer.size() > 0) {
-      System.out.println("PLAYERS:");
-      for(int i = 0; i < listOfPlayer.size(); i++) {
-        listOfPlayer.get(i).printPlayer();
-      }
-      System.out.println();
-    }
     if(hasSceneBeenRevealed) {
       if(hasSceneFinished) {
         System.out.println("The Scene in this Room is Shot for the Day!");
