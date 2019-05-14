@@ -33,7 +33,7 @@ public class Scene {
   public ArrayList<Player> getActors() {
     ArrayList<Player> players = new ArrayList<Player>();
     for(int i = 0; i < listOfRoles.size(); i++) {
-      if(!listOfRoles.get(i).take(null)) players.add(listOfRoles.get(i).getPlayer());
+      if(listOfRoles.get(i).getPlayer() != null) players.add(listOfRoles.get(i).getPlayer());
     }
     return players;
   }

@@ -112,21 +112,23 @@ public class Player {
       if ((num >= 0) && (num < numOfAdjLocations)) {
         System.out.println(num);
         this.currentLocation = currentLocation.getAdjacentLocation(num);
-        getRoleOptions();
+        if(currentLocation instanceof ActingLocation) {
+          getRoleOptions(((ActingLocation) currentLocation));
+        }
         break;
       }
     }
   }
 
-  private void getRoleOptions() {
+  private void getRoleOptions(ActingLocation location) {
     Role takenRole = null;
     int choice = -1;
     boolean check = true;
     // if scene not revealed, reveal
-    if (!((ActingLocation) currentLocation).hasSceneFinished()) {
+    if (!location.hasSceneFinished()) {
       // Scene has not finished
-     ((ActingLocation) currentLocation).revealScene();
-      currentLocation.printLocation();
+     location.revealScene();
+      location.printLocation();
     }
     while (check) {
       if (input.hasNextInt()) {
@@ -138,7 +140,7 @@ public class Player {
         break;
       }
       // System.out.printf("Selecting Role: %d\n", choice);
-      takenRole = ((ActingLocation) currentLocation).selectRole(choice);
+      takenRole = location.selectRole(choice);
 
       if (takenRole == null) {
         System.out.println("That was not an option!");
