@@ -22,21 +22,10 @@ public class Deadwood {
   public static final int ROOMNUM = 12;
 
   public static void main(String[] args) {
-
-
     // Creating instance of objects
     Deadwood deadwood = new Deadwood();
     deadwood.initializeGame();
     deadwood.runGame();
-
-    // deadwood.testGame();
-
-
-
-  }
-
-  private void testGame() {
-
   }
 
   private void initializeGame() {
@@ -48,11 +37,9 @@ public class Deadwood {
     board.setUpBoardConnections(PATHCONNECTIONS);
     setPlayerCount();
     createPlayers();
-//    runGame();
   }
 
   private void runGame() {
-    System.out.println("Start game");
     while (currentDay <= numDays) {
       runDay();
     }
@@ -107,7 +94,6 @@ public class Deadwood {
   }
 
   private void runDay() {
-    System.out.println("runDay");
     int playerNum = 0;
     while (board.getNumScenesRemaining() > 1) {
       listOfPlayers.get(playerNum).takeTurn();
@@ -123,8 +109,7 @@ public class Deadwood {
   }
 
   private void setPlayerCount() {
-    numPlayers = 3;
-    System.out.printf("\nPlayer count set for testing: %d\n", numPlayers);
+    // numPlayers = 1; // Used to manually set player count
     // Scanner used for initial Setup
     Scanner input = new Scanner(System.in);
     // Loops until user inputs a number between MIN_PLAYERS and MAX_PLAYERS
@@ -141,22 +126,5 @@ public class Deadwood {
       }
       else input.next();
     }
-    System.out.printf("Players = %d\n\n", numPlayers);
-  }
-
-  private Board getBoard() {
-    return board;
-  }
-
-  public ArrayList<Player> getListOfPlayers() {
-    return listOfPlayers;
-  }
-
-  public int getCurrentDay() {
-    return currentDay;
-  }
-
-  public int getNumDays() {
-    return numDays;
   }
 }

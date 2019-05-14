@@ -23,8 +23,8 @@ public class Player {
 
   public Player(String name, Location currentLocation, String nameColor) {
     this.name = name;
-    this.dollars = 0;
-    this.credits = 0;
+    this.dollars = 100;
+    this.credits = 100;
     this.rank = 1;
     this.numRehearsals = 0;
     this.currentRole = null;
@@ -101,6 +101,10 @@ public class Player {
           turnComplete = true;
           break;
 
+        case "q" :
+        case "Q" :
+          System.exit(0);
+
         default :
           System.out.println("Invalid choice");
       }
@@ -170,11 +174,11 @@ public class Player {
   private void upgrade(CastingOffice location) {
     int num = -2;
     boolean check = false;
-    System.out.printf("\nUpgrades: (x means you do not have the funds to purchase, > means it is available)\n");
+    System.out.printf("\nUpgrades: (x means you do not have the funds to " +
+                      "purchase, > means it is available)\n");
     location.availableUpgrades(this);
     while (true) {
-      System.out.println();
-      System.out.printf("Select a rank (-1 to exit): ");
+      System.out.printf("\nSelect a rank (-1 to exit): ");
       if (input.hasNextInt()) {
         num = input.nextInt();
       }
@@ -188,7 +192,8 @@ public class Player {
           break;
         }
         else {
-          System.out.printf("You do not have the funds to be upgraded to that rank, your rank remains: %d\n", rank);
+          System.out.printf("You do not have the funds to be upgraded to " +
+                            "that rank, your rank remains: %d\n", rank);
         }
       }
     }
