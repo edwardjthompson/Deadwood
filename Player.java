@@ -90,6 +90,12 @@ public class Player {
           }
           break;
 
+        case "u" :
+        case "U" :
+          upgrade(((CastingOffice) currentLocation));
+          turnComplete = true;
+          break;
+
         case "s" :
         case "S" :
           turnComplete = true;
@@ -103,7 +109,7 @@ public class Player {
   }
 
   private void move() {
-    int num = -1;
+    int num = -2;
     int numOfAdjLocations = currentLocation.getAdjacentLocationSize();
     while (true) {
       currentLocation.printAdjacentOptions();
@@ -111,8 +117,9 @@ public class Player {
         num = input.nextInt();
       }
       else input.next();
-      if ((num >= 0) && (num < numOfAdjLocations)) {
+      if ((num >= -1) && (num < numOfAdjLocations)) {
         System.out.println(num);
+        if(num == -1) break;
         this.currentLocation = currentLocation.getAdjacentLocation(num);
         if(currentLocation instanceof ActingLocation) {
           getRoleOptions(((ActingLocation) currentLocation));
@@ -132,8 +139,8 @@ public class Player {
      location.revealScene();
       location.printLocation();
     }
-    System.out.printf("Select a role: ");
     while (check) {
+      System.out.printf("Select a role (-1 to exit): ");
       if (input.hasNextInt()) {
         choice = input.nextInt();
       }
@@ -158,6 +165,34 @@ public class Player {
     }
 
     takeRole(takenRole);
+  }
+
+  private void upgrade(CastingOffice location) {
+    int num = -2;
+    boolean check = false;
+    System.out.printf("\nUpgrades: (x means you do not have the funds to purchase, > means it is available)\n");
+    location.availableUpgrades(this);
+    while (true) {
+      System.out.println();
+      System.out.printf("Select a rank (-1 to exit): ");
+      if (input.hasNextInt()) {
+        num = input.nextInt();
+      }
+      else input.next();
+      if ((num >= -1) && (num <= 6)) {
+        if(num == -1) break;
+        check = location.selectUpgrade(this, num);
+
+        if(check) {
+          System.out.printf("You have been upgraded to rank: %d\n", rank);
+          break;
+        }
+        else {
+          System.out.printf("You do not have the funds to be upgraded to that rank, your rank remains: %d\n", rank);
+        }
+      }
+    }
+    System.out.println();
   }
 
   public void updateDollars(int value) {
@@ -199,6 +234,7 @@ public class Player {
       System.out.printf("Act was unsuccessful.\n");
       ((ActingLocation) currentLocation).resultOfAct(false, this);
     }
+    numRehearsals = 0;
     // Acting. resultOfAct
   }
 

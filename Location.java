@@ -61,7 +61,7 @@ public class Location {
       String s = adjacentLocationList.get(i).getName();
       System.out.printf("[%d]%s ", i, s);
     }
-    System.out.printf("\n\nSelect a Location: ");
+    System.out.printf("\n\nSelect a Location (-1 to exit): ");
   }
 
   public boolean hasSceneFinished() {

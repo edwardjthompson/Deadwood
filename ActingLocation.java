@@ -93,12 +93,21 @@ public class ActingLocation extends Location {
     }
     System.out.printf("Shots remaining: %d\n", numShots);
     if(numShots <= 0) {
+      Player current;
+
       if(finishScene()) {
-        Player current;
         for(int i = 0; i < listOfExtras.size(); i++) {
           current = listOfExtras.get(i).getPlayer();
           if(current != null) {
             current.updateDollars(listOfExtras.get(i).getRank());
+            listOfExtras.get(i).leave();
+          }
+        }
+      }
+      else {
+        for(int i = 0; i < listOfExtras.size(); i++) {
+          current = listOfExtras.get(i).getPlayer();
+          if(current != null) {
             listOfExtras.get(i).leave();
           }
         }
