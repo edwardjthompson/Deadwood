@@ -169,6 +169,7 @@ public class Player {
 
   private void upgrade(CastingOffice location) {
     int num = -2;
+    String payType = "";
     boolean check = false;
     System.out.printf("\nUpgrades: (x means you do not have the funds to purchase, > means it is available)\n");
     location.availableUpgrades(this);
@@ -181,7 +182,13 @@ public class Player {
       else input.next();
       if ((num >= -1) && (num <= 6)) {
         if(num == -1) break;
-        check = location.selectUpgrade(this, num);
+
+        while(!(payType.equals("d") || payType.equals("c") || payType.equals("D") || payType.equals("C"))) {
+          System.out.printf("What payment type would you like to use?\n[d]ollars, [c]redits: ");
+          payType = input.next();
+        }
+
+        check = location.selectUpgrade(this, num, payType.equals("d") || payType.equals("D"));
 
         if(check) {
           System.out.printf("You have been upgraded to rank: %d\n", rank);
