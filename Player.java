@@ -1,5 +1,3 @@
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
@@ -12,17 +10,12 @@ public class Player {
   private Location currentLocation;
   private String nameColor;
   private Scanner input = new Scanner(System.in);
-
-  // Color of name, not needed
-  public static final String ANSI_RED = "\u001B[31m";
-  public static final String ANSI_GREEN = "\u001B[32m";
-  public static final String ANSI_BLUE = "\u001B[34m";
   public static final String ANSI_RESET = "\u001B[0m";
 
   public Player(String name, Location currentLocation, String nameColor) {
     this.name = name;
-    this.dollars = 100;
-    this.credits = 100;
+    this.dollars = 0;
+    this.credits = 0;
     this.rank = 1;
     this.numRehearsals = 0;
     this.currentRole = null;
@@ -154,14 +147,12 @@ public class Player {
         takenRole = null;
         break;
       }
-      // System.out.printf("Selecting Role: %d\n", choice);
       takenRole = location.selectRole(choice);
 
       if (takenRole == null) {
         System.out.println("That was not an option!");
       }
       else {
-        //if (takenRole.getPlayer() != null) {
         if (!takenRole.take(this)) {
           System.out.println("Role already taken, or Rank too high");
         }
@@ -216,13 +207,8 @@ public class Player {
     this.credits += value;
   }
 
-  public void rehearse() {
-    this.numRehearsals++;
-  }
-
   public void takeRole(Role takenRole) {
     currentRole = takenRole;
-    //takenRole.take(this);
   }
 
   public void leaveRole() {
@@ -254,7 +240,6 @@ public class Player {
       ((ActingLocation) currentLocation).resultOfAct(false, this);
     }
     numRehearsals = 0;
-    // Acting. resultOfAct
   }
 
   public void printPlayer() {
@@ -272,10 +257,6 @@ public class Player {
       System.out.printf(" (Shots remaining: %d)\n", ((ActingLocation) currentLocation).getShots());
     }
     else System.out.println();
-  }
-
-  public void setCurrentLocation(Location currentLocation) {
-    this.currentLocation = currentLocation;
   }
 
   public String getName() {

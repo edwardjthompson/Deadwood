@@ -2,7 +2,6 @@
 import java.util.ArrayList;
 
 public class ActingLocation extends Location {
-  //private boolean hasScene;
   private Scene currentScene;
   private int numShots;
   private ArrayList<Role> listOfExtras;
@@ -17,7 +16,7 @@ public class ActingLocation extends Location {
   }
 
   //Only need to use this one, will give you available roles for it and the card on it
-  public ArrayList<Role> getAvailableRole() {
+  private ArrayList<Role> getAvailableRole() {
     ArrayList<Role> open = currentScene.getAvailableRole();
     for(int i = 0; i < listOfExtras.size(); i++) {
       open.add(listOfExtras.get(i));
@@ -29,19 +28,6 @@ public class ActingLocation extends Location {
     ArrayList<Role> arrayOfRoles = getAvailableRole();
     if(num >= arrayOfRoles.size()) return null;
     else return arrayOfRoles.get(num);
-  }
-
-  //Not sure what this one is for, might be redundent
-  public ArrayList<Player> getActors() {
-    ArrayList<Player> players = currentScene.getActors();
-    for(int i = 0; i < listOfExtras.size(); i++) {
-      if(!listOfExtras.get(i).take(null)) players.add(listOfExtras.get(i).getPlayer());
-    }
-    return players;
-  }
-
-  public void removeShot() {
-    numShots--;
   }
 
   public void setShots(int shots) {
@@ -137,7 +123,6 @@ public class ActingLocation extends Location {
       selectionNum++;
       listOfExtras.get(i).printRole();
     }
-//    currentScene.printScene();
     System.out.println();
   }
 

@@ -237,7 +237,7 @@ public class Board {
   }
 
   // Can this be private?
-  public void dealScene(ActingLocation location) {
+  private void dealScene(ActingLocation location) {
     int index = r.nextInt(listOfScenes.size());
     location.setScene(listOfScenes.get(index));
     listOfScenes.remove(listOfScenes.get(index));

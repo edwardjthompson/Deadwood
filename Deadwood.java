@@ -1,7 +1,5 @@
-import java.io.*;
-import java.util.*;
 import java.util.ArrayList;
-import java.util.stream.IntStream;
+import java.util.Scanner;
 
 public class Deadwood {
   private int currentDay;
@@ -25,17 +23,16 @@ public class Deadwood {
 
     // Creating instance of objects
     Deadwood deadwood = new Deadwood();
-    // Set numPlayers
-    // int num = Integer.parseInt(args[2]);
+
+    // Getting numPlayer from main args
     int num = 0;
     try {
       num = Integer.parseInt(args[0]);
     }
     catch(NumberFormatException e) {
+      // Sets to 0 and calls setPlayerCount to set the value
       num = 0;
     }
-    String arg = args[0];
-    System.out.println(arg);
     deadwood.initializeGame(num);
     deadwood.runGame();
   }
@@ -59,13 +56,6 @@ public class Deadwood {
     endGame();
   }
 
-  private void startDay() {
-    Location trailers = board.getLocation("Trailers");
-    for (Player p : listOfPlayers) {
-      p.setCurrentLocation(trailers);
-    }
-  }
-
   private void createPlayers() {
     this.listOfPlayers = new ArrayList<Player>();
     String playerNames[] = {"red", "green", "blue"};
@@ -74,13 +64,6 @@ public class Deadwood {
       Player p = new Player(playerNames[i], board.getLocation("Trailers"),
                             nameColor[i]);
       listOfPlayers.add(p);
-    }
-  }
-
-  private void printListOfPlayers() {
-    for (Player p : listOfPlayers) {
-      p.printPlayer();
-      p.takeTurn();
     }
   }
 
@@ -126,7 +109,6 @@ public class Deadwood {
   }
 
   private void setPlayerCount() {
-    // numPlayers = 1; // Used to manually set player count
     if((numPlayers < MIN_PLAYERS) || (numPlayers > MAX_PLAYERS)) {
       numPlayers = 0;
       System.out.printf("Player count from main was not valid.\n");
