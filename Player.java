@@ -207,7 +207,7 @@ public class Player {
     this.credits += value;
   }
 
-  public void takeRole(Role takenRole) {
+  private void takeRole(Role takenRole) {
     currentRole = takenRole;
   }
 
@@ -222,7 +222,7 @@ public class Player {
   }
 
   //May become a return type boolean working with other functions
-  public void act() {
+  private void act() {
     int budget = ((ActingLocation) currentLocation).getScene().getBudget();
     System.out.printf("Budget is %d\n" , budget);
     Dice die = new Dice();
@@ -242,7 +242,7 @@ public class Player {
     numRehearsals = 0;
   }
 
-  public void printPlayer() {
+  private void printPlayer() {
     System.out.printf("Player: ", name);
     System.out.print(nameColor + name + ANSI_RESET);
     System.out.printf("\n\tDollars: %s\n", dollars);

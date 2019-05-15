@@ -214,7 +214,7 @@ public class Board {
 
   //Just to setting up Locations more tame
   //Adds location into the next available slot in the array
-  public void addLocation(Location room) {
+  private void addLocation(Location room) {
     int count = 0;
     while(count < locations.length) {
       if(locations[count] == null) {
