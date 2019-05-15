@@ -27,7 +27,9 @@ public class Deadwood {
     // Getting numPlayer from main args
     int num = 0;
     try {
-      num = Integer.parseInt(args[0]);
+      if (args.length > 0) {
+        num = Integer.parseInt(args[0]);
+      }
     }
     catch(NumberFormatException e) {
       // Sets to 0 and calls setPlayerCount to set the value
