@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class ActingLocation extends Location {
   private Scene currentScene;
   private int numShots;
+  private int totalShots;
   private ArrayList<Role> listOfExtras;
   private boolean hasSceneBeenRevealed;
   private boolean hasSceneFinished;
@@ -32,6 +33,7 @@ public class ActingLocation extends Location {
 
   public void setShots(int shots) {
     numShots = shots;
+    totalShots = shots;
   }
 
   public int getShots() {
@@ -57,6 +59,7 @@ public class ActingLocation extends Location {
   }
 
   public boolean finishScene() {
+    numShots = totalShots;
     hasSceneFinished = true;
     return currentScene.payout();
   }
