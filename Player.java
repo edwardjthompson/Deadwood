@@ -14,8 +14,8 @@ public class Player {
 
   public Player(String name, Location currentLocation, String nameColor) {
     this.name = name;
-    this.dollars = 0;
-    this.credits = 0;
+    this.dollars = 100;
+    this.credits = 100;
     this.rank = 1;
     this.numRehearsals = 0;
     this.currentRole = null;
