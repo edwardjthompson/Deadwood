@@ -7,6 +7,8 @@ public class Deadwood {
   private Board board;
   private int numPlayers;
   private ArrayList<Player> listOfPlayers;
+  private DeadwoodFrame deadwoodFrame;
+  private PlayerController PlayerController;
 
   private final int MIN_PLAYERS = 2;
   private final int MAX_PLAYERS = 3;
@@ -44,6 +46,9 @@ public class Deadwood {
     this.currentDay = 1;
     this.numDays = 4;
     this.board = new Board(ROOMNUM);
+    this.deadwoodFrame = new DeadwoodFrame();
+    this.PlayerController = new PlayerController(deadwoodFrame);
+    deadwoodFrame.makeFrame();
     board.setUpScenes(PATHSCENE);
     board.setUpLocations(PATHBOARD);
     board.setUpBoardConnections(PATHCONNECTIONS);
@@ -96,6 +101,7 @@ public class Deadwood {
   private void runDay() {
     int playerNum = 0;
     while (board.getNumScenesRemaining() > 1) {
+      PlayerController.takePlayer(listOfPlayers.get(playerNum));
       System.out.print("******************************************\n");
       board.printBoard();
       listOfPlayers.get(playerNum).takeTurn();
