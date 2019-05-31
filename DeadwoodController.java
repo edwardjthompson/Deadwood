@@ -39,10 +39,11 @@ public class DeadwoodController {
 
   public void repaintFrame(Player p) {
     System.out.print("Repaint\n");
-    deadwoodFrame.updateCurrentPlayer(p);
-    deadwoodFrame.removeAll();
-    deadwoodFrame.revalidate();
-    deadwoodFrame.repaint();
+    deadwoodFrame.labelCurrentPlayer.setText(p.getName());
+    // deadwoodFrame.updateCurrentPlayer(p);
+    // deadwoodFrame.removeAll();
+    // deadwoodFrame.revalidate();
+    // deadwoodFrame.repaint();
   }
 
   // initializeGame
