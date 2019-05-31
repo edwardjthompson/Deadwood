@@ -33,8 +33,7 @@ public class DeadwoodController {
   }
 
   private void initializeController(int num, DeadwoodController deadwoodController) {
-    deadwoodFrame = new DeadwoodFrame();
-    deadwoodFrame.makeFrame();
+    deadwoodFrame = DeadwoodFrame.makeFrame();
     deadwood = new Deadwood(num, deadwoodController);
   }
 

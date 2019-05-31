@@ -7,7 +7,7 @@ public class DeadwoodFrame extends JFrame {
     private JLabel labelGameBoard;
     private JLabel labelCard;
     private JLabel labelPlayer;
-    private JLabel labelCurrentPlayer;
+    JLabel labelCurrentPlayer;
     private JLabel labelMenu;
 
     private JButton buttonAct;
@@ -82,20 +82,18 @@ public class DeadwoodFrame extends JFrame {
 
         // playerName = name;
 
-
-
-
-
         labelCurrentPlayer.setText(name);
+
+
         // deadwoodFrame.add(labelCurrentPlayer);
-        super.update(this.getGraphics());
-        System.out.printf("updateCurrentPlayer2: %s\n", labelCurrentPlayer.getText());
-        labelCurrentPlayer.paintImmediately(labelCurrentPlayer.getVisibleRect());
-        revalidate();
-        repaint();
-        initializeDeadwoodPane();
-        paneDeadwood.remove(labelCurrentPlayer);
-        paneDeadwood.add(labelCurrentPlayer);
+        // super.update(this.getGraphics());
+        // System.out.printf("updateCurrentPlayer2: %s\n", labelCurrentPlayer.getText());
+        // labelCurrentPlayer.paintImmediately(labelCurrentPlayer.getVisibleRect());
+        // revalidate();
+        // repaint();
+        // initializeDeadwoodPane();
+        // paneDeadwood.remove(labelCurrentPlayer);
+        // paneDeadwood.add(labelCurrentPlayer);
         // paneDeadwood.validate();
         // paneDeadwood.repaint();
         // labelCurrentPlayer.paintImmediately(labelCurrentPlayer.getVisibleRect());
@@ -127,7 +125,7 @@ public class DeadwoodFrame extends JFrame {
         buttonAct = new JButton(ACT_BUTTON_TEXT);
         buttonAct.setBackground(Color.white);
         buttonAct.setBounds(iconGameBoard.getIconWidth() + 10, 30, 100, 20);
-        buttonAct.addMouseListener(new ActButtonMouseListener());
+        buttonAct.addMouseListener(new ActButtonMouseListener(this));
     }
 
     private void setupRehearseButton() {
@@ -156,15 +154,17 @@ public class DeadwoodFrame extends JFrame {
         paneDeadwood.add(buttonRehearse, new Integer(2));
         paneDeadwood.add(buttonMove, new Integer(2));
     }
-    public static void main(String[] args) {
-      DeadwoodFrame board = new DeadwoodFrame();
-      board.setVisible(true);
-    }
+    // public static void main(String[] args) {
+    //   DeadwoodFrame board = new DeadwoodFrame();
+    //   board.setVisible(true);
+    // }
 
-    public static void makeFrame() {
+    public static DeadwoodFrame makeFrame() {
       DeadwoodFrame board = new DeadwoodFrame();
       deadwoodFrame = board;
       board.setVisible(true);
+
+      return board;
     }
 
     public static void updateBoard() {
