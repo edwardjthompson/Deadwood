@@ -87,8 +87,13 @@ public class DeadwoodFrame extends JFrame {
 
 
         labelCurrentPlayer.setText(name);
+        // deadwoodFrame.add(labelCurrentPlayer);
+        super.update(this.getGraphics());
         System.out.printf("updateCurrentPlayer2: %s\n", labelCurrentPlayer.getText());
         labelCurrentPlayer.paintImmediately(labelCurrentPlayer.getVisibleRect());
+        revalidate();
+        repaint();
+        initializeDeadwoodPane();
         paneDeadwood.remove(labelCurrentPlayer);
         paneDeadwood.add(labelCurrentPlayer);
         // paneDeadwood.validate();

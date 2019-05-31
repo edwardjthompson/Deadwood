@@ -8,7 +8,6 @@ public class Deadwood {
   private int numPlayers;
   private ArrayList<Player> listOfPlayers;
   private DeadwoodController deadwoodController;
-  private PlayerController playerController;
 
   private final int MIN_PLAYERS = 2;
   private final int MAX_PLAYERS = 3;
