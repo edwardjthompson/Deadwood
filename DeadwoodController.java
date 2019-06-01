@@ -1,8 +1,15 @@
+import java.util.ArrayList;
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.ImageIcon;
 
 public class DeadwoodController {
   private Player currentplayer;
   private Deadwood deadwood;
   private DeadwoodFrame deadwoodFrame;
+  private String input;
+  private int intInput;
+  private boolean inputSet;
 
   public static void main(String[] args) {
     DeadwoodController deadwoodController = new DeadwoodController();
@@ -33,8 +40,34 @@ public class DeadwoodController {
   }
 
   private void initializeController(int num, DeadwoodController deadwoodController) {
-    deadwoodFrame = DeadwoodFrame.makeFrame();
+    deadwoodFrame = DeadwoodFrame.makeFrame(this);
     deadwood = new Deadwood(num, deadwoodController);
+  }
+
+  public int move(Player p) {
+    int retVal = -2;
+    inputSet = false;
+    deadwoodFrame.removeButtons();
+    Location pLocation = p.getLocation();
+    int size = pLocation.adjacentLocationList.size();
+    int yAxisOfButton = 130;
+    deadwoodFrame.buttonLocations.clear();
+
+    for(int i = 0; i < size; i++) {
+      String name = pLocation.adjacentLocationList.get(i).getName();
+      JButton button = new JButton(name);
+      button.setBackground(Color.white);
+      button.addMouseListener(new AdjacentLocationButtonMouseListener(deadwoodFrame, this, i));
+      deadwoodFrame.paneDeadwood.add(button, new Integer(2));
+      deadwoodFrame.positionButton(button, 10, yAxisOfButton, 180, 50);
+      yAxisOfButton += 50;
+      deadwoodFrame.buttonLocations.add(button);
+    }
+    while(!inputSet) {
+      System.out.print("");
+    }
+    retVal = intInput;
+    return retVal;
   }
 
   public void repaintFrame(Player p) {
@@ -70,16 +103,78 @@ public class DeadwoodController {
             "\tRank: " + rank + "<br>" +
             "\tRehearsals: " + rehearsals + "<br>" +
             "\tLocation: " + location + "<br>" +
-            "\tRole: " + role + "<br>" + "</font>" +
-            "----------------------";
+            "\tRole: " + role;
 
 //    deadwoodFrame.labelCurrentPlayer.setText(p.getName());
 //    System.out.print("Repaint\n");
     deadwoodFrame.labelCurrentPlayer.setText(playerInfo);
+
+
+//    ArrayList<String> turnChoices = p.getTurnChoices();
+//
+//    int size = turnChoices.size();
+//    System.out.println("Size of array: " + size);
+//
+//    for (String s : turnChoices) {
+//      System.out.println(s);
+//    }
     // deadwoodFrame.updateCurrentPlayer(p);
     // deadwoodFrame.removeAll();
     // deadwoodFrame.revalidate();
     // deadwoodFrame.repaint();
+  }
+
+  public void buttonInput(String s){
+    System.out.println("buttonInput: " + s);
+    input = s;
+    inputSet = true;
+  }
+
+  public void buttonInput(int n){
+    System.out.println("buttonInput: " + n);
+    intInput = n;
+    inputSet = true;
+  }
+
+  public String playerOptions(ArrayList<String> turnChoices) {
+    int size = turnChoices.size();
+    System.out.println("number of choices: " + size);
+    int yAxisOfButton = 130;
+    inputSet = false;
+
+    deadwoodFrame.removeButtons();
+
+
+    for (String s : turnChoices) {
+      switch(s) {
+        case "m" :
+          deadwoodFrame.positionButton(deadwoodFrame.buttonMove,10, yAxisOfButton, 180, 50);
+          break;
+        case "a" :
+          deadwoodFrame.positionButton(deadwoodFrame.buttonAct,10, yAxisOfButton, 180, 50);
+          break;
+        case "r" :
+          deadwoodFrame.positionButton(deadwoodFrame.buttonRehearse,10, yAxisOfButton, 180, 50);
+          break;
+        case "u" :
+          deadwoodFrame.positionButton(deadwoodFrame.buttonUpgrade,10, yAxisOfButton, 180, 50);
+          break;
+        case "s" :
+          deadwoodFrame.positionButton(deadwoodFrame.buttonSkip,10, yAxisOfButton, 180, 50);
+          break;
+        default :
+          System.out.println("No buttons for " + s);
+      }
+      yAxisOfButton += 50;
+    }
+
+    if (turnChoices.contains("m")) {
+      deadwoodFrame.buttonMove.setBackground(Color.gray);
+    }
+    while(!inputSet) {
+      System.out.print("");
+    }
+    return input;
   }
 
   // initializeGame

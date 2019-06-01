@@ -77,7 +77,7 @@ public class Deadwood {
     String nameColor[] = {"\u001B[31m", "\u001B[32m", "\u001B[34m"};
     for (int i = 0; i < numPlayers; i++) {
       Player p = new Player(playerNames[i], board.getLocation("Trailers"),
-                            nameColor[i]);
+                            nameColor[i], deadwoodController);
       listOfPlayers.add(p);
     }
   }

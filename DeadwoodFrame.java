@@ -1,22 +1,25 @@
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.ImageIcon;
 
 
 public class DeadwoodFrame extends JFrame {
-    private JLabel labelGameBoard;
-    private JLabel labelCard;
-    private JLabel labelPlayer;
-    JLabel labelCurrentPlayer;
-//    private JLabel labelMenu;
+    public JLabel labelGameBoard;
+    public JLabel labelCard;
+    public JLabel labelPlayer;
+    public JLabel labelCurrentPlayer;
 
-    private JButton buttonAct;
-    private JButton buttonRehearse;
-    private JButton buttonMove;
+    public JButton buttonAct;
+    public JButton buttonRehearse;
+    public JButton buttonMove;
+    public JButton buttonSkip;
+    public JButton buttonUpgrade;
+    public ArrayList<JButton> buttonLocations = new ArrayList<>();
 
-    private JLayeredPane paneDeadwood;
+    public JLayeredPane paneDeadwood;
 
-    private ImageIcon iconGameBoard;
+    public ImageIcon iconGameBoard;
 
     private static final String DEADWOOD_TITLE = "Deadwood";
     private static final String GAME_BOARD_IMAGE = "board.jpg";
@@ -24,6 +27,8 @@ public class DeadwoodFrame extends JFrame {
     private static final String DICE_IMAGE = "dice/r2.png";
     private static final String MENU_LABEL_TEXT = "MENU";
     private static final String ACT_BUTTON_TEXT = "ACT";
+    private static final String SKIP_BUTTON_TEXT = "SKIP";
+    private static final String UPGRADE_BUTTON_TEXT = "UPGRADE";
     private static final String REHEARSE_BUTTON_TEXT = "REHEARSE";
     private static final String MOVE_BUTTON_TEXT = "MOVE";
 
@@ -31,9 +36,11 @@ public class DeadwoodFrame extends JFrame {
     private String name = "Name";
     private String playerName = "<html>" + name + "<br>" + "newline";
     private static DeadwoodFrame deadwoodFrame;
+    private DeadwoodController deadwoodController;
 
-    public DeadwoodFrame() {
+    public DeadwoodFrame(DeadwoodController controller) {
         super(DEADWOOD_TITLE);
+        deadwoodController = controller;
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initializeLabels();
         initializeButtons();
@@ -94,27 +101,43 @@ public class DeadwoodFrame extends JFrame {
         setupActButton();
         setupRehearseButton();
         setupMoveButton();
+        setupSkipButton();
+        setupUpgradeButton();
     }
 
     private void setupActButton() {
         buttonAct = new JButton(ACT_BUTTON_TEXT);
         buttonAct.setBackground(Color.white);
         buttonAct.setBounds(iconGameBoard.getIconWidth() + 10, 180, 180, 50);
-        buttonAct.addMouseListener(new ActButtonMouseListener(this));
+        buttonAct.addMouseListener(new ActButtonMouseListener(this, deadwoodController));
     }
 
     private void setupRehearseButton() {
         buttonRehearse = new JButton(REHEARSE_BUTTON_TEXT);
         buttonRehearse.setBackground(Color.white);
         buttonRehearse.setBounds(iconGameBoard.getIconWidth() + 10, 230, 180, 50);
-        buttonRehearse.addMouseListener(new RehearseButtonMouseListener());
+        buttonRehearse.addMouseListener(new RehearseButtonMouseListener(this, deadwoodController));
     }
 
     private void setupMoveButton() {
         buttonMove = new JButton(MOVE_BUTTON_TEXT);
-        buttonMove.setBackground(Color.gray);
+        buttonMove.setBackground(Color.white);
         buttonMove.setBounds(iconGameBoard.getIconWidth() + 10, 130, 180, 50);
-        buttonMove.addMouseListener(new MoveButtonMouseListener());
+        buttonMove.addMouseListener(new MoveButtonMouseListener(this, deadwoodController));
+    }
+
+    private void setupUpgradeButton() {
+        buttonUpgrade = new JButton(UPGRADE_BUTTON_TEXT);
+        buttonUpgrade.setBackground(Color.white);
+        buttonUpgrade.setBounds(iconGameBoard.getIconWidth() + 10, 280, 180, 50);
+        buttonUpgrade.addMouseListener(new UpgradeButtonMouseListener(this, deadwoodController));
+    }
+
+    private void setupSkipButton() {
+        buttonSkip = new JButton(SKIP_BUTTON_TEXT);
+        buttonSkip.setBackground(Color.white);
+        buttonSkip.setBounds(iconGameBoard.getIconWidth() + 10, 330, 180, 50);
+        buttonSkip.addMouseListener(new SkipButtonMouseListener(this, deadwoodController));
     }
 
     public void initializeDeadwoodPane() {
@@ -123,22 +146,38 @@ public class DeadwoodFrame extends JFrame {
         paneDeadwood.add(labelCard, new Integer(1)); // Add the card to the lower layer
         paneDeadwood.add(labelPlayer, new Integer(3));
         paneDeadwood.add(labelCurrentPlayer, new Integer(3));
-//        paneDeadwood.add(labelMenu, new Integer(2));
 
         paneDeadwood.add(buttonAct, new Integer(2));
         paneDeadwood.add(buttonRehearse, new Integer(2));
         paneDeadwood.add(buttonMove, new Integer(2));
+        paneDeadwood.add(buttonSkip, new Integer(2));
+        paneDeadwood.add(buttonUpgrade, new Integer(2));
+
     }
 
-    public static DeadwoodFrame makeFrame() {
-      DeadwoodFrame board = new DeadwoodFrame();
+    public void positionButton(JButton b, int x, int y, int w, int h) {
+        b.setBounds(iconGameBoard.getIconWidth() + x, y, w, h);
+        b.setVisible(true);
+    }
+
+    public void removeButtons() {
+        buttonMove.setVisible(false);
+        buttonAct.setVisible(false);
+        buttonRehearse.setVisible(false);
+        buttonUpgrade.setVisible(false);
+        buttonSkip.setVisible(false);
+        int size = buttonLocations.size();
+        System.out.println("bLocations Size: " + size);
+        for (int i = 0; i < size; i++) {
+            buttonLocations.get(i).setVisible(false);
+        }
+    }
+
+    public static DeadwoodFrame makeFrame(DeadwoodController controller) {
+      DeadwoodFrame board = new DeadwoodFrame(controller);
       deadwoodFrame = board;
       board.setVisible(true);
 
       return board;
-    }
-
-    public static void updateBoard() {
-
     }
 }

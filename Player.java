@@ -13,8 +13,9 @@ public class Player {
   private Scanner input = new Scanner(System.in);
   private static final String ANSI_RESET = "\u001B[0m";
   private ArrayList<String> turnChoices = new ArrayList<>();
+  private DeadwoodController deadwoodController;
 
-  public Player(String name, Location currentLocation, String nameColor) {
+  public Player(String name, Location currentLocation, String nameColor, DeadwoodController deadwoodController) {
     this.name = name;
     this.dollars = 100;
     this.credits = 100;
@@ -24,11 +25,12 @@ public class Player {
     this.currentLocation = currentLocation;
     this.nameColor = nameColor;
     this.currentLocation.addPlayer(this);
+    this.deadwoodController = deadwoodController;
   }
 
   public void takeTurn() {
     boolean turnComplete = false;
-    String choice;
+    String choice = "notSet";
     turnChoices.clear();
 
 
@@ -62,11 +64,14 @@ public class Player {
       turnChoices.add("s");
 
       // Send options to controller
+      choice = deadwoodController.playerOptions(turnChoices);
 
       System.out.print("\nSelect an option: ");
 
       // Takes player input
-      choice = input.next();
+      if (choice.equals("notSet")) {
+        choice = input.next();
+      }
 
       switch (choice) {
         case "m" :
@@ -122,10 +127,13 @@ public class Player {
     int numOfAdjLocations = currentLocation.getAdjacentLocationSize();
     while (true) {
       currentLocation.printAdjacentOptions();
-      if (input.hasNextInt()) {
-        num = input.nextInt();
+      num = deadwoodController.move(this);
+      if (num == -2) {
+        if (input.hasNextInt()) {
+          num = input.nextInt();
+        }
+        else input.next();
       }
-      else input.next();
       if ((num >= -1) && (num < numOfAdjLocations)) {
         System.out.println(num);
         if(num == -1) break;
