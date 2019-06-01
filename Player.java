@@ -162,7 +162,8 @@ public class Player {
 //      choice = num;
 //      System.out.println("Selection: " + num);
     }
-      roleChoices = location.getRoles(roleChoices);
+    roleChoices.clear();
+    roleChoices = location.getRoles(roleChoices);
     while (check) {
       choice = deadwoodController.role(this, roleChoices);
       System.out.printf("Select a role (-1 to exit): ");

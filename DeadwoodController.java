@@ -59,7 +59,7 @@ public class DeadwoodController {
       button.setBackground(Color.white);
       button.addMouseListener(new AdjacentLocationButtonMouseListener(deadwoodFrame, this, i));
       deadwoodFrame.paneDeadwood.add(button, new Integer(2));
-      deadwoodFrame.positionButton(button, 10, yAxisOfButton, 180, 50);
+      deadwoodFrame.positionButton(button, 10, yAxisOfButton, 220, 50);
       yAxisOfButton += 50;
       deadwoodFrame.buttonLocations.add(button);
     }
@@ -86,7 +86,7 @@ public class DeadwoodController {
         button.setBackground(Color.white);
         button.addMouseListener(new RoleButtonMouseListener(deadwoodFrame, this, i));
         deadwoodFrame.paneDeadwood.add(button, new Integer(2));
-        deadwoodFrame.positionButton(button, 10, yAxisOfButton, 180, 50);
+        deadwoodFrame.positionButton(button, 10, yAxisOfButton, 220, 50);
         yAxisOfButton += 50;
         deadwoodFrame.buttonRoles.add(button);
       }
@@ -96,7 +96,7 @@ public class DeadwoodController {
     button.setBackground(Color.white);
     button.addMouseListener(new RoleButtonMouseListener(deadwoodFrame, this, -1));
     deadwoodFrame.paneDeadwood.add(button, new Integer(2));
-    deadwoodFrame.positionButton(button, 10, yAxisOfButton, 180, 50);
+    deadwoodFrame.positionButton(button, 10, yAxisOfButton, 220, 50);
     deadwoodFrame.buttonRoles.add(button);
 
     while(!inputSet) {
@@ -185,19 +185,19 @@ public class DeadwoodController {
     for (String s : turnChoices) {
       switch(s) {
         case "m" :
-          deadwoodFrame.positionButton(deadwoodFrame.buttonMove,10, yAxisOfButton, 180, 50);
+          deadwoodFrame.positionButton(deadwoodFrame.buttonMove,10, yAxisOfButton, 220, 50);
           break;
         case "a" :
-          deadwoodFrame.positionButton(deadwoodFrame.buttonAct,10, yAxisOfButton, 180, 50);
+          deadwoodFrame.positionButton(deadwoodFrame.buttonAct,10, yAxisOfButton, 220, 50);
           break;
         case "r" :
-          deadwoodFrame.positionButton(deadwoodFrame.buttonRehearse,10, yAxisOfButton, 180, 50);
+          deadwoodFrame.positionButton(deadwoodFrame.buttonRehearse,10, yAxisOfButton, 220, 50);
           break;
         case "u" :
-          deadwoodFrame.positionButton(deadwoodFrame.buttonUpgrade,10, yAxisOfButton, 180, 50);
+          deadwoodFrame.positionButton(deadwoodFrame.buttonUpgrade,10, yAxisOfButton, 220, 50);
           break;
         case "s" :
-          deadwoodFrame.positionButton(deadwoodFrame.buttonSkip,10, yAxisOfButton, 180, 50);
+          deadwoodFrame.positionButton(deadwoodFrame.buttonSkip,10, yAxisOfButton, 220, 50);
           break;
         default :
           System.out.println("No buttons for " + s);
@@ -205,9 +205,6 @@ public class DeadwoodController {
       yAxisOfButton += 50;
     }
 
-    if (turnChoices.contains("m")) {
-      deadwoodFrame.buttonMove.setBackground(Color.gray);
-    }
     while(!inputSet) {
       System.out.print("");
     }

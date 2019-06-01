@@ -62,7 +62,7 @@ public class DeadwoodFrame extends JFrame {
         iconGameBoard = new ImageIcon(GAME_BOARD_IMAGE);
         labelGameBoard.setIcon(iconGameBoard);
         labelGameBoard.setBounds(0, 0, iconGameBoard.getIconWidth(), iconGameBoard.getIconHeight());
-        setSize(iconGameBoard.getIconWidth() + 200, iconGameBoard.getIconHeight()); // Set the size of the GUI
+        setSize(iconGameBoard.getIconWidth() + 250, iconGameBoard.getIconHeight()); // Set the size of the GUI
     }
 
     private void setupCardLabel() {
@@ -109,35 +109,35 @@ public class DeadwoodFrame extends JFrame {
     private void setupActButton() {
         buttonAct = new JButton(ACT_BUTTON_TEXT);
         buttonAct.setBackground(Color.white);
-        buttonAct.setBounds(iconGameBoard.getIconWidth() + 10, 180, 180, 50);
+        buttonAct.setBounds(iconGameBoard.getIconWidth() + 10, 180, 220, 50);
         buttonAct.addMouseListener(new ActButtonMouseListener(this, deadwoodController));
     }
 
     private void setupRehearseButton() {
         buttonRehearse = new JButton(REHEARSE_BUTTON_TEXT);
         buttonRehearse.setBackground(Color.white);
-        buttonRehearse.setBounds(iconGameBoard.getIconWidth() + 10, 230, 180, 50);
+        buttonRehearse.setBounds(iconGameBoard.getIconWidth() + 10, 230, 220, 50);
         buttonRehearse.addMouseListener(new RehearseButtonMouseListener(this, deadwoodController));
     }
 
     private void setupMoveButton() {
         buttonMove = new JButton(MOVE_BUTTON_TEXT);
         buttonMove.setBackground(Color.white);
-        buttonMove.setBounds(iconGameBoard.getIconWidth() + 10, 130, 180, 50);
+        buttonMove.setBounds(iconGameBoard.getIconWidth() + 10, 130, 220, 50);
         buttonMove.addMouseListener(new MoveButtonMouseListener(this, deadwoodController));
     }
 
     private void setupUpgradeButton() {
         buttonUpgrade = new JButton(UPGRADE_BUTTON_TEXT);
         buttonUpgrade.setBackground(Color.white);
-        buttonUpgrade.setBounds(iconGameBoard.getIconWidth() + 10, 280, 180, 50);
+        buttonUpgrade.setBounds(iconGameBoard.getIconWidth() + 10, 280, 220, 50);
         buttonUpgrade.addMouseListener(new UpgradeButtonMouseListener(this, deadwoodController));
     }
 
     private void setupSkipButton() {
         buttonSkip = new JButton(SKIP_BUTTON_TEXT);
         buttonSkip.setBackground(Color.white);
-        buttonSkip.setBounds(iconGameBoard.getIconWidth() + 10, 330, 180, 50);
+        buttonSkip.setBounds(iconGameBoard.getIconWidth() + 10, 330, 220, 50);
         buttonSkip.addMouseListener(new SkipButtonMouseListener(this, deadwoodController));
     }
 
