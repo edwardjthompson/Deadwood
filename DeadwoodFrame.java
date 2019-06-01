@@ -8,7 +8,7 @@ public class DeadwoodFrame extends JFrame {
     private JLabel labelCard;
     private JLabel labelPlayer;
     JLabel labelCurrentPlayer;
-    private JLabel labelMenu;
+//    private JLabel labelMenu;
 
     private JButton buttonAct;
     private JButton buttonRehearse;
@@ -32,8 +32,6 @@ public class DeadwoodFrame extends JFrame {
     private String playerName = "<html>" + name + "<br>" + "newline";
     private static DeadwoodFrame deadwoodFrame;
 
-
-
     public DeadwoodFrame() {
         super(DEADWOOD_TITLE);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -46,7 +44,7 @@ public class DeadwoodFrame extends JFrame {
         setupGameBoardLabel();
         setupCardLabel();
         setupPlayerLabel();
-        setupMenuLabel();
+//        setupMenuLabel();
         setupCurrentPlayerLabel();
         // updateCurrentPlayer();
     }
@@ -78,42 +76,19 @@ public class DeadwoodFrame extends JFrame {
 
     public void updateCurrentPlayer(Player currentPlayer) {
         name = currentPlayer.getName();
-        System.out.printf("updateCurrentPlayer: %s\n", name);
-
-        // playerName = name;
 
         labelCurrentPlayer.setText(name);
-
-
-        // deadwoodFrame.add(labelCurrentPlayer);
-        // super.update(this.getGraphics());
-        // System.out.printf("updateCurrentPlayer2: %s\n", labelCurrentPlayer.getText());
-        // labelCurrentPlayer.paintImmediately(labelCurrentPlayer.getVisibleRect());
-        // revalidate();
-        // repaint();
-        // initializeDeadwoodPane();
-        // paneDeadwood.remove(labelCurrentPlayer);
-        // paneDeadwood.add(labelCurrentPlayer);
-        // paneDeadwood.validate();
-        // paneDeadwood.repaint();
-        // labelCurrentPlayer.paintImmediately(labelCurrentPlayer.getVisibleRect());
-        // deadwoodFrame.repaint();
-        // ImageIcon playerDiceIcon = new ImageIcon(DICE_IMAGE);
-        // labelPlayer.setIcon(playerDiceIcon);
-        // labelPlayer.setBounds(114, 227, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
-        // labelPlayer.setBounds(114,227,46,46);
-        // labelCurrentPlayer.setBounds(iconGameBoard.getIconWidth() + 40, 200, 100, 20);
     }
 
     private void setupCurrentPlayerLabel() {
         labelCurrentPlayer = new JLabel(playerName);
-        labelCurrentPlayer.setBounds(iconGameBoard.getIconWidth() + 40, 200, 150, 100);
+        labelCurrentPlayer.setBounds(iconGameBoard.getIconWidth() + 10, 0, 180, 130);
     }
 
-    private void setupMenuLabel() {
-        labelMenu = new JLabel(MENU_LABEL_TEXT);
-        labelMenu.setBounds(iconGameBoard.getIconWidth() + 40, 0, 100, 20);
-    }
+//    private void setupMenuLabel() {
+//        labelMenu = new JLabel(MENU_LABEL_TEXT);
+//        labelMenu.setBounds(iconGameBoard.getIconWidth() + 65, 130, 100, 20);
+//    }
 
     private void initializeButtons() {
         setupActButton();
@@ -124,21 +99,21 @@ public class DeadwoodFrame extends JFrame {
     private void setupActButton() {
         buttonAct = new JButton(ACT_BUTTON_TEXT);
         buttonAct.setBackground(Color.white);
-        buttonAct.setBounds(iconGameBoard.getIconWidth() + 10, 30, 100, 20);
+        buttonAct.setBounds(iconGameBoard.getIconWidth() + 10, 180, 180, 50);
         buttonAct.addMouseListener(new ActButtonMouseListener(this));
     }
 
     private void setupRehearseButton() {
         buttonRehearse = new JButton(REHEARSE_BUTTON_TEXT);
         buttonRehearse.setBackground(Color.white);
-        buttonRehearse.setBounds(iconGameBoard.getIconWidth() + 10, 60, 150, 20);
+        buttonRehearse.setBounds(iconGameBoard.getIconWidth() + 10, 230, 180, 50);
         buttonRehearse.addMouseListener(new RehearseButtonMouseListener());
     }
 
     private void setupMoveButton() {
         buttonMove = new JButton(MOVE_BUTTON_TEXT);
         buttonMove.setBackground(Color.gray);
-        buttonMove.setBounds(iconGameBoard.getIconWidth() + 10, 90, 100, 20);
+        buttonMove.setBounds(iconGameBoard.getIconWidth() + 10, 130, 180, 50);
         buttonMove.addMouseListener(new MoveButtonMouseListener());
     }
 
@@ -148,16 +123,12 @@ public class DeadwoodFrame extends JFrame {
         paneDeadwood.add(labelCard, new Integer(1)); // Add the card to the lower layer
         paneDeadwood.add(labelPlayer, new Integer(3));
         paneDeadwood.add(labelCurrentPlayer, new Integer(3));
-        paneDeadwood.add(labelMenu, new Integer(2));
+//        paneDeadwood.add(labelMenu, new Integer(2));
 
         paneDeadwood.add(buttonAct, new Integer(2));
         paneDeadwood.add(buttonRehearse, new Integer(2));
         paneDeadwood.add(buttonMove, new Integer(2));
     }
-    // public static void main(String[] args) {
-    //   DeadwoodFrame board = new DeadwoodFrame();
-    //   board.setVisible(true);
-    // }
 
     public static DeadwoodFrame makeFrame() {
       DeadwoodFrame board = new DeadwoodFrame();

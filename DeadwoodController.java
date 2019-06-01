@@ -38,8 +38,44 @@ public class DeadwoodController {
   }
 
   public void repaintFrame(Player p) {
-    System.out.print("Repaint\n");
-    deadwoodFrame.labelCurrentPlayer.setText(p.getName());
+    String name = p.getName();
+    String dollars = Integer.toString(p.getDollars());
+    String credits = Integer.toString(p.getCredits());
+    String rank = Integer.toString(p.getRank());
+    String rehearsals = Integer.toString(p.getNumRehearsals());
+
+    String location;
+    if (p.getLocation() == null) {
+      location = "No current location";
+    }
+    else {
+      location = p.getLocation().getName();
+    }
+
+
+    String role;
+    if (p.getRole() == null) {
+      role = "No current role";
+    }
+    else {
+      role = p.getRole().getName();
+    }
+
+
+
+    String playerInfo = "<html>" + "<font color = " + name + ">" +
+            "Current Player: " + name + "<br>" +
+            "  Dollars: " + dollars + "<br>" +
+            "\tCredits: " + credits + "<br>" +
+            "\tRank: " + rank + "<br>" +
+            "\tRehearsals: " + rehearsals + "<br>" +
+            "\tLocation: " + location + "<br>" +
+            "\tRole: " + role + "<br>" + "</font>" +
+            "----------------------";
+
+//    deadwoodFrame.labelCurrentPlayer.setText(p.getName());
+//    System.out.print("Repaint\n");
+    deadwoodFrame.labelCurrentPlayer.setText(playerInfo);
     // deadwoodFrame.updateCurrentPlayer(p);
     // deadwoodFrame.removeAll();
     // deadwoodFrame.revalidate();

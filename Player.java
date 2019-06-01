@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
@@ -11,6 +12,7 @@ public class Player {
   private String nameColor;
   private Scanner input = new Scanner(System.in);
   private static final String ANSI_RESET = "\u001B[0m";
+  private ArrayList<String> turnChoices = new ArrayList<>();
 
   public Player(String name, Location currentLocation, String nameColor) {
     this.name = name;
@@ -27,6 +29,8 @@ public class Player {
   public void takeTurn() {
     boolean turnComplete = false;
     String choice;
+    turnChoices.clear();
+
 
     System.out.print("******************************************\n");
     System.out.print("Current ");
@@ -39,18 +43,25 @@ public class Player {
       if (currentRole == null) {
         currentLocation.printAdjacent();
         System.out.print("[M]ove");
+        turnChoices.add("m");
       }
       else {
         // If in a role
         System.out.print("[A]ct [R]ehearse");
+        turnChoices.add("a");
+        turnChoices.add("r");
       }
 
       if (currentLocation.getName().equals("Casting Office")) {
         // Able to upgrade
         System.out.print(" [U]pgrade!");
+        turnChoices.add("u");
       }
       // Always able to skip
       System.out.print(" [S]kip\n");
+      turnChoices.add("s");
+
+      // Send options to controller
 
       System.out.print("\nSelect an option: ");
 
@@ -271,6 +282,18 @@ public class Player {
     return dollars;
   }
 
+  public int getNumRehearsals() {
+    return numRehearsals;
+  }
+
+  public Location getLocation() {
+    return currentLocation;
+  }
+
+  public Role getRole() {
+    return currentRole;
+  }
+
   public int getCredits() {
     return credits;
   }
@@ -285,5 +308,9 @@ public class Player {
 
   public int getScore() {
     return dollars + credits + (5*rank);
+  }
+
+  public ArrayList<String> getTurnChoices() {
+    return turnChoices;
   }
 }

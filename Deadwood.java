@@ -73,7 +73,7 @@ public class Deadwood {
 
   private void createPlayers() {
     this.listOfPlayers = new ArrayList<Player>();
-    String playerNames[] = {"red", "green", "blue"};
+    String playerNames[] = {"Red", "Green", "Blue"};
     String nameColor[] = {"\u001B[31m", "\u001B[32m", "\u001B[34m"};
     for (int i = 0; i < numPlayers; i++) {
       Player p = new Player(playerNames[i], board.getLocation("Trailers"),
