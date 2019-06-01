@@ -104,6 +104,20 @@ public class ActingLocation extends Location {
     }
   }
 
+  public ArrayList<String> getRoles(ArrayList<String> roleChoices) {
+    int extrasSize = listOfExtras.size();
+    int mainSize = currentScene.getListOfRoles().size();
+
+    for(int i = 0; i < mainSize; i++) {
+      roleChoices.add(currentScene.getListOfRoles().get(i).getRoleName());
+    }
+
+    for(int i = 0; i < extrasSize; i++) {
+      roleChoices.add(listOfExtras.get(i).getRoleName());
+    }
+    return roleChoices;
+  }
+
   public void printActLocation() {
     int selectionNum = 0;
     System.out.println(name);

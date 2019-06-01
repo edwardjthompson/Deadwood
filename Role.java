@@ -45,6 +45,15 @@ public class Role {
     System.out.printf("(Rank: %d) (%s): %s\n", rank, name, line);
   }
 
+  public String getRoleName() {
+    if(takenBy != null) {
+      return "0" + name + " is Taken";
+    }
+    else {
+      return name + "[" + rank + "]";
+    }
+  }
+
   public Player getPlayer(){
     return takenBy;
   }

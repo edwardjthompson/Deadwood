@@ -46,11 +46,11 @@ public class DeadwoodController {
 
   public int move(Player p) {
     int retVal = -2;
+    int yAxisOfButton = 130;
     inputSet = false;
     deadwoodFrame.removeButtons();
     Location pLocation = p.getLocation();
     int size = pLocation.adjacentLocationList.size();
-    int yAxisOfButton = 130;
     deadwoodFrame.buttonLocations.clear();
 
     for(int i = 0; i < size; i++) {
@@ -67,6 +67,43 @@ public class DeadwoodController {
       System.out.print("");
     }
     retVal = intInput;
+    return retVal;
+  }
+
+  public int role(Player p, ArrayList<String> roleChoices) {
+    int retVal = -2;
+    int yAxisOfButton = 130;
+    inputSet = false;
+    deadwoodFrame.removeButtons();
+    deadwoodFrame.buttonRoles.clear();
+    int numOfChoices = roleChoices.size();
+    int i;
+    for (i = 0; i < numOfChoices; i++) {
+      String name = roleChoices.get(i);
+      System.out.println(roleChoices.get(i));
+      if (name.charAt(0) != '0') {
+        JButton button = new JButton(name);
+        button.setBackground(Color.white);
+        button.addMouseListener(new RoleButtonMouseListener(deadwoodFrame, this, i));
+        deadwoodFrame.paneDeadwood.add(button, new Integer(2));
+        deadwoodFrame.positionButton(button, 10, yAxisOfButton, 180, 50);
+        yAxisOfButton += 50;
+        deadwoodFrame.buttonRoles.add(button);
+      }
+    }
+    // Take no role option
+    JButton button = new JButton("TAKE NO ROLE");
+    button.setBackground(Color.white);
+    button.addMouseListener(new RoleButtonMouseListener(deadwoodFrame, this, -1));
+    deadwoodFrame.paneDeadwood.add(button, new Integer(2));
+    deadwoodFrame.positionButton(button, 10, yAxisOfButton, 180, 50);
+    deadwoodFrame.buttonRoles.add(button);
+
+    while(!inputSet) {
+      System.out.print("");
+    }
+    retVal = intInput;
+
     return retVal;
   }
 

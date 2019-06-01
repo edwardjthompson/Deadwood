@@ -100,6 +100,10 @@ public class Scene {
     return selectionNum;
   }
 
+  public ArrayList<Role> getListOfRoles() {
+    return listOfRoles;
+  }
+
   public int getBudget() {
     return budget;
   }

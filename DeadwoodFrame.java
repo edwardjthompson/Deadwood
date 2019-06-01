@@ -16,6 +16,7 @@ public class DeadwoodFrame extends JFrame {
     public JButton buttonSkip;
     public JButton buttonUpgrade;
     public ArrayList<JButton> buttonLocations = new ArrayList<>();
+    public ArrayList<JButton> buttonRoles = new ArrayList<>();
 
     public JLayeredPane paneDeadwood;
 
@@ -68,7 +69,7 @@ public class DeadwoodFrame extends JFrame {
         labelCard = new JLabel();
         ImageIcon cardIcon = new ImageIcon(CARD_IMAGE);
         labelCard.setIcon(cardIcon);
-        labelCard.setBounds(20, 65, cardIcon.getIconWidth() + 2, cardIcon.getIconHeight());
+        labelCard.setBounds(21, 68, cardIcon.getIconWidth() + 2, cardIcon.getIconHeight());
         // labelCard.setOpaque(true);
         labelCard.setVisible(true);
     }
@@ -77,8 +78,8 @@ public class DeadwoodFrame extends JFrame {
         labelPlayer = new JLabel();
         ImageIcon playerDiceIcon = new ImageIcon(DICE_IMAGE);
         labelPlayer.setIcon(playerDiceIcon);
-        labelPlayer.setBounds(114, 227, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
-        labelPlayer.setBounds(114,227,46,46);
+        labelPlayer.setBounds(117, 231, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
+//        labelPlayer.setBounds(114,227,46,46);
     }
 
     public void updateCurrentPlayer(Player currentPlayer) {
@@ -170,6 +171,10 @@ public class DeadwoodFrame extends JFrame {
         System.out.println("bLocations Size: " + size);
         for (int i = 0; i < size; i++) {
             buttonLocations.get(i).setVisible(false);
+        }
+        size = buttonRoles.size();
+        for (int i = 0; i < size; i++) {
+            buttonRoles.get(i).setVisible(false);
         }
     }
 

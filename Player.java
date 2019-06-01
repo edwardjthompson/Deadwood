@@ -13,6 +13,7 @@ public class Player {
   private Scanner input = new Scanner(System.in);
   private static final String ANSI_RESET = "\u001B[0m";
   private ArrayList<String> turnChoices = new ArrayList<>();
+  private ArrayList<String> roleChoices = new ArrayList<>();
   private DeadwoodController deadwoodController;
 
   public Player(String name, Location currentLocation, String nameColor, DeadwoodController deadwoodController) {
@@ -148,19 +149,29 @@ public class Player {
 
   private void getRoleOptions(ActingLocation location) {
     Role takenRole = null;
-    int choice = -1;
+    int choice = -2;
     boolean check = true;
     // if scene not revealed, reveal
     if (!location.hasSceneFinished()) {
       // Scene has not finished
-     location.revealScene();
-     location.printActLocation();
+      location.revealScene();
+      location.printActLocation();
+      // New for GUI
+//      roleChoices = location.getRoles(roleChoices);
+//      int num = deadwoodController.role(this, roleChoices);
+//      choice = num;
+//      System.out.println("Selection: " + num);
     }
+      roleChoices = location.getRoles(roleChoices);
     while (check) {
+      choice = deadwoodController.role(this, roleChoices);
       System.out.printf("Select a role (-1 to exit): ");
-      if (input.hasNextInt()) {
-        choice = input.nextInt();
+      if (choice == -2) {
+        if (input.hasNextInt()) {
+          choice = input.nextInt();
+        }
       }
+//      else check = false;
 
       if (choice < 0) {
         takenRole = null;
