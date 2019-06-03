@@ -5,10 +5,15 @@ public class Location {
   protected ArrayList<Player> listOfPlayer;
   protected String name;
 
-  public Location(String name) {
+  private int playerx;
+  private int playery;
+
+  public Location(String name, int px, int py) {
     adjacentLocationList = new ArrayList<Location>();
     listOfPlayer = new ArrayList<Player>();
     this.name = name;
+    playerx = px;
+    playery = py;
   }
 
   public void addPlayer(Player addedPlayer) {
@@ -33,14 +38,14 @@ public class Location {
     return adjacentLocationList.size();
   }
 
-  public void printLocation() {
+  public ArrayList<Image> printLocation() {
+    ArrayList<Image> images = new ArrayList<Image>();
     if(listOfPlayer.size() > 0) {
-      System.out.printf("%s:\n", name);
       for(int i = 0; i < listOfPlayer.size(); i++) {
-        System.out.println(listOfPlayer.get(i).getName());
+        images.add(new Image(listOfPlayer.get(i).getName(), playerx + (45 * i), playery));
       }
-      System.out.println();
     }
+    return images;
   }
 
   public void printAdjacent() {

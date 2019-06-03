@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Deadwood {
+  private static DeadwoodFrame screen;
   private int currentDay;
   private int numDays;
   private Board board;
@@ -23,6 +24,8 @@ public class Deadwood {
 
     // Creating instance of objects
     Deadwood deadwood = new Deadwood();
+    screen = new DeadwoodFrame();
+    screen.setVisible(true);
 
     // Getting numPlayer from main args
     int num = 0;

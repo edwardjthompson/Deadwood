@@ -7,8 +7,7 @@ public class Scene {
   private int budget;
   private ArrayList<Role> listOfRoles;
 
-  public Scene(String name, String description,
-               int budget) {
+  public Scene(String name, String description, int budget) {
     listOfRoles = new ArrayList<Role>();
     this.name = name;
     this.description = description;
@@ -88,16 +87,20 @@ public class Scene {
     return false;
   }
 
-  public int printScene(int selectionNum) {
-    System.out.printf("\nScene: %s Budget: $%d Million\n", name, budget);
-    System.out.println(description);
-    System.out.println("\nSTARING ROLES:");
-    for(int i = 0; i < listOfRoles.size(); i++) {
-      System.out.printf("[%d]", selectionNum);
-      selectionNum++;
-      listOfRoles.get(i).printRole();
+  public ArrayList<Image> printScene(boolean revealed) {
+    ArrayList<Image> images = new ArrayList<Image>();
+    if(revealed) {
+      images.add(new Image("Back", 0, 0));
     }
-    return selectionNum;
+    else {
+      images.add(new Image(name, 0, 0));
+    }
+    for(int i = 0; i < listOfRoles.size(); i++) {
+      if(listOfRoles.get(i).printRole() != null) {
+        images.add(listOfRoles.get(i).printRole());
+      }
+    }
+    return images;
   }
 
   public int getBudget() {

@@ -6,14 +6,20 @@ ROLE
 Defrocked Priest
 "Look out below!"
 2
+20
+47
 ROLE
 Marshal Canfield
 "Hold fast!"
 3
+83
+47
 ROLE
 One-Eyed Man
 "Balderdash!"
 4
+145
+47
 
 SCENE
 Square Deal City
@@ -23,14 +29,20 @@ ROLE
 Squeaking Boy
 "I'll say!"
 2
+20
+47
 ROLE
 Pharaoh Imhotep
 "Attack, soldiers!"
 4
+83
+47
 ROLE
 Aunt Martha
 "You got nothin'!"
 6
+145
+47
 
 SCENE
 Law and the Old West
@@ -40,14 +52,20 @@ ROLE
 Rug Merchant
 "Don"t leave my store!"
 1
+20
+47
 ROLE
 Banker
 "Trust me."
 2
+83
+47
 ROLE
 Talking Mule
 "Nice work, Johnny!"
 5
+145
+47
 
 SCENE
 Davy Crockett: A Drunkard"s Tale
@@ -57,10 +75,14 @@ ROLE
 The Duck
 "Waaaak!"
 4
+53
+47
 ROLE
 His Brother
 "Waaaaaaak!"
 6
+115
+47
 
 SCENE
 The Life and Times of John Skywater
@@ -70,10 +92,14 @@ ROLE
 Auctioneer
 "Going once!"
 5
+53
+47
 ROLE
 General Custer
 "Go West!"
 6
+115
+47
 
 SCENE
 The Way the West Was Run
@@ -83,14 +109,20 @@ ROLE
 Town Drunk
 "Even me!"
 2
+20
+47
 ROLE
 Squinting Miner
 "Sure we can!"
 4
+83
+47
 ROLE
 Poltergeist
 "Wooooo!"
 5
+145
+47
 
 SCENE
 My Years on the Prairie
@@ -98,16 +130,22 @@ Scene 32: Virgil and Stacy set out at midnight to track down the stray cows, una
 5
 ROLE
 Drunk
-"Where"s Willard?"
+"Where's Willard?"
 3
+20
+47
 ROLE
 Librarian
 "Shhhhh!"
 4
+83
+47
 ROLE
 Man with Hay
 "Hey!"
 6
+145
+47
 
 SCENE
 Down in the Valley
@@ -117,14 +155,20 @@ ROLE
 Angry Barber
 "Hold him still!"
 1
+20
+47
 ROLE
 Woman with Board
 "Nonsense, Frank!"
 3
+83
+47
 ROLE
 Man on Fire
 "It burns!"
 5
+145
+47
 
 SCENE
 Buffalo Bill: The Lost Years
@@ -134,14 +178,20 @@ ROLE
 Hollering Boy
 "Over here, mister!"
 2
+20
+47
 ROLE
 Drunk Farmer
 "Git outta me barn!"
 3
+83
+47
 ROLE
 Meek Little Sarah
-"He"s so cute!"
+"He's so cute!"
 5
+145
+47
 
 SCENE
 Ol" Shooter and Little Doll
@@ -151,14 +201,20 @@ ROLE
 Sleeping Man
 "Snnkkk snnkk snnkk."
 1
+20
+47
 ROLE
 Man with Pig
 "Tally-Hooo!"
 2
+83
+47
 ROLE
 Shooter
 "Where"s my britches?"
 4
+145
+47
 
 SCENE
 The Robbers of Trains
@@ -168,31 +224,43 @@ ROLE
 Man Reading Paper
 "Ouchie!"
 4
+83
+47
 ROLE
 Fat Pete
 "Nice kick, boss!"
 5
+145
+47
 ROLE
 Buster
 "One two three go!"
 1
+20
+47
 
 SCENE
 Jesse James: Man of Action
-Scene 8: Jesse"s brothers Jed and Henry throw him a surprise birthday party. Jesse"s nerves get the better of him when the birthday cake explodes.
+Scene 8: Jesse's brothers Jed and Henry throw him a surprise birthday party. Jesse"s nerves get the better of him when the birthday cake explodes.
 5
 ROLE
 Shot in Leg
 "Ooh, lordy!"
 4
+83
+47
 ROLE
 Leaps into Cake
 "Dangit, Jesse!"
 5
+145
+47
 ROLE
 Shot in Back
 "Arrrggh!"
 1
+20
+47
 
 SCENE
 Beyond the Pail: Life without Lactose
@@ -202,6 +270,8 @@ ROLE
 Martin
 "Have you tried soy cheese?"
 6
+83
+47
 
 SCENE
 Disaster at Flying J
@@ -211,14 +281,20 @@ ROLE
 Man in Turban
 "My stars!"
 3
+83
+47
 ROLE
 Falls on Hoe
 "Ow!"
 4
+145
+47
 ROLE
 Piano Player
 "It"s a nocturne!"
 2
+20
+47
 
 SCENE
 A Man Called "Cow"
@@ -228,27 +304,37 @@ ROLE
 Preacher
 "My word!"
 3
+53
+47
 ROLE
 Amused Witness
 "Tee hee hee!"
 6
+115
+47
 
 SCENE
 Shakespeare in Lubbock
-Scene 23: William decides that it is time to be movin" on. Julia convinces him to stick around just long enough to get into big trouble.
+Scene 23: William decides that it is time to be movin' on. Julia convinces him to stick around just long enough to get into big trouble.
 3
 ROLE
 Laughing Woman
-""Tis to laugh!"
+"'Tis to laugh!"
 3
+83
+47
 ROLE
 Man with Whistle
 "Tweeeeet!"
 4
+145
+47
 ROLE
 Falls from Tree
 "What ho!"
 1
+20
+47
 
 SCENE
 Taffy Commercial
@@ -258,10 +344,14 @@ ROLE
 Curious Girl
 "Are you sure?"
 3
+53
+47
 ROLE
 Ghost of Plato
 "It happened to me!"
 4
+115
+47
 
 SCENE
 Go West, You!
@@ -271,10 +361,14 @@ ROLE
 Ex-Convict
 "Never again!"
 4
+53
+47
 ROLE
 Man with Onion
 "Fresh onions!"
 6
+115
+47
 
 SCENE
 Gum Commercial
@@ -284,10 +378,14 @@ ROLE
 Surprised Bison
 "Mmrrrrrph!"
 2
+53
+47
 ROLE
 Man with Horn
 "Ta daaaa!"
 4
+115
+47
 
 SCENE
 The Life and Times of John Skywater
@@ -297,31 +395,43 @@ ROLE
 Woman with Beer
 "Howdy, stranger!"
 5
+83
+47
 ROLE
 Marcie
 "Welcome home!"
 6
+145
+47
 ROLE
 Staggering Man
 "You never know!"
 3
+20
+47
 
 SCENE
 Gun! The Musical
-Scene 25: A song and dance extravaganza, "Hunka Hunka Burnin" Lead."
+Scene 25: A song and dance extravaganza, "Hunka Hunka Burnin' Lead."
 6
 ROLE
 Singing Dead Man
 "Yeah!"
 5
+83
+47
 ROLE
 Apothecary
 "Such drugs I have."
 6
+145
+47
 ROLE
 Looks like Elvis
 "Thankyouverymuch."
 4
+20
+47
 
 SCENE
 One False Step for Mankind
@@ -331,14 +441,20 @@ ROLE
 Space Monkey
 "Ook!"
 2
+83
+47
 ROLE
 Cowbot Dan
 "Bzzzzzt!"
 5
+145
+47
 ROLE
 Flustered Man
 "Well, I never!"
 1
+20
+47
 
 SCENE
 Humor at the Expense of Others
@@ -348,14 +464,20 @@ ROLE
 Mephistopheles
 "Be not afraid!"
 4
+83
+47
 ROLE
 Breaks a Window
 "Oops!"
 5
+145
+47
 ROLE
 Jailer
 "You there!"
 2
+20
+47
 
 SCENE
 Thirteen the Hard Way
@@ -365,14 +487,20 @@ ROLE
 Ecstatic Housewife
 "This is fine!"
 3
+83
+47
 ROLE
 Isaac
 "The mail!"
 5
+145
+47
 ROLE
 Man in Poncho
 "Howdy, Jones!"
 1
+20
+47
 
 SCENE
 The Search for Maggie White
@@ -382,40 +510,54 @@ ROLE
 Film Critic
 "Implausible!"
 5
+53
+47
 ROLE
 Hobo with Bat
 "Nice house!"
 6
+115
+47
 
 SCENE
 How They Get Milk
-Scene 2: Josie asks the Milkman how they get milk. After a thoughtful pause, he begins. "Not like you"d expect!"
+Scene 2: Josie asks the Milkman how they get milk. After a thoughtful pause, he begins. "Not like you'd expect!"
 4
 ROLE
 St. Clement of Alexandria
 "Peace be with you, child!"
 3
+83
+47
 ROLE
 Josie
 "Yikes!"
 4
+145
+47
 ROLE
 Cow
 "Moo."
 2
+20
+47
 
 SCENE
 Picante Sauce Commercial
 Scene 1: A dozen grizzled cowboys surround a fire. Suddenly, they exclaim, "That"s not mayonnaise!"
 2
 ROLE
-Bewhisker"d Cowpoke
+Bewhisker'd Cowpoke
 "Oh, sweet Lord!"
 3
+53
+47
 ROLE
 Dog
 "Wurf!"
 5
+115
+47
 
 SCENE
 My Years on the Prairie
@@ -425,31 +567,43 @@ ROLE
 Leprechaun
 "Begorrah!"
 3
+83
+47
 ROLE
 Startled Ox
 "Mrr?"
 5
+145
+47
 ROLE
 Willard
 "Ain"t that a sight?"
 2
+20
+47
 
 SCENE
 Jesse James: Man of Action
-Scene 14: A hail of gunfire results when Jesse"s friend Barton marries Jesse"s childhood sweetheart.
+Scene 14: A hail of gunfire results when Jesse's friend Barton marries Jesse"s childhood sweetheart.
 5
 ROLE
 Leaps Out of Cake
-"Oh, for Pete"s sake!"
+"Oh, for Pete's sake!"
 4
+83
+47
 ROLE
 Shot Three Times
 "Ow! Ow! Ow!"
 6
+145
+47
 ROLE
 Shot in Head
 "Arrrgh!"
 1
+20
+47
 
 SCENE
 Davy Crockett: A Drunkard"s Tale
@@ -459,14 +613,20 @@ ROLE
 Hands of God
 "!"
 3
+83
+47
 ROLE
 Jack Kemp
 "America!"
 4
+145
+47
 ROLE
 Voice of God
 "Grab hold, son!"
 2
+20
+47
 
 SCENE
 Czechs in the Sonora
@@ -476,10 +636,14 @@ ROLE
 Opice (Monkey)
 "Ukk! (Ook)!"
 5
+53
+47
 ROLE
 Man with Gun
 "Hold it right there!"
 6
+115
+47
 
 SCENE
 J. Robert Lucky, Man of Substance
@@ -489,14 +653,20 @@ ROLE
 Svetlana
 "Says who?"
 2
+83
+47
 ROLE
 Accidental Victim
 "Ow! My spine!"
 5
+145
+47
 ROLE
 Man with Rope
 "Look out below!"
 1
+20
+47
 
 SCENE
 Swing 'em Wide
@@ -506,14 +676,20 @@ ROLE
 Sober Physician
 "Raise!"
 3
+83
+47
 ROLE
 Man on Floor
 "Fold!"
 5
+145
+47
 ROLE
 Thrifty Mike
 "Call!"
 1
+20
+47
 
 SCENE
 Thirteen the Hard Way
@@ -523,14 +699,20 @@ ROLE
 Dejected Housewife
 "Its time had come."
 4
+83
+47
 ROLE
 Man with Box
 "Progress!"
 5
+145
+47
 ROLE
 Very Wet Man
 "Sheesh!"
 2
+20
+47
 
 SCENE
 Swing 'em Wide
@@ -540,14 +722,20 @@ ROLE
 Witch Doctor
 "Oogie Boogie!"
 5
+83
+47
 ROLE
 Voice of Reason
 "Come on, now!"
 6
+145
+47
 ROLE
 Liberated Nun
 "Let me have it!"
 3
+20
+47
 
 SCENE
 How They Get Milk
@@ -555,16 +743,22 @@ Scene 8: Josie is thoroughly off milk at this point. The Milkman shows her one m
 4
 ROLE
 Postal Worker
-"It"s about time!"
+"It's about time!"
 5
+83
+47
 ROLE
 A Horse
 "Yes Sir!"
 6
+145
+47
 ROLE
 Marksman
 "Pull!"
 4
+20
+47
 
 SCENE
 Trials of the First Pioneers
@@ -574,14 +768,20 @@ ROLE
 Cheese Vendor
 "Opa!"
 4
+83
+47
 ROLE
 Hit with Table
 "Ow! A table?"
 5
+145
+47
 ROLE
 Burning Man
 "Make it stop!"
 2
+20
+47
 
 SCENE
 Breakin" in Trick Ponies
@@ -591,10 +791,14 @@ ROLE
 Fraternity Pledge
 "Beer me!"
 2
+53
+47
 ROLE
 Man with Sword
 "None shall pass!"
 6
+115
+47
 
 SCENE
 How the Grinch Stole Texas
@@ -604,29 +808,44 @@ ROLE
 File Clerk
 "My stapler!"
 4
+83
+47
 ROLE
 Cindy Lou
 "Dear Lord!"
 5
+145
+47
 ROLE
 Detective
 "I have a hunch."
 3
+20
+47
 
 SCENE
-Custer"s Other Stands
+Custer's Other Stands
 Scene 40: General George Armstrong Custer clinches another victory at the battle of Little Sands. His trusty steed Cairo is not so lucky.
 5
 ROLE
 Exploding Horse
 "Boom!"
 4
+83
+47
 ROLE
 Jack
 "Here we go again!"
 6
+145
+47
 ROLE
 Farmer
 "Git off a that!"
 2
+20
+47
 END
+For 3 roles	20 47, 83 47, 145 47
+For 2 roles	53 47, 115 47
+For 1 role	83 47

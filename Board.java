@@ -46,9 +46,10 @@ public class Board {
     }
   }
 
-  public void printBoard() {
+  public ArrayList<Image> printBoard() {
+    ArrayList<Image> images = new ArrayList<Image>();
     for(int i = 0; i < locations.length; i++) {
-      locations[i].printLocation();
+      images.addAll(locations[i].printLocation());
     }
   }
 
@@ -59,6 +60,8 @@ public class Board {
     String name;
     String quote;
     int rank;
+    int x;
+    int y;
     Location current = null;
     Role currentRole = null;
 
@@ -75,28 +78,41 @@ public class Board {
         if(line.equals("A-ROOM")) {
           //Sets up an Acting Location
           line = s.nextLine();
-          ActingLocation temp = new ActingLocation(line);
+          x = Integer.parseInt(s.nextLine());
+          y = Integer.parseInt(s.nextLine());
+          int sx = Integer.parseInt(s.nextLine());
+          int sy = Integer.parseInt(s.nextLine());
+          ActingLocation temp = new ActingLocation(line, x, y, sx, sy);
           dealScene(temp);
           line = s.nextLine();
-          temp.setShots(Integer.parseInt(line));
+          String line2 = s.nextLine();
+          x = Integer.parseInt(s.nextLine());
+          y = Integer.parseInt(s.nextLine());
+          temp.setShots(Integer.parseInt(line), line2, x, y);
           current = temp;
         }
         else if(line.equals("T-ROOM")) {
           //Sets up a boring old Trailer Location
           line = s.nextLine();
-          current = new Location(line);
+          x = Integer.parseInt(s.nextLine());
+          y = Integer.parseInt(s.nextLine());
+          current = new Location(line, x, y);
         }
         else if(line.equals("C-ROOM")) {
           //Sets up a Casting Office
           line = s.nextLine();
-          current = new CastingOffice(line);
+          x = Integer.parseInt(s.nextLine());
+          y = Integer.parseInt(s.nextLine());
+          current = new CastingOffice(line, x, y);
         }
         else if(line.equals("ROLE")) {
           //Sets up a role then gives it to whatever room had been recently set
           name = s.nextLine();
           quote = s.nextLine();
           rank = Integer.parseInt(s.nextLine());
-          currentRole = new Role(rank, name, quote, false);
+          x = Integer.parseInt(s.nextLine());
+          y = Integer.parseInt(s.nextLine());
+          currentRole = new Role(rank, name, quote, false, x, y);
           ActingLocation temp = (ActingLocation)current;
           temp.addRole(currentRole);
         }
@@ -192,7 +208,9 @@ public class Board {
           title = s.nextLine();
           line = s.nextLine();
           br = Integer.parseInt(s.nextLine());
-          currentRole = new Role(br, title, line, true);
+          x = Integer.parseInt(s.nextLine());
+          y = Integer.parseInt(s.nextLine());
+          currentRole = new Role(br, title, line, true, x, y);
           currentScene.addRole(currentRole);
         }
         else {

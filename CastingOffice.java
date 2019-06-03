@@ -1,8 +1,8 @@
 
 public class CastingOffice extends Location {
 
-  public CastingOffice(String name) {
-    super(name);
+  public CastingOffice(String name, int x, int y) {
+    super(name, x, y);
   }
 
   public void availableUpgrades(Player player) {

@@ -6,11 +6,16 @@ public class Role {
   private boolean isMain;
   private Player takenBy;
 
-  public Role(int rank, String name, String line, boolean isMain) {
+  private int x;
+  private int y;
+
+  public Role(int rank, String name, String line, boolean isMain, int x, int y) {
     this.rank = rank;
     this.name = name;
     this.line = line;
     this.isMain = isMain;
+    this.x = x;
+    this.y = y;
   }
 
   //Returns true if it was successful and false if it failed
@@ -38,11 +43,12 @@ public class Role {
     return isMain;
   }
 
-  public void printRole() {
+  public Image printRole() {
+    Image image;
     if(takenBy != null) {
-      System.out.printf("Taken by: %s ", takenBy.getName());
+      image = new Image(takenBy.getName(), x, y);
     }
-    System.out.printf("(Rank: %d) (%s): %s\n", rank, name, line);
+    return image;
   }
 
   public Player getPlayer(){

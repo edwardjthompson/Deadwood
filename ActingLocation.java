@@ -9,11 +9,20 @@ public class ActingLocation extends Location {
   private boolean hasSceneBeenRevealed;
   private boolean hasSceneFinished;
 
-  public ActingLocation(String name) {
-    super(name);
+  private int scenex;
+  private int sceney;
+
+  private int shotx;
+  private int shoty;
+  private String shotDirection;
+
+  public ActingLocation(String name, int px, int py, int sx, int sy) {
+    super(name, px, py);
     listOfExtras = new ArrayList<Role>();
     hasSceneFinished = false;
     hasSceneBeenRevealed = false;
+    scenex = sx;
+    sceney = sy;
   }
 
   //Only need to use this one, will give you available roles for it and the card on it
@@ -31,9 +40,12 @@ public class ActingLocation extends Location {
     else return arrayOfRoles.get(num);
   }
 
-  public void setShots(int shots) {
+  public void setShots(int shots, String shotD, int sx, int sy) {
     numShots = shots;
     totalShots = shots;
+    shotx = sx;
+    shoty = sy;
+    shotDirection = shotD;
   }
 
   public int getShots() {
@@ -80,7 +92,7 @@ public class ActingLocation extends Location {
         actor.updateDollars(1);
       }
     }
-    System.out.printf("Shots remaining: %d\n", numShots);
+
     if(numShots <= 0) {
       Player current;
 
@@ -104,29 +116,28 @@ public class ActingLocation extends Location {
     }
   }
 
-  public void printActLocation() {
-    int selectionNum = 0;
-    System.out.println(name);
-    if(hasSceneBeenRevealed) {
-      if(hasSceneFinished) {
-        System.out.println("The Scene in this Room is Shot for the Day!");
-      }
-      else {
-        if (currentScene != null) {
-          selectionNum = currentScene.printScene(selectionNum);
+  public ArrayList<Image> printLocation() {
+    ArrayList<Image> images = new ArrayList<Image>();
+    if(!hasSceneFinished) {
+      if (currentScene != null) {
+        ArrayList<Image> sceneImages = currentScene.printScene(hasSceneBeenRevealed);
+        for(int i = 0; i < sceneImages.size(); i++) {
+          sceneImages.get(i).setX(sceneImages.get(i).getX() + scenex);
+          sceneImages.get(i).setY(sceneImages.get(i).getY() + sceney);
         }
+        images.addAll();
       }
     }
-    else {
-      System.out.println("There is an Unrevealed Scene in this Room!");
-    }
-    System.out.println("EXTRAS:");
     for(int i = 0; i < listOfExtras.size(); i++) {
-      System.out.printf("[%d]", selectionNum);
-      selectionNum++;
-      listOfExtras.get(i).printRole();
+      images.add(listOfExtras.get(i).printRole());
     }
-    System.out.println();
+    if(listOfPlayer.size() > 0) {
+      for(int i = 0; i < listOfPlayer.size(); i++) {
+        images.add(new Image(listOfPlayer.get(i).getName(), playerx + (45 * i), playery));
+      }
+    }
+    //Shot counters add 53 in whichever direction shots are going
+    return images;
   }
 
   public boolean hasSceneFinished() {

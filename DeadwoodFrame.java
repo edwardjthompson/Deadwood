@@ -19,8 +19,8 @@ public class DeadwoodFrame extends JFrame {
 
     private static final String DEADWOOD_TITLE = "Deadwood";
     private static final String GAME_BOARD_IMAGE = "board.jpg";
-    private static final String CARD_IMAGE = "/card/01.png";
-    private static final String DICE_IMAGE = "r2.png";
+    private static final String CARD_IMAGE = "cards/01.png";
+    private static final String DICE_IMAGE = "dice/r2.png";
     private static final String MENU_LABEL_TEXT = "MENU";
     private static final String ACT_BUTTON_TEXT = "ACT";
     private static final String REHEARSE_BUTTON_TEXT = "REHEARSE";
@@ -111,9 +111,5 @@ public class DeadwoodFrame extends JFrame {
         paneDeadwood.add(buttonAct, new Integer(2));
         paneDeadwood.add(buttonRehearse, new Integer(2));
         paneDeadwood.add(buttonMove, new Integer(2));
-    }
-    public static void main(String[] args) {
-      DeadwoodFrame board = new DeadwoodFrame();
-      board.setVisible(true);
     }
 }

@@ -1,162 +1,295 @@
 A-ROOM
 Main Street
+917
+154
+968
+28
 3
+l
+913
+24
 ROLE
 Railroad Worker
 "I'm a steel-drivin' man!"
 1
+640
+25
 ROLE
 Falls off Roof
 "Aaaaiiiigggghh!"
 2
+723
+25
 ROLE
 Woman in Black Dress
 "Well I'll be!"
 2
+640
+108
 ROLE
 Mayor McGinty
 "People of Deadwood!"
 4
+723
+108
 
 A-ROOM
 Saloon
+627
+402
+632
+281
 2
+r
+628
+217
 ROLE
 Woman in Red Dress
 "Come up and see me!"
 2
+881
+279
 ROLE
 Reluctant Farmer
 "I ain't so sure about that!"
 1
+881
+355
 
 T-ROOM
 Trailers
+998
+272
 
 A-ROOM
 Ranch
+268
+642
+252
+477
 2
+r
+474
+475
 ROLE
 Man Under Horse
 "A little help here!"
 3
+491
+528
 ROLE
 Shot in Leg
 "Ow! Me Leg!"
 1
+415
+611
 ROLE
 Saucy Fred
 "That's what she said!"
 2
+491
+611
 
 A-ROOM
 Secret Hideout
+232
+832
+27
+732
 3
+r
+246
+767
 ROLE
 Clumsy Pit Fighter
 "Hit me!"
 1
+438
+723
 ROLE
 Thug with Knife
 "Meet Suzy, my murderin' knife."
 2
+524
+723
 ROLE
 Dangerous Tom
 "There's two ways we can do this..."
 3
+438
+811
 ROLE
 Penny, who is Lost
 "Oh woe! For I am lost!"
 4
+524
+811
 
 C-ROOM
 Casting Office
+13
+466
 
 A-ROOM
 Bank
+619
+599
+623
+475
 1
+r
+842
+551
 ROLE
 Flustered Teller
 "Would you like a large bill, sir?"
 3
+914
+473
 ROLE
 Suspicious Gentleman
 "Can you be more specific?"
 2
+914
+557
 
 A-ROOM
 Church
+740
+683
+623
+735
 2
+r
+624
+677
 ROLE
 Dead Man
 "...."
 1
+860
+733
 ROLE
 Crying Woman
 "Oh, the humanity!"
 2
+860
+813
 
 A-ROOM
 Hotel
+1009
+642
+969
+741
 3
+r
+1007
+686
 ROLE
 Sleeping Drunkard
 "Zzzzzz... Whiskey."
 1
+1114
+472
 ROLE
 Faro Player
 "Hit me!"
 1
+1047
+513
 ROLE
 Falls from Balcony
 "Arrrgghh!"
 2
+1114
+560
 ROLE
 Australian Bartender
 "What'll it be, mate?"
 3
+1047
+599
 
 A-ROOM
 Train Station
+13
+191
+21
+68
 3
+r
+37
+12
 ROLE
 Crusty Prospector
 "Aww, peaches!"
 1
+117
+231
 ROLE
 Dragged by Train
 "Omgeezers!"
 1
+53
+272
 ROLE
 Preacher with Bag
 "The Lord will provide."
 2
+117
+323
 ROLE
 Cyrus the Gunfighter
 "Git to fightin' or git away!"
 4
+53
+360
 
 A-ROOM
 Jail
+285
+150
+282
+26
 1
+r
+444
+158
 ROLE
 Prisoner in Cell
 "Zzzzzzz... Whiskey!"
 2
+522
+28
 ROLE
 Feller in Irons
 "Ah kilt the wrong man!"
 3
+522
+109
 
 A-ROOM
 General Store
+313
+401
+370
+282
 2
+d
+314
+279
 ROLE
 Man in Overalls
 "Looks like a storm's comin' in."
 1
+239
+280
 ROLE
 Mister Keach
 "Howdy, stranger."
 3
+239
+362
 END
+Add 53 to whichever direction the shots going in
