@@ -151,6 +151,14 @@ public class ActingLocation extends Location {
       }
     }
     //Shot counters add 53 in whichever direction shots are going
+    for(int i = 0; i < totalShots - numShots; i++) {
+      if(shotDirection.equals("r"))
+        images.add(new Image("Shot", shotx + (53 * i), shoty));
+      if(shotDirection.equals("l"))
+        images.add(new Image("Shot", shotx - (53 * i), shoty));
+      if(shotDirection.equals("d"))
+        images.add(new Image("Shot", shotx, shoty + (53 * i)));
+    }
     return images;
   }
 

@@ -48,18 +48,18 @@ public class Icons {
   private static final ImageIcon DICE_r4 = new ImageIcon("dice/r4.png");
   private static final ImageIcon DICE_r5 = new ImageIcon("dice/r5.png");
   private static final ImageIcon DICE_r6 = new ImageIcon("dice/r6.png");
-  private static final ImageIcon DICE_g1 = new ImageIcon("dice/r1.png");
-  private static final ImageIcon DICE_g2 = new ImageIcon("dice/r2.png");
-  private static final ImageIcon DICE_g3 = new ImageIcon("dice/r3.png");
-  private static final ImageIcon DICE_g4 = new ImageIcon("dice/r4.png");
-  private static final ImageIcon DICE_g5 = new ImageIcon("dice/r5.png");
-  private static final ImageIcon DICE_g6 = new ImageIcon("dice/r6.png");
-  private static final ImageIcon DICE_b1 = new ImageIcon("dice/r1.png");
-  private static final ImageIcon DICE_b2 = new ImageIcon("dice/r2.png");
-  private static final ImageIcon DICE_b3 = new ImageIcon("dice/r3.png");
-  private static final ImageIcon DICE_b4 = new ImageIcon("dice/r4.png");
-  private static final ImageIcon DICE_b5 = new ImageIcon("dice/r5.png");
-  private static final ImageIcon DICE_b6 = new ImageIcon("dice/r6.png");
+  private static final ImageIcon DICE_g1 = new ImageIcon("dice/g1.png");
+  private static final ImageIcon DICE_g2 = new ImageIcon("dice/g2.png");
+  private static final ImageIcon DICE_g3 = new ImageIcon("dice/g3.png");
+  private static final ImageIcon DICE_g4 = new ImageIcon("dice/g4.png");
+  private static final ImageIcon DICE_g5 = new ImageIcon("dice/g5.png");
+  private static final ImageIcon DICE_g6 = new ImageIcon("dice/g6.png");
+  private static final ImageIcon DICE_b1 = new ImageIcon("dice/b1.png");
+  private static final ImageIcon DICE_b2 = new ImageIcon("dice/b2.png");
+  private static final ImageIcon DICE_b3 = new ImageIcon("dice/b3.png");
+  private static final ImageIcon DICE_b4 = new ImageIcon("dice/b4.png");
+  private static final ImageIcon DICE_b5 = new ImageIcon("dice/b5.png");
+  private static final ImageIcon DICE_b6 = new ImageIcon("dice/b6.png");
 
   private static final ImageIcon SHOT = new ImageIcon("shot.png");
 
@@ -106,24 +106,24 @@ public class Icons {
       case("39"): return CARD_39;
       case("40"): return CARD_40;
 
-      case("red1"): return DICE_r1;
-      case("red2"): return DICE_r2;
-      case("red3"): return DICE_r3;
-      case("red4"): return DICE_r4;
-      case("red5"): return DICE_r5;
-      case("red6"): return DICE_r6;
-      case("green1"): return DICE_g1;
-      case("green2"): return DICE_g2;
-      case("green3"): return DICE_g3;
-      case("green4"): return DICE_g4;
-      case("green5"): return DICE_g5;
-      case("green6"): return DICE_g6;
-      case("blue1"): return DICE_b1;
-      case("blue2"): return DICE_b2;
-      case("blue3"): return DICE_b3;
-      case("blue4"): return DICE_b4;
-      case("blue5"): return DICE_b5;
-      case("blue6"): return DICE_b6;
+      case("Red1"): return DICE_r1;
+      case("Red2"): return DICE_r2;
+      case("Red3"): return DICE_r3;
+      case("Red4"): return DICE_r4;
+      case("Red5"): return DICE_r5;
+      case("Red6"): return DICE_r6;
+      case("Green1"): return DICE_g1;
+      case("Green2"): return DICE_g2;
+      case("Green3"): return DICE_g3;
+      case("Green4"): return DICE_g4;
+      case("Green5"): return DICE_g5;
+      case("Green6"): return DICE_g6;
+      case("Blue1"): return DICE_b1;
+      case("Blue2"): return DICE_b2;
+      case("Blue3"): return DICE_b3;
+      case("Blue4"): return DICE_b4;
+      case("Blue5"): return DICE_b5;
+      case("Blue6"): return DICE_b6;
 
       default: return SHOT;
     }

@@ -47,6 +47,7 @@ public class Role {
     Image image = null;
     if(takenBy != null) {
       image = new Image(takenBy.getID(), x, y);
+      image.setPriority(true);
     }
     return image;
   }

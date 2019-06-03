@@ -4,11 +4,13 @@ public class Image {
   private String path;
   private int x;
   private int y;
+  private boolean priority;
 
   public Image(String path, int x, int y) {
     this.path = path;
     this.x = x;
     this.y = y;
+    priority = false;
   }
 
   public String getPath() {
@@ -29,5 +31,13 @@ public class Image {
 
   public void setY(int y) {
     this.y = y;
+  }
+
+  public boolean isPriority() {
+    return priority;
+  }
+
+  public void setPriority(boolean priority) {
+    this.priority = priority;
   }
 }

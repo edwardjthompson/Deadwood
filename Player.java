@@ -191,7 +191,9 @@ public class Player {
       }
     }
 
-    takeRole(takenRole);
+    if(takenRole != null) {
+      takeRole(takenRole);
+    }
   }
 
   private void upgrade(CastingOffice location) {
@@ -239,10 +241,12 @@ public class Player {
   }
 
   private void takeRole(Role takenRole) {
+    currentLocation.removePlayer(this);
     currentRole = takenRole;
   }
 
   public void leaveRole() {
+    currentLocation.addPlayer(this);
     currentRole = null;
   }
 

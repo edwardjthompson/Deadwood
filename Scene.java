@@ -92,10 +92,10 @@ public class Scene {
   public ArrayList<Image> printScene(boolean revealed) {
     ArrayList<Image> images = new ArrayList<Image>();
     if(revealed) {
-      images.add(new Image("Back", 0, 0));
+      images.add(new Image(id, 0, 0));
     }
     else {
-      images.add(new Image(id, 0, 0));
+      images.add(new Image("Back", 0, 0));
     }
     for(int i = 0; i < listOfRoles.size(); i++) {
       if(listOfRoles.get(i).printRole() != null) {

@@ -91,8 +91,8 @@ public class Deadwood {
     while (board.getNumScenesRemaining() > 1) {
       // sends Player to controller
       deadwoodController.repaintFrame(listOfPlayers.get(playerNum));
+      deadwoodController.repaintFrame(board.printBoard());
       System.out.print("******************************************\n");
-      board.printBoard();
       listOfPlayers.get(playerNum).takeTurn();
       playerNum++;
       if (playerNum >= numPlayers) {

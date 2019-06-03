@@ -163,10 +163,12 @@ public class DeadwoodController {
 
   public void repaintFrame(ArrayList<Image> images) {
     Image current;
+    deadwoodFrame.refreshScreen();
+    System.out.println("Are you repainting");
     for(int i = 0; i < images.size(); i++) {
       current = images.get(i);
       if(current != null) {
-        deadwoodFrame.setupImageLabel(current.getPath(), current.getX(), current.getY());
+        deadwoodFrame.setupImageLabel(current.getPath(), current.getX(), current.getY(), current.isPriority());
       }
     }
   }

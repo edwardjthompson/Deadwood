@@ -19,6 +19,7 @@ public class DeadwoodFrame extends JFrame {
     public JLayeredPane paneDeadwood;
 
     private Icons icons;
+    public ArrayList<JLabel> imageHolders = new ArrayList<JLabel>();
     public ImageIcon iconGameBoard;
 
     private static final String DEADWOOD_TITLE = "Deadwood";
@@ -63,13 +64,19 @@ public class DeadwoodFrame extends JFrame {
         setSize(iconGameBoard.getIconWidth() + 250, iconGameBoard.getIconHeight()); // Set the size of the GUI
     }
 
-    public void setupImageLabel(String path, int x, int y) {
+    public void setupImageLabel(String path, int x, int y, boolean priority) {
         JLabel labelCard = new JLabel();
         ImageIcon cardIcon = icons.getIcon(path);
         labelCard.setIcon(cardIcon);
         labelCard.setBounds(x, y, cardIcon.getIconWidth(), cardIcon.getIconHeight());
         //labelCard.setOpaque(true);
-        paneDeadwood.add(labelCard, new Integer(1));
+        imageHolders.add(labelCard);
+        if(priority) {
+          paneDeadwood.add(labelCard, new Integer(2));
+        }
+        else {
+          paneDeadwood.add(labelCard, new Integer(1));
+        }
         //labelCard.setVisible(true);
     }
 /*
@@ -177,6 +184,15 @@ public class DeadwoodFrame extends JFrame {
         for (int i = 0; i < size; i++) {
             buttonRoles.get(i).setVisible(false);
         }
+    }
+
+    public void refreshScreen() {
+      for(int i = 0; i < imageHolders.size(); i++) {
+        paneDeadwood.remove(paneDeadwood.getIndexOf(imageHolders.get(i)));
+      }
+      imageHolders.clear();
+      revalidate();
+      repaint();
     }
 
     public static DeadwoodFrame makeFrame(DeadwoodController controller) {
