@@ -186,6 +186,8 @@ public class Player {
       else {
         if (!takenRole.take(this)) {
           System.out.println("Role already taken, or Rank too high");
+          String message = "Your rank is not high enough to take this role.";
+          deadwoodController.roleTaken(message);
         }
         else check = false;
       }

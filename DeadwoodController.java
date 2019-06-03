@@ -32,6 +32,14 @@ public class DeadwoodController {
     return num;
   }
 
+  public void endGame(String message) {
+    JOptionPane.showMessageDialog(null, message);
+  }
+
+  public void roleTaken(String message) {
+    JOptionPane.showMessageDialog(null, message);
+  }
+
   public int move(Player p) {
     int retVal = -2;
     int yAxisOfButton = 130;

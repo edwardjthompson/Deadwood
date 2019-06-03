@@ -89,10 +89,15 @@ public class Deadwood {
     int playerScore;
     Player winner = null;
     String playerName;
+    String message = "The game has ended!\n\nHere are the results:\n";
+    String append;
     for (Player p : listOfPlayers) {
       playerScore = p.getScore();
       playerName = p.getName();
-      System.out.printf("%s has a score of %d\n", playerName, playerScore);
+      // System.out.printf("%s has a score of %d\n", playerName, playerScore);
+      append = String.format("%s has a score of %d\n", playerName, playerScore);
+      message = message.concat(append);
+
       if (winner == null) {
         winner = p;
         highScore = playerScore;
@@ -102,9 +107,15 @@ public class Deadwood {
         highScore = playerScore;
       }
     }
+
     String winnerName = winner.getName();
-    System.out.printf("\nThe winner is %s with score of %d\n",
+    append = String.format("\nThe winner is %s with score of %d!  \n",
                       winnerName, highScore);
+    message = message.concat(append);
+    System.out.println(message);
+    deadwoodController.endGame(message);
+    // System.out.printf("\nThe winner is %s with score of %d\n",
+    //                   winnerName, highScore);
   }
 
   private void runDay() {
