@@ -5,8 +5,8 @@ public class Location {
   protected ArrayList<Player> listOfPlayer;
   protected String name;
 
-  private int playerx;
-  private int playery;
+  protected int playerx;
+  protected int playery;
 
   public Location(String name, int px, int py) {
     adjacentLocationList = new ArrayList<Location>();
@@ -42,7 +42,7 @@ public class Location {
     ArrayList<Image> images = new ArrayList<Image>();
     if(listOfPlayer.size() > 0) {
       for(int i = 0; i < listOfPlayer.size(); i++) {
-        images.add(new Image(listOfPlayer.get(i).getName(), playerx + (45 * i), playery));
+        images.add(new Image(listOfPlayer.get(i).getID(), playerx + (45 * i), playery));
       }
     }
     return images;

@@ -6,12 +6,14 @@ public class Scene {
   private String description;
   private int budget;
   private ArrayList<Role> listOfRoles;
+  private String id;
 
-  public Scene(String name, String description, int budget) {
+  public Scene(String name, String description, int budget, String id) {
     listOfRoles = new ArrayList<Role>();
     this.name = name;
     this.description = description;
     this.budget = budget;
+    this.id = id;
   }
 
   public void addRole(Role role) {
@@ -93,7 +95,7 @@ public class Scene {
       images.add(new Image("Back", 0, 0));
     }
     else {
-      images.add(new Image(name, 0, 0));
+      images.add(new Image(id, 0, 0));
     }
     for(int i = 0; i < listOfRoles.size(); i++) {
       if(listOfRoles.get(i).printRole() != null) {
@@ -101,6 +103,10 @@ public class Scene {
       }
     }
     return images;
+  }
+
+  public ArrayList<Role> getListOfRoles() {
+    return listOfRoles;
   }
 
   public int getBudget() {

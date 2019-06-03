@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
@@ -11,8 +12,11 @@ public class Player {
   private String nameColor;
   private Scanner input = new Scanner(System.in);
   private static final String ANSI_RESET = "\u001B[0m";
+  private ArrayList<String> turnChoices = new ArrayList<>();
+  private ArrayList<String> roleChoices = new ArrayList<>();
+  private DeadwoodController deadwoodController;
 
-  public Player(String name, Location currentLocation, String nameColor) {
+  public Player(String name, Location currentLocation, String nameColor, DeadwoodController deadwoodController) {
     this.name = name;
     this.dollars = 100;
     this.credits = 100;
@@ -22,11 +26,14 @@ public class Player {
     this.currentLocation = currentLocation;
     this.nameColor = nameColor;
     this.currentLocation.addPlayer(this);
+    this.deadwoodController = deadwoodController;
   }
 
   public void takeTurn() {
     boolean turnComplete = false;
-    String choice;
+    String choice = "notSet";
+    turnChoices.clear();
+
 
     System.out.print("******************************************\n");
     System.out.print("Current ");
@@ -37,25 +44,35 @@ public class Player {
     while(!turnComplete) {
       // If not in a role
       if (currentRole == null) {
-        currentLocation.printAdjacent();
+        //currentLocation.printAdjacent();
         System.out.print("[M]ove");
+        turnChoices.add("m");
       }
       else {
         // If in a role
         System.out.print("[A]ct [R]ehearse");
+        turnChoices.add("a");
+        turnChoices.add("r");
       }
 
       if (currentLocation.getName().equals("Casting Office")) {
         // Able to upgrade
         System.out.print(" [U]pgrade!");
+        turnChoices.add("u");
       }
       // Always able to skip
       System.out.print(" [S]kip\n");
+      turnChoices.add("s");
+
+      // Send options to controller
+      choice = deadwoodController.playerOptions(turnChoices);
 
       System.out.print("\nSelect an option: ");
 
       // Takes player input
-      choice = input.next();
+      if (choice.equals("notSet")) {
+        choice = input.next();
+      }
 
       switch (choice) {
         case "m" :
@@ -111,10 +128,13 @@ public class Player {
     int numOfAdjLocations = currentLocation.getAdjacentLocationSize();
     while (true) {
       currentLocation.printAdjacentOptions();
-      if (input.hasNextInt()) {
-        num = input.nextInt();
+      num = deadwoodController.move(this);
+      if (num == -2) {
+        if (input.hasNextInt()) {
+          num = input.nextInt();
+        }
+        else input.next();
       }
-      else input.next();
       if ((num >= -1) && (num < numOfAdjLocations)) {
         System.out.println(num);
         if(num == -1) break;
@@ -129,19 +149,30 @@ public class Player {
 
   private void getRoleOptions(ActingLocation location) {
     Role takenRole = null;
-    int choice = -1;
+    int choice = -2;
     boolean check = true;
     // if scene not revealed, reveal
     if (!location.hasSceneFinished()) {
       // Scene has not finished
-     location.revealScene();
-     location.printActLocation();
+      location.revealScene();
+      //location.printActLocation();
+      // New for GUI
+//      roleChoices = location.getRoles(roleChoices);
+//      int num = deadwoodController.role(this, roleChoices);
+//      choice = num;
+//      System.out.println("Selection: " + num);
     }
+    roleChoices.clear();
+    roleChoices = location.getRoles(roleChoices);
     while (check) {
+      choice = deadwoodController.role(this, roleChoices);
       System.out.printf("Select a role (-1 to exit): ");
-      if (input.hasNextInt()) {
-        choice = input.nextInt();
+      if (choice == -2) {
+        if (input.hasNextInt()) {
+          choice = input.nextInt();
+        }
       }
+//      else check = false;
 
       if (choice < 0) {
         takenRole = null;
@@ -263,12 +294,28 @@ public class Player {
     return name;
   }
 
+  public String getID() {
+    return name + Integer.toString(rank);
+  }
+
   public boolean starring() {
     return currentRole.isMain();
   }
 
   public int getDollars() {
     return dollars;
+  }
+
+  public int getNumRehearsals() {
+    return numRehearsals;
+  }
+
+  public Location getLocation() {
+    return currentLocation;
+  }
+
+  public Role getRole() {
+    return currentRole;
   }
 
   public int getCredits() {
@@ -285,5 +332,9 @@ public class Player {
 
   public int getScore() {
     return dollars + credits + (5*rank);
+  }
+
+  public ArrayList<String> getTurnChoices() {
+    return turnChoices;
   }
 }

@@ -51,6 +51,7 @@ public class Board {
     for(int i = 0; i < locations.length; i++) {
       images.addAll(locations[i].printLocation());
     }
+    return images;
   }
 
   public void setUpLocations(String path) {
@@ -182,7 +183,10 @@ public class Board {
     Scanner s;
     String line = "";
     String title = "";
+    String id = "";
     int br = 0;
+    int x;
+    int y;
     Scene currentScene = null;
     Role currentRole = null;
 
@@ -201,7 +205,8 @@ public class Board {
           title = s.nextLine();
           line = s.nextLine();
           br = Integer.parseInt(s.nextLine());
-          currentScene = new Scene(title, line, br);
+          id = s.nextLine();
+          currentScene = new Scene(title, line, br, id);
         }
         else if(line.equals("ROLE")) {
           //Sets up a role and adds it to the current scene

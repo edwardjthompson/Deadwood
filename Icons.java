@@ -1,0 +1,131 @@
+import javax.swing.ImageIcon;
+
+public class Icons {
+  private static final ImageIcon CARD_01 = new ImageIcon("cards/01.png");
+  private static final ImageIcon CARD_02 = new ImageIcon("cards/02.png");
+  private static final ImageIcon CARD_03 = new ImageIcon("cards/03.png");
+  private static final ImageIcon CARD_04 = new ImageIcon("cards/04.png");
+  private static final ImageIcon CARD_05 = new ImageIcon("cards/05.png");
+  private static final ImageIcon CARD_06 = new ImageIcon("cards/06.png");
+  private static final ImageIcon CARD_07 = new ImageIcon("cards/07.png");
+  private static final ImageIcon CARD_08 = new ImageIcon("cards/08.png");
+  private static final ImageIcon CARD_09 = new ImageIcon("cards/09.png");
+  private static final ImageIcon CARD_10 = new ImageIcon("cards/10.png");
+  private static final ImageIcon CARD_11 = new ImageIcon("cards/11.png");
+  private static final ImageIcon CARD_12 = new ImageIcon("cards/12.png");
+  private static final ImageIcon CARD_13 = new ImageIcon("cards/13.png");
+  private static final ImageIcon CARD_14 = new ImageIcon("cards/14.png");
+  private static final ImageIcon CARD_15 = new ImageIcon("cards/15.png");
+  private static final ImageIcon CARD_16 = new ImageIcon("cards/16.png");
+  private static final ImageIcon CARD_17 = new ImageIcon("cards/17.png");
+  private static final ImageIcon CARD_18 = new ImageIcon("cards/18.png");
+  private static final ImageIcon CARD_19 = new ImageIcon("cards/19.png");
+  private static final ImageIcon CARD_20 = new ImageIcon("cards/20.png");
+  private static final ImageIcon CARD_21 = new ImageIcon("cards/21.png");
+  private static final ImageIcon CARD_22 = new ImageIcon("cards/22.png");
+  private static final ImageIcon CARD_23 = new ImageIcon("cards/23.png");
+  private static final ImageIcon CARD_24 = new ImageIcon("cards/24.png");
+  private static final ImageIcon CARD_25 = new ImageIcon("cards/25.png");
+  private static final ImageIcon CARD_26 = new ImageIcon("cards/26.png");
+  private static final ImageIcon CARD_27 = new ImageIcon("cards/27.png");
+  private static final ImageIcon CARD_28 = new ImageIcon("cards/28.png");
+  private static final ImageIcon CARD_29 = new ImageIcon("cards/29.png");
+  private static final ImageIcon CARD_30 = new ImageIcon("cards/30.png");
+  private static final ImageIcon CARD_31 = new ImageIcon("cards/31.png");
+  private static final ImageIcon CARD_32 = new ImageIcon("cards/32.png");
+  private static final ImageIcon CARD_33 = new ImageIcon("cards/33.png");
+  private static final ImageIcon CARD_34 = new ImageIcon("cards/34.png");
+  private static final ImageIcon CARD_35 = new ImageIcon("cards/35.png");
+  private static final ImageIcon CARD_36 = new ImageIcon("cards/36.png");
+  private static final ImageIcon CARD_37 = new ImageIcon("cards/37.png");
+  private static final ImageIcon CARD_38 = new ImageIcon("cards/38.png");
+  private static final ImageIcon CARD_39 = new ImageIcon("cards/39.png");
+  private static final ImageIcon CARD_40 = new ImageIcon("cards/40.png");
+
+  private static final ImageIcon DICE_r1 = new ImageIcon("dice/r1.png");
+  private static final ImageIcon DICE_r2 = new ImageIcon("dice/r2.png");
+  private static final ImageIcon DICE_r3 = new ImageIcon("dice/r3.png");
+  private static final ImageIcon DICE_r4 = new ImageIcon("dice/r4.png");
+  private static final ImageIcon DICE_r5 = new ImageIcon("dice/r5.png");
+  private static final ImageIcon DICE_r6 = new ImageIcon("dice/r6.png");
+  private static final ImageIcon DICE_g1 = new ImageIcon("dice/r1.png");
+  private static final ImageIcon DICE_g2 = new ImageIcon("dice/r2.png");
+  private static final ImageIcon DICE_g3 = new ImageIcon("dice/r3.png");
+  private static final ImageIcon DICE_g4 = new ImageIcon("dice/r4.png");
+  private static final ImageIcon DICE_g5 = new ImageIcon("dice/r5.png");
+  private static final ImageIcon DICE_g6 = new ImageIcon("dice/r6.png");
+  private static final ImageIcon DICE_b1 = new ImageIcon("dice/r1.png");
+  private static final ImageIcon DICE_b2 = new ImageIcon("dice/r2.png");
+  private static final ImageIcon DICE_b3 = new ImageIcon("dice/r3.png");
+  private static final ImageIcon DICE_b4 = new ImageIcon("dice/r4.png");
+  private static final ImageIcon DICE_b5 = new ImageIcon("dice/r5.png");
+  private static final ImageIcon DICE_b6 = new ImageIcon("dice/r6.png");
+
+  private static final ImageIcon SHOT = new ImageIcon("shot.png");
+
+  public ImageIcon getIcon(String path) {
+    switch(path) {
+      case("01"): return CARD_01;
+      case("02"): return CARD_02;
+      case("03"): return CARD_03;
+      case("04"): return CARD_04;
+      case("05"): return CARD_05;
+      case("06"): return CARD_06;
+      case("07"): return CARD_07;
+      case("08"): return CARD_08;
+      case("09"): return CARD_09;
+      case("10"): return CARD_10;
+      case("11"): return CARD_11;
+      case("12"): return CARD_12;
+      case("13"): return CARD_13;
+      case("14"): return CARD_14;
+      case("15"): return CARD_15;
+      case("16"): return CARD_16;
+      case("17"): return CARD_17;
+      case("18"): return CARD_18;
+      case("19"): return CARD_19;
+      case("20"): return CARD_20;
+      case("21"): return CARD_21;
+      case("22"): return CARD_22;
+      case("23"): return CARD_23;
+      case("24"): return CARD_24;
+      case("25"): return CARD_25;
+      case("26"): return CARD_26;
+      case("27"): return CARD_27;
+      case("28"): return CARD_28;
+      case("29"): return CARD_29;
+      case("30"): return CARD_30;
+      case("31"): return CARD_31;
+      case("32"): return CARD_32;
+      case("33"): return CARD_33;
+      case("34"): return CARD_34;
+      case("35"): return CARD_35;
+      case("36"): return CARD_36;
+      case("37"): return CARD_37;
+      case("38"): return CARD_38;
+      case("39"): return CARD_39;
+      case("40"): return CARD_40;
+
+      case("red1"): return DICE_r1;
+      case("red2"): return DICE_r2;
+      case("red3"): return DICE_r3;
+      case("red4"): return DICE_r4;
+      case("red5"): return DICE_r5;
+      case("red6"): return DICE_r6;
+      case("green1"): return DICE_g1;
+      case("green2"): return DICE_g2;
+      case("green3"): return DICE_g3;
+      case("green4"): return DICE_g4;
+      case("green5"): return DICE_g5;
+      case("green6"): return DICE_g6;
+      case("blue1"): return DICE_b1;
+      case("blue2"): return DICE_b2;
+      case("blue3"): return DICE_b3;
+      case("blue4"): return DICE_b4;
+      case("blue5"): return DICE_b5;
+      case("blue6"): return DICE_b6;
+
+      default: return SHOT;
+    }
+  }
+}

@@ -44,11 +44,20 @@ public class Role {
   }
 
   public Image printRole() {
-    Image image;
+    Image image = null;
     if(takenBy != null) {
-      image = new Image(takenBy.getName(), x, y);
+      image = new Image(takenBy.getID(), x, y);
     }
     return image;
+  }
+
+  public String getRoleName() {
+    if(takenBy != null) {
+      return "0" + name + " is Taken";
+    }
+    else {
+      return name + "[" + rank + "]";
+    }
   }
 
   public Player getPlayer(){

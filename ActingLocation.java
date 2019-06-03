@@ -116,6 +116,20 @@ public class ActingLocation extends Location {
     }
   }
 
+  public ArrayList<String> getRoles(ArrayList<String> roleChoices) {
+    int extrasSize = listOfExtras.size();
+    int mainSize = currentScene.getListOfRoles().size();
+
+    for(int i = 0; i < mainSize; i++) {
+      roleChoices.add(currentScene.getListOfRoles().get(i).getRoleName());
+    }
+
+    for(int i = 0; i < extrasSize; i++) {
+      roleChoices.add(listOfExtras.get(i).getRoleName());
+    }
+    return roleChoices;
+  }
+
   public ArrayList<Image> printLocation() {
     ArrayList<Image> images = new ArrayList<Image>();
     if(!hasSceneFinished) {
@@ -125,7 +139,7 @@ public class ActingLocation extends Location {
           sceneImages.get(i).setX(sceneImages.get(i).getX() + scenex);
           sceneImages.get(i).setY(sceneImages.get(i).getY() + sceney);
         }
-        images.addAll();
+        images.addAll(sceneImages);
       }
     }
     for(int i = 0; i < listOfExtras.size(); i++) {
@@ -133,7 +147,7 @@ public class ActingLocation extends Location {
     }
     if(listOfPlayer.size() > 0) {
       for(int i = 0; i < listOfPlayer.size(); i++) {
-        images.add(new Image(listOfPlayer.get(i).getName(), playerx + (45 * i), playery));
+        images.add(new Image(listOfPlayer.get(i).getID(), playerx + (45 * i), playery));
       }
     }
     //Shot counters add 53 in whichever direction shots are going

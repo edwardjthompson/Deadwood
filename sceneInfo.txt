@@ -2,6 +2,7 @@ SCENE
 Evil Wears a Hat
 Scene 7: Calhoun is separated from the group during a white-knuckle chase near Desperation Bluff.
 4
+01
 ROLE
 Defrocked Priest
 "Look out below!"
@@ -25,6 +26,7 @@ SCENE
 Square Deal City
 Scene 14: Douglas and Katherine confront Aunt Martha about her missing pies. Devin sulks quietly in a side room.
 6
+06
 ROLE
 Squeaking Boy
 "I'll say!"
@@ -48,6 +50,7 @@ SCENE
 Law and the Old West
 Scene 20: Charlie "Three Guns" Henderson cooperates with Johnny Law and reluctantly enters the witless protection program.
 3
+02
 ROLE
 Rug Merchant
 "Don"t leave my store!"
@@ -68,9 +71,10 @@ Talking Mule
 47
 
 SCENE
-Davy Crockett: A Drunkard"s Tale
+Davy Crockett: A Drunkard's Tale
 Scene 31: Robert enlists the aid of several farm animals in order to ascertain the efficacy of his new hangover remedy.
 4
+07
 ROLE
 The Duck
 "Waaaak!"
@@ -88,6 +92,7 @@ SCENE
 The Life and Times of John Skywater
 Scene 22: Disheartened by his lack of business acumen and his poor choice of investment partners, John Skywater sets off into the Cree Nation to convince them to kidnap his wife.
 5
+03
 ROLE
 Auctioneer
 "Going once!"
@@ -105,6 +110,7 @@ SCENE
 The Way the West Was Run
 Scene 34: Jose explains patiently, but with thinly veiled contempt, the intricacies of Arizona bureaucracy, as though speaking to a simple and distracted child.
 4
+08
 ROLE
 Town Drunk
 "Even me!"
@@ -128,6 +134,7 @@ SCENE
 My Years on the Prairie
 Scene 32: Virgil and Stacy set out at midnight to track down the stray cows, unaware that they are being pursued by inch-high aliens from outer space.
 5
+04
 ROLE
 Drunk
 "Where's Willard?"
@@ -151,6 +158,7 @@ SCENE
 Down in the Valley
 Scene 24: A tripped waiter is the spark igniting a brawl of cataclysmic proportions. Walter is injured in the neck.
 3
+09
 ROLE
 Angry Barber
 "Hold him still!"
@@ -174,6 +182,7 @@ SCENE
 Buffalo Bill: The Lost Years
 Scene 12: Buffalo Bill"s companion Marty disappears in a freak electrical storm. Bill enlists the aid of the Sidekick Friends Network.
 4
+05
 ROLE
 Hollering Boy
 "Over here, mister!"
@@ -194,9 +203,10 @@ Meek Little Sarah
 47
 
 SCENE
-Ol" Shooter and Little Doll
+Ol' Shooter and Little Doll
 Scene 14: Shooter discovers that he has been proceeding for days with no trousers. This causes him no small embarrassment as he searches for them with Little Doll.
 4
+10
 ROLE
 Sleeping Man
 "Snnkkk snnkk snnkk."
@@ -220,6 +230,7 @@ SCENE
 The Robbers of Trains
 Scene 19: Coogan confronts the toughest thug in his gang, Big Jake, in an abbreviated knife fight. Coogan settles the dispute with fearless guile and a kick in the family jewels.
 4
+11
 ROLE
 Man Reading Paper
 "Ouchie!"
@@ -243,6 +254,7 @@ SCENE
 Jesse James: Man of Action
 Scene 8: Jesse's brothers Jed and Henry throw him a surprise birthday party. Jesse"s nerves get the better of him when the birthday cake explodes.
 5
+16
 ROLE
 Shot in Leg
 "Ooh, lordy!"
@@ -266,6 +278,7 @@ SCENE
 Beyond the Pail: Life without Lactose
 Scene 12: Henry discovers for the first time that his ability to digest cream has disappeared along with his hair. Other cowboys attempt to console him.
 2
+12
 ROLE
 Martin
 "Have you tried soy cheese?"
@@ -277,6 +290,7 @@ SCENE
 Disaster at Flying J
 Scene 6: After the mine explosion, the traveling circus takes time out to get drunk and start a fight.
 5
+17
 ROLE
 Man in Turban
 "My stars!"
@@ -300,6 +314,7 @@ SCENE
 A Man Called "Cow"
 Scene 16: Nothing will settle the debates among the skeptical locals, short of a demonstration of Hector"s special talents.
 3
+13
 ROLE
 Preacher
 "My word!"
@@ -317,6 +332,7 @@ SCENE
 Shakespeare in Lubbock
 Scene 23: William decides that it is time to be movin' on. Julia convinces him to stick around just long enough to get into big trouble.
 3
+18
 ROLE
 Laughing Woman
 "'Tis to laugh!"
@@ -340,6 +356,7 @@ SCENE
 Taffy Commercial
 Scene 2: Jackson encourages the children to eat only taffy, because gum can kill them stone dead.
 2
+14
 ROLE
 Curious Girl
 "Are you sure?"
@@ -357,6 +374,7 @@ SCENE
 Go West, You!
 Scene 30: Susan and Peter encounter some of the perils of the Badlands: rutted mud roads, torrential rain storms, and a bad case of "grumble tummy."
 3
+19
 ROLE
 Ex-Convict
 "Never again!"
@@ -374,6 +392,7 @@ SCENE
 Gum Commercial
 Scene 3: Inspector Pete speaks to a riveted audience about the many hidden dangers of taffy, not the least of which is that taffy can kill you stone dead.
 2
+15
 ROLE
 Surprised Bison
 "Mmrrrrrph!"
@@ -391,6 +410,7 @@ SCENE
 The Life and Times of John Skywater
 Scene 15: John discovers his long-lost sister Marcie, and instructs her in the ways of gunfighting and whiskey distillation.
 5
+20
 ROLE
 Woman with Beer
 "Howdy, stranger!"
@@ -414,6 +434,7 @@ SCENE
 Gun! The Musical
 Scene 25: A song and dance extravaganza, "Hunka Hunka Burnin' Lead."
 6
+21
 ROLE
 Singing Dead Man
 "Yeah!"
@@ -437,6 +458,7 @@ SCENE
 One False Step for Mankind
 Scene 21: After a dozen failed attempts, one rocket carries Horatio and his six children to the Moon, where they enjoy a picnic and a spirited game of badminton.
 6
+26
 ROLE
 Space Monkey
 "Ook!"
@@ -460,6 +482,7 @@ SCENE
 Humor at the Expense of Others
 Scene 16: Phil and his cohort of unfeeling smart-mouths make fun of Sancho and his great big hat.
 5
+22
 ROLE
 Mephistopheles
 "Be not afraid!"
@@ -483,6 +506,7 @@ SCENE
 Thirteen the Hard Way
 Scene 15: After some delay, the Pony Express arrives. Isaac, Gwen, Francis, Terry, Conrad, Brooke, Jerry, Howard, MacNeill, Jones, Spike, Cornwall and Crawford are all there.
 5
+27
 ROLE
 Ecstatic Housewife
 "This is fine!"
@@ -506,6 +530,7 @@ SCENE
 The Search for Maggie White
 Scene 12: Alone in the wilderness, Maggie makes the best of her situation. In what seems like no time at all, she constructs a sturdy two-story house from branches and mud.
 6
+23
 ROLE
 Film Critic
 "Implausible!"
@@ -523,6 +548,7 @@ SCENE
 How They Get Milk
 Scene 2: Josie asks the Milkman how they get milk. After a thoughtful pause, he begins. "Not like you'd expect!"
 4
+28
 ROLE
 St. Clement of Alexandria
 "Peace be with you, child!"
@@ -546,6 +572,7 @@ SCENE
 Picante Sauce Commercial
 Scene 1: A dozen grizzled cowboys surround a fire. Suddenly, they exclaim, "That"s not mayonnaise!"
 2
+24
 ROLE
 Bewhisker'd Cowpoke
 "Oh, sweet Lord!"
@@ -563,6 +590,7 @@ SCENE
 My Years on the Prairie
 Scene 27: Louise takes instruction from Henry, the neighbor boy, in an absurdly suggestive explanation of how to plow a field.
 5
+29
 ROLE
 Leprechaun
 "Begorrah!"
@@ -586,6 +614,7 @@ SCENE
 Jesse James: Man of Action
 Scene 14: A hail of gunfire results when Jesse's friend Barton marries Jesse"s childhood sweetheart.
 5
+25
 ROLE
 Leaps Out of Cake
 "Oh, for Pete's sake!"
@@ -609,6 +638,7 @@ SCENE
 Davy Crockett: A Drunkard"s Tale
 Scene 12: In an absurd dream sequence, Crockett recalls an episode of fear and chaos in which his childhood friend Timmy was trapped at the bottom of a well.
 4
+30
 ROLE
 Hands of God
 "!"
@@ -632,6 +662,7 @@ SCENE
 Czechs in the Sonora
 Scene 25: Bob reverts to his ancestral ways in a short fight over a disembodied hand.
 4
+31
 ROLE
 Opice (Monkey)
 "Ukk! (Ook)!"
@@ -649,6 +680,7 @@ SCENE
 J. Robert Lucky, Man of Substance
 Scene 13: Horace and Mathilde discover that the mysterious orange powder filling Doctor Lucky"s air vents is neither Agent Orange nor weaponized Tang, but a rare form of cheese mold.
 4
+36
 ROLE
 Svetlana
 "Says who?"
@@ -672,6 +704,7 @@ SCENE
 Swing 'em Wide
 Scene 19: Black Jack invites Dixon and The Captain to a late-night poker game. Little do they know that Gertrude and Isabella await them at the table.
 6
+32
 ROLE
 Sober Physician
 "Raise!"
@@ -695,6 +728,7 @@ SCENE
 Thirteen the Hard Way
 Scene 17: After operating for only six minutes, the Pony Express disbands and gives way to the international Telegraph and Railroad systems. Little boys cry.
 5
+37
 ROLE
 Dejected Housewife
 "Its time had come."
@@ -718,6 +752,7 @@ SCENE
 Swing 'em Wide
 Scene 35: Hector makes a surprising discovery behind the Chinese grocery store.
 6
+33
 ROLE
 Witch Doctor
 "Oogie Boogie!"
@@ -741,6 +776,7 @@ SCENE
 How They Get Milk
 Scene 8: Josie is thoroughly off milk at this point. The Milkman shows her one more way that she might not have heard of before.
 4
+38
 ROLE
 Postal Worker
 "It's about time!"
@@ -764,6 +800,7 @@ SCENE
 Trials of the First Pioneers
 Scene 5: A fire breaks out in the town livery. Before long, the surrounding buildings are engulfed in flame. The world falls into chaos.
 4
+34
 ROLE
 Cheese Vendor
 "Opa!"
@@ -784,9 +821,10 @@ Burning Man
 47
 
 SCENE
-Breakin" in Trick Ponies
+Breakin' in Trick Ponies
 Scene 19: Uncle Stewart reveals what to do when all else fails.
 3
+39
 ROLE
 Fraternity Pledge
 "Beer me!"
@@ -804,6 +842,7 @@ SCENE
 How the Grinch Stole Texas
 Scene 9: The doe-eyed citizens of El Paso gather together around a warm fire and pray for the safety of those poor souls in Oklahoma. It almost works.
 5
+35
 ROLE
 File Clerk
 "My stapler!"
@@ -827,6 +866,7 @@ SCENE
 Custer's Other Stands
 Scene 40: General George Armstrong Custer clinches another victory at the battle of Little Sands. His trusty steed Cairo is not so lucky.
 5
+40
 ROLE
 Exploding Horse
 "Boom!"

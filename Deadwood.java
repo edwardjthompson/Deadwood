@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Deadwood {
-  private static DeadwoodFrame screen;
   private int currentDay;
   private int numDays;
   private Board board;
   private int numPlayers;
   private ArrayList<Player> listOfPlayers;
+  private DeadwoodController deadwoodController;
 
   private final int MIN_PLAYERS = 2;
   private final int MAX_PLAYERS = 3;
@@ -20,26 +20,13 @@ public class Deadwood {
   //May not be necessary, but I felt like it might be useful
   private static final int ROOMNUM = 12;
 
-  public static void main(String[] args) {
+  public Deadwood() {
+  }
 
-    // Creating instance of objects
-    Deadwood deadwood = new Deadwood();
-    screen = new DeadwoodFrame();
-    screen.setVisible(true);
-
-    // Getting numPlayer from main args
-    int num = 0;
-    try {
-      if (args.length > 0) {
-        num = Integer.parseInt(args[0]);
-      }
-    }
-    catch(NumberFormatException e) {
-      // Sets to 0 and calls setPlayerCount to set the value
-      num = 0;
-    }
-    deadwood.initializeGame(num);
-    deadwood.runGame();
+  public Deadwood(int numOfPlayers, DeadwoodController contr) {
+    deadwoodController = contr;
+    initializeGame(numOfPlayers);
+    runGame();
   }
 
   private void initializeGame(int numPlayers) {
@@ -47,6 +34,9 @@ public class Deadwood {
     this.currentDay = 1;
     this.numDays = 4;
     this.board = new Board(ROOMNUM);
+    // this.deadwoodFrame = new DeadwoodFrame();
+    // this.PlayerController = new PlayerController(deadwoodFrame);
+    // deadwoodFrame.makeFrame();
     board.setUpScenes(PATHSCENE);
     board.setUpLocations(PATHBOARD);
     board.setUpBoardConnections(PATHCONNECTIONS);
@@ -63,11 +53,11 @@ public class Deadwood {
 
   private void createPlayers() {
     this.listOfPlayers = new ArrayList<Player>();
-    String playerNames[] = {"red", "green", "blue"};
+    String playerNames[] = {"Red", "Green", "Blue"};
     String nameColor[] = {"\u001B[31m", "\u001B[32m", "\u001B[34m"};
     for (int i = 0; i < numPlayers; i++) {
       Player p = new Player(playerNames[i], board.getLocation("Trailers"),
-                            nameColor[i]);
+                            nameColor[i], deadwoodController);
       listOfPlayers.add(p);
     }
   }
@@ -99,6 +89,8 @@ public class Deadwood {
   private void runDay() {
     int playerNum = 0;
     while (board.getNumScenesRemaining() > 1) {
+      // sends Player to controller
+      deadwoodController.repaintFrame(listOfPlayers.get(playerNum));
       System.out.print("******************************************\n");
       board.printBoard();
       listOfPlayers.get(playerNum).takeTurn();
