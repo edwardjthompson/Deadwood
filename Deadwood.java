@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
 
 public class Deadwood {
   private int currentDay;
@@ -60,7 +62,6 @@ public class Deadwood {
     board.setUpScenes(PATHSCENE);
     board.setUpLocations(PATHBOARD);
     board.setUpBoardConnections(PATHCONNECTIONS);
-    setPlayerCount();
     createPlayers();
   }
 
@@ -123,29 +124,5 @@ public class Deadwood {
       board.endDay(listOfPlayers);
     }
     currentDay++;
-  }
-
-  private void setPlayerCount() {
-    if((numPlayers < MIN_PLAYERS) || (numPlayers > MAX_PLAYERS)) {
-      numPlayers = 0;
-      System.out.printf("Player count from main was not valid.\n");
-    }
-    // Scanner used for initial Setup
-    Scanner input = new Scanner(System.in);
-    // Loops until user inputs a number between MIN_PLAYERS and MAX_PLAYERS
-    while(numPlayers == 0) {
-      System.out.printf("Choose the Number of players (%d-%d): ",
-                        MIN_PLAYERS, MAX_PLAYERS);
-
-      if(input.hasNextInt()) {
-        numPlayers = input.nextInt();
-
-        if((numPlayers < MIN_PLAYERS) || (numPlayers > MAX_PLAYERS)) {
-          numPlayers = 0;
-          System.out.println("Invalid player count");
-        }
-      }
-      else input.next();
-    }
   }
 }
