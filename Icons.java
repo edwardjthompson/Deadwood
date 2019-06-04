@@ -62,6 +62,7 @@ public class Icons {
   private static final ImageIcon DICE_b6 = new ImageIcon("dice/b6.png");
 
   private static final ImageIcon SHOT = new ImageIcon("shot.png");
+  private static final ImageIcon BACK = new ImageIcon("cards/back.png");
 
   public ImageIcon getIcon(String path) {
     switch(path) {
@@ -125,6 +126,7 @@ public class Icons {
       case("Blue5"): return DICE_b5;
       case("Blue6"): return DICE_b6;
 
+      case("Back"): return BACK;
       default: return SHOT;
     }
   }
