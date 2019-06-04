@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class CastingOffice extends Location {
 
@@ -5,33 +6,58 @@ public class CastingOffice extends Location {
     super(name, x, y);
   }
 
-  public void availableUpgrades(Player player) {
+  public ArrayList<String> availableUpgrades(Player player) {
     int rank = player.getRank();
     int dollars = player.getDollars();
     int credits = player.getCredits();
+    ArrayList<String> upgradeOptions = new ArrayList<>();
 
     switch(rank) {
       case(1):
-        if(dollars >= 4 || credits >= 5) System.out.print(">");
-        else System.out.print("x");
+        if(dollars >= 4 || credits >= 5)  {
+          System.out.print(">");
+          upgradeOptions.add("  2  ");
+        } else {
+          System.out.print("x");
+        }
         System.out.println(" Rank 2: 4 Dollars, 5 Credits");
       case(2):
-        if(dollars >= 10 || credits >= 10) System.out.print(">");
-        else System.out.print("x");
+        if(dollars >= 10 || credits >= 10) {
+          System.out.print(">");
+          upgradeOptions.add("  3  ");
+        } else {
+          System.out.print("x");
+        }
         System.out.println(" Rank 3: 10 Dollars, 10 Credits");
       case(3):
-        if(dollars >= 18 || credits >= 15) System.out.print(">");
-        else System.out.print("x");
+        if(dollars >= 18 || credits >= 15) {
+          System.out.print(">");
+          upgradeOptions.add("  4  ");
+        } else {
+          System.out.print("x");
+        }
         System.out.println(" Rank 4: 18 Dollars, 15 Credits");
       case(4):
-        if(dollars >= 28 || credits >= 20) System.out.print(">");
-        else System.out.print("x");
+        if(dollars >= 28 || credits >= 20) {
+          System.out.print(">");
+          upgradeOptions.add("  5  ");
+        } else {
+          System.out.print("x");
+        }
         System.out.println(" Rank 5: 28 Dollars, 20 Credits");
       case(5):
-        if(dollars >= 40 || credits >= 25) System.out.print(">");
-        else System.out.print("x");
+        if(dollars >= 40 || credits >= 25) {
+          System.out.print(">");
+          upgradeOptions.add("  6  ");
+        } else {
+          System.out.print("x");
+        }
         System.out.println(" Rank 6: 40 Dollars, 25 Credits");
     }
+
+    upgradeOptions.add("Cancel Upgrade");
+
+    return upgradeOptions;
   }
 
   public boolean selectUpgrade(Player player, int selectedRank, boolean payInDollars) {
