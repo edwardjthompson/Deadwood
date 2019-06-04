@@ -13,7 +13,7 @@ public class ActButtonMouseListener extends BaseDeadwoodMouseListener {
   }
 
   public void mouseClicked(MouseEvent e) {
-      System.out.println(ACT_SELECT_MSG);
+      //System.out.println(ACT_SELECT_MSG);
       deadwoodController.buttonInput("a");
 
   }

@@ -234,6 +234,9 @@ public class Player {
   }
 
   public void goToLocation(Location location) {
+    if(currentRole != null) {
+      leaveRole();
+    }
     currentLocation.removePlayer(this);
     currentLocation = location;
     currentLocation.addPlayer(this);
