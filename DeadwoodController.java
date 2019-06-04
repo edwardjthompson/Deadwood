@@ -33,6 +33,11 @@ public class DeadwoodController {
     return num;
   }
 
+  public void endDay (int currentDay) {
+    String message = "End of day ";
+    message = message.concat(Integer.toString(currentDay));
+  }
+
   public void endGame(String message) {
     JOptionPane.showMessageDialog(null, message);
   }

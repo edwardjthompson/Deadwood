@@ -105,6 +105,7 @@ public class Deadwood {
     }
     if (currentDay < numDays) {
       board.endDay(listOfPlayers);
+      deadwoodController.endDay(currentDay);
     }
     currentDay++;
   }
