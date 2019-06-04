@@ -155,6 +155,7 @@ public class Player {
     if (!location.hasSceneFinished()) {
       // Scene has not finished
       location.revealScene();
+      deadwoodController.repaintFrame();
       //location.printActLocation();
       // New for GUI
 //      roleChoices = location.getRoles(roleChoices);

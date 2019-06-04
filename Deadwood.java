@@ -28,7 +28,6 @@ public class Deadwood {
   public Deadwood(int numOfPlayers, DeadwoodController contr) {
     deadwoodController = contr;
     initializeGame(numOfPlayers);
-    runGame();
   }
 
   private void initializeGame(int numPlayers) {
@@ -45,7 +44,7 @@ public class Deadwood {
     createPlayers();
   }
 
-  private void runGame() {
+  public void runGame() {
     while (currentDay <= numDays) {
       runDay();
     }
@@ -103,7 +102,7 @@ public class Deadwood {
     while (board.getNumScenesRemaining() > 1) {
       // sends Player to controller
       deadwoodController.repaintFrame(listOfPlayers.get(playerNum));
-      deadwoodController.repaintFrame(board.printBoard());
+      deadwoodController.repaintFrame();
       System.out.print("******************************************\n");
       listOfPlayers.get(playerNum).takeTurn();
       playerNum++;
@@ -115,5 +114,9 @@ public class Deadwood {
       board.endDay(listOfPlayers);
     }
     currentDay++;
+  }
+
+  public ArrayList<Image> getImages() {
+    return board.printBoard();
   }
 }

@@ -20,6 +20,7 @@ public class DeadwoodController {
     int playerCount = setPlayerCount();
     deadwoodFrame = DeadwoodFrame.makeFrame(this);
     deadwood = new Deadwood(playerCount, deadwoodController);
+    deadwood.runGame();
   }
 
   private int setPlayerCount() {
@@ -157,7 +158,8 @@ public class DeadwoodController {
     // deadwoodFrame.repaint();
   }
 
-  public void repaintFrame(ArrayList<Image> images) {
+  public void repaintFrame() {
+    ArrayList<Image> images = deadwood.getImages();
     Image current;
     deadwoodFrame.refreshScreen();
     System.out.println("Are you repainting");
