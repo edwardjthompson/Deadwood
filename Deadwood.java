@@ -60,7 +60,6 @@ public class Deadwood {
   }
 
   private void endGame() {
-    System.out.println("End Game\n");
     int highScore = 0;
     int playerScore;
     Player winner = null;
@@ -87,7 +86,6 @@ public class Deadwood {
     append = String.format("\nThe winner is %s with score of %d!  \n",
                       winnerName, highScore);
     message = message.concat(append);
-    System.out.println(message);
     deadwoodController.endGame(message);
   }
 

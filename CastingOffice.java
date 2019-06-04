@@ -15,44 +15,24 @@ public class CastingOffice extends Location {
     switch(rank) {
       case(1):
         if(dollars >= 4 || credits >= 5)  {
-          System.out.print(">");
           upgradeOptions.add("  2  ");
-        } else {
-          System.out.print("x");
         }
-        System.out.println(" Rank 2: 4 Dollars, 5 Credits");
       case(2):
         if(dollars >= 10 || credits >= 10) {
-          System.out.print(">");
           upgradeOptions.add("  3  ");
-        } else {
-          System.out.print("x");
         }
-        System.out.println(" Rank 3: 10 Dollars, 10 Credits");
       case(3):
         if(dollars >= 18 || credits >= 15) {
-          System.out.print(">");
           upgradeOptions.add("  4  ");
-        } else {
-          System.out.print("x");
         }
-        System.out.println(" Rank 4: 18 Dollars, 15 Credits");
       case(4):
         if(dollars >= 28 || credits >= 20) {
-          System.out.print(">");
           upgradeOptions.add("  5  ");
-        } else {
-          System.out.print("x");
         }
-        System.out.println(" Rank 5: 28 Dollars, 20 Credits");
       case(5):
         if(dollars >= 40 || credits >= 25) {
-          System.out.print(">");
           upgradeOptions.add("  6  ");
-        } else {
-          System.out.print("x");
         }
-        System.out.println(" Rank 6: 40 Dollars, 25 Credits");
     }
 
     upgradeOptions.add("Cancel Upgrade");

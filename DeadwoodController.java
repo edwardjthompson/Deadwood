@@ -14,6 +14,7 @@ public class DeadwoodController {
   public static void main(String[] args) {
     DeadwoodController deadwoodController = new DeadwoodController();
     deadwoodController.initializeController(deadwoodController);
+    System.exit(0);
   }
 
   private void initializeController(DeadwoodController deadwoodController) {
@@ -21,6 +22,7 @@ public class DeadwoodController {
     deadwoodFrame = DeadwoodFrame.makeFrame(this);
     deadwood = new Deadwood(playerCount, deadwoodController);
     deadwood.runGame();
+    deadwoodFrame.setVisible(false);
   }
 
   private int setPlayerCount() {
@@ -36,6 +38,7 @@ public class DeadwoodController {
   public void endDay (int currentDay) {
     String message = "End of day ";
     message = message.concat(Integer.toString(currentDay));
+    JOptionPane.showMessageDialog(null, message);
   }
 
   public void endGame(String message) {

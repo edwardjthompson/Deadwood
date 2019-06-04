@@ -31,6 +31,7 @@ public class Board {
       //Take them out Acting Locations
       if(locations[i] instanceof ActingLocation) {
         ActingLocation temp = (ActingLocation) locations[i];
+        temp.resetShots();
         dealScene(temp);
       }
 

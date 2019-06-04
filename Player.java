@@ -18,8 +18,8 @@ public class Player {
 
   public Player(String name, Location currentLocation, String nameColor, DeadwoodController deadwoodController) {
     this.name = name;
-    this.dollars = 100;
-    this.credits = 100;
+    this.dollars = 0;
+    this.credits = 0;
     this.rank = 1;
     this.numRehearsals = 0;
     this.currentRole = null;
@@ -135,6 +135,7 @@ public class Player {
       location.revealScene();
       deadwoodController.repaintFrame();
     }
+    else check = false;
     roleChoices.clear();
     roleChoices = location.getRoles(roleChoices);
     while (check) {
@@ -170,8 +171,6 @@ public class Player {
     int num = -2;
     String payType = "";
     boolean check = false;
-    System.out.printf("\nUpgrades: (x means you do not have the funds to " +
-                      "purchase, > means it is available)\n");
     ArrayList<String> upgradeOptions = location.availableUpgrades(this);
     // while (true) {
     //   num = deadwoodController.upgradeRank(upgradeOptions);
@@ -183,11 +182,9 @@ public class Player {
 
 
     while (true) {
-      System.out.printf("\nSelect a rank (-1 to exit): ");
       if (num == -2) {
         num = deadwoodController.upgradeRank(upgradeOptions);
       }
-      System.out.println("NUM is " + num);
       payType = "";
       check = false;
       if ((num >= -1) && (num <= 6)) {
@@ -202,17 +199,13 @@ public class Player {
 
         }
         if(check) {
-          System.out.printf("You have been upgraded to rank: %d\n", rank);
           break;
         }
         else {
-          System.out.printf("You do not have the funds to be upgraded to " +
-          "that rank, your rank remains: %d\n", rank);
         }
 
       }
     }
-    System.out.println();
   }
 
   public void updateDollars(int value) {
@@ -235,7 +228,7 @@ public class Player {
 
   public void goToLocation(Location location) {
     if(currentRole != null) {
-      leaveRole();
+      currentRole.leave();
     }
     currentLocation.removePlayer(this);
     currentLocation = location;

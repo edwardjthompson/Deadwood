@@ -82,7 +82,7 @@ public class DeadwoodFrame extends JFrame {
 
     private void setupCurrentPlayerLabel() {
         labelCurrentPlayer = new JLabel(playerName);
-        labelCurrentPlayer.setBounds(iconGameBoard.getIconWidth() + 10, 0, 180, 130);
+        labelCurrentPlayer.setBounds(iconGameBoard.getIconWidth() + 10, 0, 220, 130);
     }
 
     private void initializeButtons() {
