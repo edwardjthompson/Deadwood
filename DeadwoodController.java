@@ -104,6 +104,42 @@ public class DeadwoodController {
     return retVal;
   }
 
+  public int upgradeRank(ArrayList<String> listOptions) {
+    String[] options = new String[listOptions.size()];
+    options = listOptions.toArray(options);
+
+    int size = listOptions.size();
+
+    int num = JOptionPane.showOptionDialog(null, "Which rank would you" +
+    " like to choose?", "Upgrade Rank", JOptionPane.DEFAULT_OPTION,
+    JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+
+    if (size == 6) num += 2;
+    if (size == 5) num += 3;
+    if (size == 4) num += 4;
+    if (size == 3) num += 5;
+    if (size == 2) num += 6;
+    if (size == 1) num = -1;
+
+    if (num == 7) num -= 8; // Cancel
+
+    return num;
+  }
+
+  public String upgradePayment() {
+    String[] options = {"Dollars", "Credits"};
+
+    int num = JOptionPane.showOptionDialog(null, "Would you like to use" +
+    " Dollars or Credits?", "Upgrade Payment Selection",
+    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null,
+    options, options[0]);
+
+    if (num == 0) return "d";
+    if (num == 1) return "c";
+
+    return "error";
+  }
+
   public void repaintFrame(Player p) {
     String name = p.getName();
     String dollars = Integer.toString(p.getDollars());

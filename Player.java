@@ -172,31 +172,44 @@ public class Player {
     boolean check = false;
     System.out.printf("\nUpgrades: (x means you do not have the funds to " +
                       "purchase, > means it is available)\n");
-    location.availableUpgrades(this);
+    ArrayList<String> upgradeOptions = location.availableUpgrades(this);
+    // while (true) {
+    //   num = deadwoodController.upgradeRank(upgradeOptions);
+    //   System.out.println("NUM is " + num);
+    //   break;
+    //   // payType = deadwoodController.upgradePayment();
+    //   // System.out.println("PayType is " + num);
+    // }
+
+
     while (true) {
       System.out.printf("\nSelect a rank (-1 to exit): ");
-      if (input.hasNextInt()) {
-        num = input.nextInt();
+      if (num == -2) {
+        num = deadwoodController.upgradeRank(upgradeOptions);
       }
-      else input.next();
+      System.out.println("NUM is " + num);
+      payType = "";
+      check = false;
       if ((num >= -1) && (num <= 6)) {
         if(num == -1) break;
 
         while(!(payType.equals("d") || payType.equals("c") || payType.equals("D") || payType.equals("C"))) {
-          System.out.printf("What payment type would you like to use?\n[d]ollars, [c]redits: ");
-          payType = input.next();
+          payType = deadwoodController.upgradePayment();
+          // System.out.printf("What payment type would you like to use?\n[d]ollars, [c]redits: ");
+          // payType = input.next();
+
+          check = location.selectUpgrade(this, num, payType.equals("d") || payType.equals("D"));
+
         }
-
-        check = location.selectUpgrade(this, num, payType.equals("d") || payType.equals("D"));
-
         if(check) {
           System.out.printf("You have been upgraded to rank: %d\n", rank);
           break;
         }
         else {
           System.out.printf("You do not have the funds to be upgraded to " +
-                            "that rank, your rank remains: %d\n", rank);
+          "that rank, your rank remains: %d\n", rank);
         }
+
       }
     }
     System.out.println();
