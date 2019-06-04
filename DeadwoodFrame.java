@@ -49,11 +49,7 @@ public class DeadwoodFrame extends JFrame {
     private void initializeLabels() {
         icons = new Icons();
         setupGameBoardLabel();
-        //setupCardLabel();
-        //setupPlayerLabel();
-//        setupMenuLabel();
         setupCurrentPlayerLabel();
-        // updateCurrentPlayer();
     }
 
     private void setupGameBoardLabel() {
@@ -69,7 +65,6 @@ public class DeadwoodFrame extends JFrame {
         ImageIcon cardIcon = icons.getIcon(path);
         labelCard.setIcon(cardIcon);
         labelCard.setBounds(x, y, cardIcon.getIconWidth(), cardIcon.getIconHeight());
-        //labelCard.setOpaque(true);
         imageHolders.add(labelCard);
         if(priority) {
           paneDeadwood.add(labelCard, new Integer(2));
@@ -77,18 +72,7 @@ public class DeadwoodFrame extends JFrame {
         else {
           paneDeadwood.add(labelCard, new Integer(1));
         }
-        //labelCard.setVisible(true);
     }
-/*
-    private void setupPlayerLabel(String path, int x, int y) {
-        labelPlayer = new JLabel();
-        //Same as above!
-        ImageIcon playerDiceIcon = new ImageIcon(path);
-        labelPlayer.setIcon(playerDiceIcon);
-        labelPlayer.setBounds(x, y, playerDiceIcon.getIconWidth(), playerDiceIcon.getIconHeight());
-//        labelPlayer.setBounds(114,227,46,46);
-    }
-*/
 
     public void updateCurrentPlayer(Player currentPlayer) {
         name = currentPlayer.getName();
@@ -100,11 +84,6 @@ public class DeadwoodFrame extends JFrame {
         labelCurrentPlayer = new JLabel(playerName);
         labelCurrentPlayer.setBounds(iconGameBoard.getIconWidth() + 10, 0, 180, 130);
     }
-
-//    private void setupMenuLabel() {
-//        labelMenu = new JLabel(MENU_LABEL_TEXT);
-//        labelMenu.setBounds(iconGameBoard.getIconWidth() + 65, 130, 100, 20);
-//    }
 
     private void initializeButtons() {
         setupActButton();
@@ -151,9 +130,7 @@ public class DeadwoodFrame extends JFrame {
 
     public void initializeDeadwoodPane() {
         paneDeadwood = getLayeredPane();
-        paneDeadwood.add(labelGameBoard, new Integer(0)); // Add the board to the lowest layer
-        //paneDeadwood.add(labelCard, new Integer(1)); // Add the card to the lower layer
-        //paneDeadwood.add(labelPlayer, new Integer(3));
+        paneDeadwood.add(labelGameBoard, new Integer(0));
         paneDeadwood.add(labelCurrentPlayer, new Integer(3));
 
         paneDeadwood.add(buttonAct, new Integer(2));
@@ -176,7 +153,7 @@ public class DeadwoodFrame extends JFrame {
         buttonUpgrade.setVisible(false);
         buttonSkip.setVisible(false);
         int size = buttonLocations.size();
-        System.out.println("bLocations Size: " + size);
+        //System.out.println("bLocations Size: " + size);
         for (int i = 0; i < size; i++) {
             buttonLocations.get(i).setVisible(false);
         }

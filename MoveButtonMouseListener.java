@@ -13,7 +13,7 @@ public class MoveButtonMouseListener extends BaseDeadwoodMouseListener {
     }
 
     public void mouseClicked(MouseEvent e) {
-        System.out.println(MOVE_SELECT_MSG);
+        //System.out.println(MOVE_SELECT_MSG);
         deadwoodController.buttonInput("m");
     }
 }

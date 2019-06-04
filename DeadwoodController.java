@@ -77,7 +77,7 @@ public class DeadwoodController {
     int i;
     for (i = 0; i < numOfChoices; i++) {
       String name = roleChoices.get(i);
-      System.out.println(roleChoices.get(i));
+      //System.out.println(roleChoices.get(i));
       if (name.charAt(0) != '0') {
         JButton button = new JButton(name);
         button.setBackground(Color.white);
@@ -119,7 +119,6 @@ public class DeadwoodController {
       location = p.getLocation().getName();
     }
 
-
     String role;
     if (p.getRole() == null) {
       role = "No current role";
@@ -127,8 +126,6 @@ public class DeadwoodController {
     else {
       role = p.getRole().getName();
     }
-
-
 
     String playerInfo = "<html>" + "<font color = " + name + ">" +
             "Current Player: " + name + "<br>" +
@@ -139,30 +136,14 @@ public class DeadwoodController {
             "\tLocation: " + location + "<br>" +
             "\tRole: " + role;
 
-//    deadwoodFrame.labelCurrentPlayer.setText(p.getName());
-//    System.out.print("Repaint\n");
     deadwoodFrame.labelCurrentPlayer.setText(playerInfo);
-
-
-//    ArrayList<String> turnChoices = p.getTurnChoices();
-//
-//    int size = turnChoices.size();
-//    System.out.println("Size of array: " + size);
-//
-//    for (String s : turnChoices) {
-//      System.out.println(s);
-//    }
-    // deadwoodFrame.updateCurrentPlayer(p);
-    // deadwoodFrame.removeAll();
-    // deadwoodFrame.revalidate();
-    // deadwoodFrame.repaint();
   }
 
   public void repaintFrame() {
     ArrayList<Image> images = deadwood.getImages();
     Image current;
     deadwoodFrame.refreshScreen();
-    System.out.println("Are you repainting");
+    //System.out.println("Are you repainting");
     for(int i = 0; i < images.size(); i++) {
       current = images.get(i);
       if(current != null) {
@@ -172,25 +153,24 @@ public class DeadwoodController {
   }
 
   public void buttonInput(String s){
-    System.out.println("buttonInput: " + s);
+    //System.out.println("buttonInput: " + s);
     input = s;
     inputSet = true;
   }
 
   public void buttonInput(int n){
-    System.out.println("buttonInput: " + n);
+    //System.out.println("buttonInput: " + n);
     intInput = n;
     inputSet = true;
   }
 
   public String playerOptions(ArrayList<String> turnChoices) {
     int size = turnChoices.size();
-    System.out.println("number of choices: " + size);
+    //System.out.println("number of choices: " + size);
     int yAxisOfButton = 130;
     inputSet = false;
 
     deadwoodFrame.removeButtons();
-
 
     for (String s : turnChoices) {
       switch(s) {
@@ -209,8 +189,6 @@ public class DeadwoodController {
         case "s" :
           deadwoodFrame.positionButton(deadwoodFrame.buttonSkip,10, yAxisOfButton, 220, 50);
           break;
-        default :
-          System.out.println("No buttons for " + s);
       }
       yAxisOfButton += 50;
     }
@@ -220,16 +198,4 @@ public class DeadwoodController {
     }
     return input;
   }
-
-  // initializeGame
-
-  // update currentplayer
-
-  // update mainTurnOptions
-
-  // updateBoard
-
-  //
-
-
 }

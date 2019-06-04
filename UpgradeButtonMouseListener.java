@@ -13,8 +13,7 @@ public class UpgradeButtonMouseListener extends BaseDeadwoodMouseListener {
   }
 
   public void mouseClicked(MouseEvent e) {
-    System.out.println(UPGRADE_SELECT_MSG);
+    //System.out.println(UPGRADE_SELECT_MSG);
     deadwoodController.buttonInput("u");
-//    deadwoodFrame.labelCurrentPlayer.setText(ACT_SELECT_MSG);
   }
 }

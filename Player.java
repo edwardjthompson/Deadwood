@@ -34,40 +34,26 @@ public class Player {
     String choice = "notSet";
     turnChoices.clear();
 
-
-    System.out.print("******************************************\n");
-    System.out.print("Current ");
-    printPlayer();
-    System.out.print("******************************************\n");
-    System.out.println("Select one of the following options:");
-
     while(!turnComplete) {
       // If not in a role
       if (currentRole == null) {
-        //currentLocation.printAdjacent();
-        System.out.print("[M]ove");
         turnChoices.add("m");
       }
       else {
         // If in a role
-        System.out.print("[A]ct [R]ehearse");
         turnChoices.add("a");
         turnChoices.add("r");
       }
 
       if (currentLocation.getName().equals("Casting Office")) {
         // Able to upgrade
-        System.out.print(" [U]pgrade!");
         turnChoices.add("u");
       }
       // Always able to skip
-      System.out.print(" [S]kip\n");
       turnChoices.add("s");
 
       // Send options to controller
       choice = deadwoodController.playerOptions(turnChoices);
-
-      System.out.print("\nSelect an option: ");
 
       // Takes player input
       if (choice.equals("notSet")) {
@@ -113,12 +99,6 @@ public class Player {
         case "q" :
         case "Q" :
           System.exit(0);
-
-        default :
-          System.out.println("Invalid choice\n");
-      }
-      if (turnComplete == true) {
-        System.out.printf("\n--------Next player--------\n\n");
       }
     }
   }
@@ -127,7 +107,6 @@ public class Player {
     int num = -2;
     int numOfAdjLocations = currentLocation.getAdjacentLocationSize();
     while (true) {
-      currentLocation.printAdjacentOptions();
       num = deadwoodController.move(this);
       if (num == -2) {
         if (input.hasNextInt()) {
@@ -136,7 +115,6 @@ public class Player {
         else input.next();
       }
       if ((num >= -1) && (num < numOfAdjLocations)) {
-        System.out.println(num);
         if(num == -1) break;
         goToLocation(currentLocation.getAdjacentLocation(num));
         if(currentLocation instanceof ActingLocation) {
@@ -156,24 +134,16 @@ public class Player {
       // Scene has not finished
       location.revealScene();
       deadwoodController.repaintFrame();
-      //location.printActLocation();
-      // New for GUI
-//      roleChoices = location.getRoles(roleChoices);
-//      int num = deadwoodController.role(this, roleChoices);
-//      choice = num;
-//      System.out.println("Selection: " + num);
     }
     roleChoices.clear();
     roleChoices = location.getRoles(roleChoices);
     while (check) {
       choice = deadwoodController.role(this, roleChoices);
-      System.out.printf("Select a role (-1 to exit): ");
       if (choice == -2) {
         if (input.hasNextInt()) {
           choice = input.nextInt();
         }
       }
-//      else check = false;
 
       if (choice < 0) {
         takenRole = null;
@@ -181,12 +151,9 @@ public class Player {
       }
       takenRole = location.selectRole(choice);
 
-      if (takenRole == null) {
-        System.out.println("That was not an option!");
-      }
+      if (takenRole == null);
       else {
         if (!takenRole.take(this)) {
-          System.out.println("Role already taken, or Rank too high");
           String message = "Your rank is not high enough to take this role.";
           deadwoodController.roleTaken(message);
         }
@@ -262,39 +229,17 @@ public class Player {
   //May become a return type boolean working with other functions
   private void act() {
     int budget = ((ActingLocation) currentLocation).getScene().getBudget();
-    System.out.printf("Budget is %d\n" , budget);
     Dice die = new Dice();
     int[] dieRoll = die.roll(1);
     int total = dieRoll[0] + numRehearsals;
-    System.out.printf("Roll: %d, Rehearse: %d,", dieRoll[0], numRehearsals);
-    System.out.printf(" Total: %d, Budget: %d\n", total, budget);
 
     if (total >= budget) {
-      System.out.printf("Act was successful!\n");
       ((ActingLocation) currentLocation).resultOfAct(true, this);
     }
     else {
-      System.out.printf("Act was unsuccessful.\n");
       ((ActingLocation) currentLocation).resultOfAct(false, this);
     }
     numRehearsals = 0;
-  }
-
-  private void printPlayer() {
-    System.out.printf("Player: ", name);
-    System.out.print(nameColor + name + ANSI_RESET);
-    System.out.printf("\n\tDollars: %s\n", dollars);
-    System.out.printf("\tCredits: %s\n", credits);
-    System.out.printf("\tRank: %s\n", rank);
-    System.out.printf("\tRehearsals: %s\n", numRehearsals);
-    if (currentRole != null) System.out.printf("\tRole: %s\n", currentRole.getName());
-    if (currentLocation != null)  {
-      System.out.printf("\tLocation: %s", currentLocation.getName());
-    }
-    if (currentLocation instanceof ActingLocation) {
-      System.out.printf(" (Shots remaining: %d)\n", ((ActingLocation) currentLocation).getShots());
-    }
-    else System.out.println();
   }
 
   public String getName() {

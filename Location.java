@@ -48,24 +48,6 @@ public class Location {
     return images;
   }
 
-  public void printAdjacent() {
-    System.out.printf("Adjacent Locations: ", name);
-    for(int i = 0; i < adjacentLocationList.size(); i++) {
-      String s = adjacentLocationList.get(i).getName();
-      System.out.printf("%s ", s);
-    }
-    System.out.println();
-  }
-
-  // like printadjacent but adds [n] around each for choosing
-  public void printAdjacentOptions() {
-    for(int i = 0; i < adjacentLocationList.size(); i++) {
-      String s = adjacentLocationList.get(i).getName();
-      System.out.printf("[%d]%s ", i, s);
-    }
-    System.out.printf("\n\nSelect a Location (-1 to exit): ");
-  }
-
   public boolean hasSceneFinished() {
     return true;
   }

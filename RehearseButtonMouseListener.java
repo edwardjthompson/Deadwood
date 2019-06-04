@@ -13,7 +13,7 @@ public class RehearseButtonMouseListener extends BaseDeadwoodMouseListener {
     }
 
     public void mouseClicked(MouseEvent e) {
-        System.out.println(REHEARSE_SELECT_MSG);
+        //System.out.println(REHEARSE_SELECT_MSG);
         deadwoodController.buttonInput("r");
     }
 }

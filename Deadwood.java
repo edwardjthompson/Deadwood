@@ -35,9 +35,6 @@ public class Deadwood {
     this.currentDay = 1;
     this.numDays = 4;
     this.board = new Board(ROOMNUM);
-    // this.deadwoodFrame = new DeadwoodFrame();
-    // this.PlayerController = new PlayerController(deadwoodFrame);
-    // deadwoodFrame.makeFrame();
     board.setUpScenes(PATHSCENE);
     board.setUpLocations(PATHBOARD);
     board.setUpBoardConnections(PATHCONNECTIONS);
@@ -73,7 +70,6 @@ public class Deadwood {
     for (Player p : listOfPlayers) {
       playerScore = p.getScore();
       playerName = p.getName();
-      // System.out.printf("%s has a score of %d\n", playerName, playerScore);
       append = String.format("%s has a score of %d\n", playerName, playerScore);
       message = message.concat(append);
 
@@ -93,8 +89,6 @@ public class Deadwood {
     message = message.concat(append);
     System.out.println(message);
     deadwoodController.endGame(message);
-    // System.out.printf("\nThe winner is %s with score of %d\n",
-    //                   winnerName, highScore);
   }
 
   private void runDay() {
@@ -103,7 +97,6 @@ public class Deadwood {
       // sends Player to controller
       deadwoodController.repaintFrame(listOfPlayers.get(playerNum));
       deadwoodController.repaintFrame();
-      System.out.print("******************************************\n");
       listOfPlayers.get(playerNum).takeTurn();
       playerNum++;
       if (playerNum >= numPlayers) {

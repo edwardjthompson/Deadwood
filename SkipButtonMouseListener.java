@@ -13,8 +13,7 @@ public class SkipButtonMouseListener extends BaseDeadwoodMouseListener {
   }
 
   public void mouseClicked(MouseEvent e) {
-    System.out.println(SKIP_SELECT_MSG);
+    //System.out.println(SKIP_SELECT_MSG);
     deadwoodController.buttonInput("s");
-//    deadwoodFrame.labelCurrentPlayer.setText(ACT_SELECT_MSG);
   }
 }
