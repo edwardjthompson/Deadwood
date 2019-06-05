@@ -57,7 +57,7 @@ public class DeadwoodFrame extends JFrame {
         iconGameBoard = new ImageIcon(GAME_BOARD_IMAGE);
         labelGameBoard.setIcon(iconGameBoard);
         labelGameBoard.setBounds(0, 0, iconGameBoard.getIconWidth(), iconGameBoard.getIconHeight());
-        setSize(iconGameBoard.getIconWidth() + 250, iconGameBoard.getIconHeight()); // Set the size of the GUI
+        setSize(iconGameBoard.getIconWidth() + 250, iconGameBoard.getIconHeight() + 35); // Set the size of the GUI
     }
 
     public void setupImageLabel(String path, int x, int y, boolean priority) {

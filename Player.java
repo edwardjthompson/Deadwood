@@ -183,7 +183,7 @@ public class Player {
 
     while (true) {
       if (num == -2) {
-        num = deadwoodController.upgradeRank(upgradeOptions);
+        num = deadwoodController.upgradeRank(upgradeOptions, rank);
       }
       payType = "";
       check = false;
@@ -196,7 +196,6 @@ public class Player {
           // payType = input.next();
 
           check = location.selectUpgrade(this, num, payType.equals("d") || payType.equals("D"));
-
         }
         if(check) {
           break;
