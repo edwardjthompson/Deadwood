@@ -174,7 +174,7 @@ public class Player {
 
     while (true) {
       if (num == -2) {
-        num = deadwoodController.upgradeRank(upgradeOptions);
+        num = deadwoodController.upgradeRank(upgradeOptions, rank);
       }
       payType = "";
       check = false;

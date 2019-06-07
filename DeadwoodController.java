@@ -5,22 +5,18 @@ import javax.swing.ImageIcon;
 
 public class DeadwoodController {
   private Player currentplayer;
-  private Deadwood deadwood;
+  private DeadwoodModel deadwood;
   private DeadwoodFrame deadwoodFrame;
   private String input;
   private int intInput;
   private boolean inputSet;
 
-  public static void main(String[] args) {
-    DeadwoodController deadwoodController = new DeadwoodController();
-    deadwoodController.initializeController(deadwoodController);
-  }
-
-  private void initializeController(DeadwoodController deadwoodController) {
+  public void initializeController(DeadwoodController deadwoodController) {
     int playerCount = setPlayerCount();
     deadwoodFrame = DeadwoodFrame.makeFrame(this);
-    deadwood = new Deadwood(playerCount, deadwoodController);
+    deadwood = new DeadwoodModel(playerCount, deadwoodController);
     deadwood.runGame();
+    deadwoodFrame.setVisible(false);
   }
 
   private int setPlayerCount() {
@@ -36,6 +32,7 @@ public class DeadwoodController {
   public void endDay (int currentDay) {
     String message = "End of day ";
     message = message.concat(Integer.toString(currentDay));
+    JOptionPane.showMessageDialog(null, message);
   }
 
   public void endGame(String message) {
@@ -109,7 +106,7 @@ public class DeadwoodController {
     return retVal;
   }
 
-  public int upgradeRank(ArrayList<String> listOptions) {
+  public int upgradeRank(ArrayList<String> listOptions, int playerRank) {
     String[] options = new String[listOptions.size()];
     options = listOptions.toArray(options);
 
@@ -119,14 +116,13 @@ public class DeadwoodController {
     " like to choose?", "Upgrade Rank", JOptionPane.DEFAULT_OPTION,
     JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 
-    if (size == 6) num += 2;
-    if (size == 5) num += 3;
-    if (size == 4) num += 4;
-    if (size == 3) num += 5;
-    if (size == 2) num += 6;
-    if (size == 1) num = -1;
-
-    if (num == 7) num -= 8; // Cancel
+    if (num == size-1) {
+      // Cancel
+      num = -1;
+    }
+    else {
+      num = num + 1 + playerRank;
+    }
 
     return num;
   }

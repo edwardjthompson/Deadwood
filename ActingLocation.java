@@ -48,6 +48,10 @@ public class ActingLocation extends Location {
     shotDirection = shotD;
   }
 
+  public void resetShots() {
+    numShots = totalShots;
+  }
+
   public int getShots() {
     return numShots;
   }

@@ -17,6 +17,7 @@ public class CastingOffice extends Location {
         if(dollars >= 4 || credits >= 5)  {
           upgradeOptions.add("  2  ");
         }
+      case(2):
         if(dollars >= 10 || credits >= 10) {
           upgradeOptions.add("  3  ");
         }
