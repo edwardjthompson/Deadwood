@@ -5,22 +5,16 @@ import javax.swing.ImageIcon;
 
 public class DeadwoodController {
   private Player currentplayer;
-  private Deadwood deadwood;
+  private DeadwoodModel deadwood;
   private DeadwoodFrame deadwoodFrame;
   private String input;
   private int intInput;
   private boolean inputSet;
 
-  public static void main(String[] args) {
-    DeadwoodController deadwoodController = new DeadwoodController();
-    deadwoodController.initializeController(deadwoodController);
-    System.exit(0);
-  }
-
-  private void initializeController(DeadwoodController deadwoodController) {
+  public void initializeController(DeadwoodController deadwoodController) {
     int playerCount = setPlayerCount();
     deadwoodFrame = DeadwoodFrame.makeFrame(this);
-    deadwood = new Deadwood(playerCount, deadwoodController);
+    deadwood = new DeadwoodModel(playerCount, deadwoodController);
     deadwood.runGame();
     deadwoodFrame.setVisible(false);
   }
